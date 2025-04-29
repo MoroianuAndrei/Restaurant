@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Images\admin_page.png" />
+    <None Remove="Assets\Images\home_graphic.png" />
+    <None Remove="Assets\Images\home_page.png" />
+    <None Remove="Assets\Images\store_management.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.4" />
+    <PackageReference Include="WPF-UI" Version="4.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Images\admin_page.png" />
+    <Resource Include="Assets\Images\home_graphic.png" />
+    <Resource Include="Assets\Images\home_page.png" />
+    <Resource Include="Assets\Images\store_management.png" />
+  </ItemGroup>
+
+</Project>
