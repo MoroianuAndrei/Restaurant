@@ -1,4 +1,4 @@
-﻿<Page x:Class="Restaurant.Views.PageViews.LoginPage"
+﻿<Page x:Class="Restaurant.Views.PageViews.SignInPage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -6,9 +6,9 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:pageViewModels="clr-namespace:Restaurant.ViewModels.PageViewModels"
         mc:Ignorable="d"
-        Title="LoginPage">
+        Title="SignInPage">
     <Page.DataContext>
-        <pageViewModels:LoginPageViewModel/>
+        <pageViewModels:SignInPageViewModel/>
     </Page.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -28,7 +28,7 @@
                 VerticalAlignment="Center"
                 Margin="16 0 0 0">
             <ui:TextBlock 
-                    Text="Restaurant Management System" 
+                    Text="Create Account" 
                     FontSize="24" 
                     FontWeight="Bold" 
                     Foreground="White"
@@ -36,11 +36,35 @@
                     TextAlignment="Center"
                     Margin="0,0,0,32"/>
             <ui:TextBox
+                    Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"
+                    Width="396"
+                    Margin="0,0,0,12"
+                    PlaceholderEnabled="True"
+                    PlaceholderText="First Name"/>
+            <ui:TextBox
+                    Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"
+                    Width="396"
+                    Margin="0,0,0,12"
+                    PlaceholderEnabled="True"
+                    PlaceholderText="Last Name"/>
+            <ui:TextBox
                     Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
                     Width="396"
                     Margin="0,0,0,12"
                     PlaceholderEnabled="True"
                     PlaceholderText="Email"/>
+            <ui:TextBox
+                    Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}"
+                    Width="396"
+                    Margin="0,0,0,12"
+                    PlaceholderEnabled="True"
+                    PlaceholderText="Phone"/>
+            <ui:TextBox
+                    Text="{Binding DeliveryAddress, UpdateSourceTrigger=PropertyChanged}"
+                    Width="396"
+                    Margin="0,0,0,12"
+                    PlaceholderEnabled="True"
+                    PlaceholderText="Delivery Address"/>
             <ui:PasswordBox
                     Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     Width="396"
@@ -48,6 +72,13 @@
                     PlaceholderEnabled="True"
                     PasswordChar="●"
                     PlaceholderText="Password"/>
+            <ui:PasswordBox
+                    Password="{Binding ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    Width="396"
+                    Margin="0,0,0,12"
+                    PlaceholderEnabled="True"
+                    PasswordChar="●"
+                    PlaceholderText="Confirm Password"/>
             <ui:InfoBar 
                     Title="Error" 
                     Message="{Binding ErrorMessage}" 
@@ -55,30 +86,20 @@
                     Severity="Error"
                     Margin="0,0,0,12" />
             <ui:Button
-                    Content="Login"
+                    Content="Sign In"
                     Width="396"
                     Appearance="Primary"
                     HorizontalAlignment="Center"
-                    Command="{Binding LoginCommand}"
+                    Command="{Binding SignInCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Page}}"
                     Margin="0,0,0,12"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,12">
-                <ui:Button
-                    Content="Sign In"
-                    Width="190"
+            <ui:Button
+                    Content="Back to Login"
+                    Width="396"
                     Appearance="Secondary"
-                    HorizontalAlignment="Left"
-                    Command="{Binding NavigateToSignInCommand}"
-                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Page}}"
-                    Margin="0,0,16,0"/>
-                <ui:Button
-                    Content="Enter as Guest"
-                    Width="190"
-                    Appearance="Secondary"
-                    HorizontalAlignment="Right"
-                    Command="{Binding EnterAsGuestCommand}"
+                    HorizontalAlignment="Center"
+                    Command="{Binding BackToLoginCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Page}}"/>
-            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

@@ -258,3 +258,5 @@ C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode A
 C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\SignInPage.g.cs
+C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\SignInPage.baml

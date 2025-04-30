@@ -51,7 +51,7 @@ public static class UserME
             UserType = userDTO.UserType switch
             {
                 "Admin" => EUserType.Admin,
-                "Cashier" => EUserType.Client,
+                "Client" => EUserType.Client,
                 _ => throw new ArgumentException("Invalid user type")
             }
         };
