@@ -2,8 +2,8 @@
 
 public class UserViewModel : BaseViewModel
 {
-    private readonly int? _id;
-    public int? Id
+    private readonly int _id;
+    public int Id
     {
         get => _id;
         init
@@ -13,13 +13,57 @@ public class UserViewModel : BaseViewModel
         }
     }
 
-    private string? _username;
-    public string Username
+    private string? _firstName;
+    public string FirstName
     {
-        get => _username ?? "";
+        get => _firstName ?? "";
         set
         {
-            _username = value;
+            _firstName = value;
+            OnPropertyChanged();
+        }
+    }
+
+    private string? _lastName;
+    public string LastName
+    {
+        get => _lastName ?? "";
+        set
+        {
+            _lastName = value;
+            OnPropertyChanged();
+        }
+    }
+
+    private string? _email;
+    public string Email
+    {
+        get => _email ?? "";
+        set
+        {
+            _email = value;
+            OnPropertyChanged();
+        }
+    }
+
+    private string? _phone;
+    public string Phone
+    {
+        get => _phone ?? "";
+        set
+        {
+            _phone = value;
+            OnPropertyChanged();
+        }
+    }
+
+    private string? _deliveryAddress;
+    public string DeliveryAddress
+    {
+        get => _deliveryAddress ?? "";
+        set
+        {
+            _deliveryAddress = value;
             OnPropertyChanged();
         }
     }

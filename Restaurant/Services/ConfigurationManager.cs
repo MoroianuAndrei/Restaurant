@@ -21,7 +21,7 @@ public static class ConfigurationManager
     {
         try
         {
-            return System.Configuration.ConfigurationManager.ConnectionStrings["SupermarketDb"]?.ConnectionString;
+            return System.Configuration.ConfigurationManager.ConnectionStrings["RestaurantDb"]?.ConnectionString;
         }
         catch (ConfigurationErrorsException)
         {
@@ -34,7 +34,7 @@ public static class ConfigurationManager
     {
         try
         {
-            return System.Configuration.ConfigurationManager.ConnectionStrings["SupermarketDb"]?.ConnectionString;
+            return System.Configuration.ConfigurationManager.ConnectionStrings["RestaurantDb"]?.ConnectionString;
         }
         catch (ConfigurationErrorsException)
         {

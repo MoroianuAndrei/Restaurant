@@ -1,9 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using Restaurant.Extensions.Mapping;
-using Restaurant.Model.DataAccessLayer;
-using Restaurant.Model.DataTransferLayer;
+using Restaurant.Models.DataAccessLayer;
+using Restaurant.Models.DataTransferLayer;
 
-namespace Restaurant.Model.BusinessLogicLayer;
+namespace Restaurant.Models.BusinessLogicLayer;
 
 public static class UserBLL
 {
@@ -20,7 +20,11 @@ public static class UserBLL
     public static bool AddUser(UserDTO userDTO)
     {
         ArgumentNullException.ThrowIfNull(userDTO);
-        ArgumentNullException.ThrowIfNull(userDTO.Username);
+        ArgumentNullException.ThrowIfNull(userDTO.FirstName);
+        ArgumentNullException.ThrowIfNull(userDTO.LastName);
+        ArgumentNullException.ThrowIfNull(userDTO.Email);
+        ArgumentNullException.ThrowIfNull(userDTO.Phone);
+        ArgumentNullException.ThrowIfNull(userDTO.DeliveryAddress);
         ArgumentNullException.ThrowIfNull(userDTO.Password);
         ArgumentNullException.ThrowIfNull(userDTO.UserType);
 
@@ -32,7 +36,11 @@ public static class UserBLL
     {
         ArgumentNullException.ThrowIfNull(userDTO);
         ArgumentNullException.ThrowIfNull(userDTO.Id);
-        ArgumentNullException.ThrowIfNull(userDTO.Username);
+        ArgumentNullException.ThrowIfNull(userDTO.FirstName);
+        ArgumentNullException.ThrowIfNull(userDTO.LastName);
+        ArgumentNullException.ThrowIfNull(userDTO.Email);
+        ArgumentNullException.ThrowIfNull(userDTO.Phone);
+        ArgumentNullException.ThrowIfNull(userDTO.DeliveryAddress);
         ArgumentNullException.ThrowIfNull(userDTO.Password);
         ArgumentNullException.ThrowIfNull(userDTO.UserType);
 
@@ -49,15 +57,15 @@ public static class UserBLL
         return true;
     }
 
-    public static bool IsValidAdmin(string username, string password)
+    public static bool IsValidAdmin(string email, string password)
     {
         var admins = UserDAL.GetAllAdmins();
-        return admins.Any(a => a.Username == username && a.Password == password);
+        return admins.Any(a => a.Email == email && a.Password == password);
     }
 
-    public static bool IsValidCashier(string username, string password)
+    public static bool IsValidCashier(string email, string password)
     {
         var cashiers = UserDAL.GetAllCashiers();
-        return cashiers.Any(c => c.Username == username && c.Password == password);
+        return cashiers.Any(c => c.Email == email && c.Password == password);
     }
 }

@@ -1,7 +1,8 @@
-﻿using System.Windows.Input;
+﻿using System.Windows;
+using System.Windows.Input;
 using Restaurant.Extensions.Mapping;
-using Restaurant.Model.BusinessLogicLayer;
-using Restaurant.Model.DataTransferLayer;
+using Restaurant.Models.BusinessLogicLayer;
+using Restaurant.Models.DataTransferLayer;
 using Restaurant.Services;
 using Restaurant.Views.PageViews;
 //using Restaurant.Views.PageViews.AdminPageViews;
@@ -13,7 +14,7 @@ namespace Restaurant.ViewModels.PageViewModels;
 public class LoginPageViewModel : BaseViewModel
 {
     public ICommand LoginCommand { get; }
-    public string Username { get; set; } = "";
+    public string Email { get; set; } = "";
     public string Password { get; set; } = "";
 
     private string? _errorMessage;
@@ -45,31 +46,32 @@ public class LoginPageViewModel : BaseViewModel
 
     private void Login(object? obj)
     {
-        if (Username == "" || Password == "")
+        if (Email == "" || Password == "")
         {
-            ErrorMessage = "Please enter username and password";
+            MessageBox.Show(Email + " " + Password);
+            ErrorMessage = "Please enter email and password";
             HasError = true;
             return;
         }
 
-        if (!UserBLL.IsValidAdmin(Username, Password) && !UserBLL.IsValidCashier(Username, Password))
+        if (!UserBLL.IsValidAdmin(Email, Password) && !UserBLL.IsValidCashier(Email, Password))
         {
-            ErrorMessage = "Invalid username or password";
+            ErrorMessage = "Invalid email or password";
             HasError = true;
             return;
         }
 
         if (obj is not LoginPage page) return;
 
-        if (UserBLL.IsValidAdmin(Username, Password))
+        if (UserBLL.IsValidAdmin(Email, Password))
         {
-            page.NavigationService?.Navigate(new AdminPage());
+            page.NavigationService?.Navigate(new Blank());
         }
         else
         {
-            var user = (UserBLL.GetUsers().FirstOrDefault(u => u.Username == Username) ?? new UserDTO()).ToViewModel();
+            var user = (UserBLL.GetUsers().FirstOrDefault(u => u.Email == Email) ?? new UserDTO()).ToViewModel();
             UserSession.Instance.SetUser(user);
-            page.NavigationService?.Navigate(new CashierPage());
+            page.NavigationService?.Navigate(new Blank());
         }
     }
 }

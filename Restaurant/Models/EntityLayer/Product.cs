@@ -1,43 +1,35 @@
 ﻿using System;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Restaurant.Model.EntityLayer;
+using System.Collections.Generic;
 
-namespace Restaurant.Model.EntityLayer;
+namespace Restaurant.Models.EntityLayer;
 
-public sealed class Product
+public partial class Product
 {
-    [Key]
-    public int? ProductId { get; set; }
+    public int ProductId { get; set; }
 
-    [Required, StringLength(50)]
-    public string? Name { get; set; }
+    public string ProductName { get; set; } = null!;
 
-    [Required, StringLength(50)]
-    public string? Barcode { get; set; }
+    public decimal Price { get; set; }
 
-    [Required]
+    public decimal PortionQuantity { get; set; }
+
+    public string MeasurementUnit { get; set; } = null!;
+
+    public decimal TotalQuantity { get; set; }
+
     public int CategoryId { get; set; }
 
-    [Required]
-    public int ProducerId { get; set; }
+    public bool IsMenu { get; set; }
 
-    [StringLength(200)]
-    public string? Image { get; set; }
+    public virtual Category Category { get; set; } = null!;
 
-    [DefaultValue(1)]
-    public bool? IsActive { get; set; }
+    public virtual ICollection<MenuItem> MenuItemMenus { get; set; } = new List<MenuItem>();
 
-    [ForeignKey("CategoryId")]
-    //public Category? Category { get; set; }
+    public virtual ICollection<MenuItem> MenuItemProducts { get; set; } = new List<MenuItem>();
 
-    //[ForeignKey("ProducerId")]
-    //public Producer? Producer { get; set; }
+    public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
-    //public Offer? Offer { get; init; }
-    //public ICollection<Stock?>? Stocks { get; init; }
+    public virtual ICollection<ProductImage> ProductImages { get; set; } = new List<ProductImage>();
 
-    [NotMapped]
-    public ICollection<Receipt?>? Receipts { get; init; }
+    public virtual ICollection<Allergen> Allergens { get; set; } = new List<Allergen>();
 }

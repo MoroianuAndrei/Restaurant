@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Restaurant.Services;
 
-namespace Restaurant.Model.DataAccessLayer.Helpers;
+namespace Restaurant.Models.DataAccessLayer.Helpers;
 
 public static class DALHelper
 {

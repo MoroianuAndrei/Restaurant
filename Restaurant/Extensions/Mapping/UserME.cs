@@ -1,6 +1,6 @@
-﻿using Restaurant.Model.DataTransferLayer;
-using Restaurant.Model.EntityLayer;
-using Restaurant.Model.EntityLayer.Enums;
+﻿using Restaurant.Models.DataTransferLayer;
+using Restaurant.Models.EntityLayer;
+using Restaurant.Models.EntityLayer.Enums;
 using Restaurant.ViewModels.ObjectViewModels;
 
 namespace Restaurant.Extensions.Mapping;
@@ -12,7 +12,11 @@ public static class UserME
         return new UserDTO
         {
             Id = user.UserId,
-            Username = user.Username,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Email = user.Email,
+            Phone = user.Phone,
+            DeliveryAddress = user.DeliveryAddress,
             Password = user.Password,
             UserType = user.UserType.ToString()
         };
@@ -23,7 +27,11 @@ public static class UserME
         return new UserDTO
         {
             Id = userViewModel.Id,
-            Username = userViewModel.Username,
+            FirstName = userViewModel.FirstName,
+            LastName = userViewModel.LastName,
+            Email = userViewModel.Email,
+            Phone = userViewModel.Phone,
+            DeliveryAddress = userViewModel.DeliveryAddress,
             Password = userViewModel.Password,
             UserType = userViewModel.UserType
         };
@@ -34,12 +42,16 @@ public static class UserME
         return new User
         {
             UserId = userDTO.Id,
-            Username = userDTO.Username ?? "",
+            FirstName = userDTO.FirstName ?? "",
+            LastName = userDTO.LastName ?? "",
+            Email = userDTO.Email ?? "",
+            Phone = userDTO.Phone ?? "",
+            DeliveryAddress = userDTO.DeliveryAddress ?? "",
             Password = userDTO.Password ?? "",
             UserType = userDTO.UserType switch
             {
                 "Admin" => EUserType.Admin,
-                "Cashier" => EUserType.Cashier,
+                "Cashier" => EUserType.Client,
                 _ => throw new ArgumentException("Invalid user type")
             }
         };
@@ -49,10 +61,14 @@ public static class UserME
     {
         return new UserViewModel
         {
-            Id = userDTO.Id ?? 0,
-            Username = userDTO.Username ?? "",
-            Password = userDTO.Password ?? "",
-            UserType = userDTO.UserType ?? ""
+            Id = userDTO.Id,
+			FirstName = userDTO.FirstName ?? "",
+			LastName = userDTO.LastName ?? "",
+			Email = userDTO.Email ?? "",
+			Phone = userDTO.Phone ?? "",
+			DeliveryAddress = userDTO.DeliveryAddress ?? "",
+			Password = userDTO.Password ?? "",
+			UserType = userDTO.UserType ?? ""
         };
     }
 }

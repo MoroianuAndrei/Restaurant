@@ -36,11 +36,11 @@
                     TextAlignment="Center"
                     Margin="0,0,0,32"/>
             <ui:TextBox
-                    Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
                     Width="396"
                     Margin="0,0,0,12"
                     PlaceholderEnabled="True"
-                    PlaceholderText="Username"/>
+                    PlaceholderText="Email"/>
             <ui:PasswordBox
                     Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     Width="396"

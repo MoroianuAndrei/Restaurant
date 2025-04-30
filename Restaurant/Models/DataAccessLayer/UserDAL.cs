@@ -1,10 +1,11 @@
 ﻿using System.Data;
 using Microsoft.Data.SqlClient;
-using Restaurant.Model.DataAccessLayer.Helpers;
-using Restaurant.Model.EntityLayer;
-using Restaurant.Model.EntityLayer.Enums;
+using Restaurant.Extensions.Mapping;
+using Restaurant.Models.DataAccessLayer.Helpers;
+using Restaurant.Models.EntityLayer;
+using Restaurant.Models.EntityLayer.Enums;
 
-namespace Restaurant.Model.DataAccessLayer;
+namespace Restaurant.Models.DataAccessLayer;
 
 public static class UserDAL
 {
@@ -28,10 +29,13 @@ public static class UserDAL
                 var user = new User
                 {
                     UserId = (int)reader["UserId"],
-                    Username = reader["Username"].ToString()!,
+                    FirstName = reader["FirstName"].ToString()!,
+                    LastName = reader["LastName"].ToString()!,
+                    Email = reader["Email"].ToString()!,
+                    Phone = reader["Phone"].ToString()!,
+                    DeliveryAddress = reader["DeliveryAddress"].ToString()!,
                     Password = reader["Password"].ToString()!,
-                    UserType = (EUserType)reader["UserType"],
-                    IsActive = (bool)reader["IsActive"]
+                    UserType = (EUserType)reader["UserType"]
                 };
                 users.Add(user);
             }
@@ -70,10 +74,13 @@ public static class UserDAL
             if (reader.Read())
             {
                 user.UserId = (int)reader["UserId"];
-                user.Username = reader["Username"].ToString()!;
+                user.FirstName = reader["FirstName"].ToString()!;
+                user.LastName = reader["LastName"].ToString()!;
+                user.Email = reader["Email"].ToString()!;
+                user.Phone = reader["Phone"].ToString()!;
+                user.DeliveryAddress = reader["DeliveryAddress"].ToString()!;
                 user.Password = reader["Password"].ToString()!;
                 user.UserType = (EUserType)reader["UserType"];
-                user.IsActive = (bool)reader["IsActive"];
             }
 
             reader.Close();
@@ -100,7 +107,11 @@ public static class UserDAL
             {
                 CommandType = CommandType.StoredProcedure
             };
-            command.Parameters.AddWithValue("@Username", user.Username);
+            command.Parameters.AddWithValue("@FirstName", user.FirstName);
+            command.Parameters.AddWithValue("@LastName", user.LastName);
+            command.Parameters.AddWithValue("@Email", user.Email);
+            command.Parameters.AddWithValue("@Phone", user.Phone);
+            command.Parameters.AddWithValue("@DeliveryAddress", user.DeliveryAddress);
             command.Parameters.AddWithValue("@Password", user.Password);
             command.Parameters.AddWithValue("@UserType", user.UserType);
 
@@ -128,8 +139,11 @@ public static class UserDAL
             {
                 CommandType = CommandType.StoredProcedure
             };
-            command.Parameters.AddWithValue("@UserId", user.UserId);
-            command.Parameters.AddWithValue("@Username", user.Username);
+            command.Parameters.AddWithValue("@FirstName", user.FirstName);
+            command.Parameters.AddWithValue("@LastName", user.LastName);
+            command.Parameters.AddWithValue("@Email", user.Email);
+            command.Parameters.AddWithValue("@Phone", user.Phone);
+            command.Parameters.AddWithValue("@DeliveryAddress", user.DeliveryAddress);
             command.Parameters.AddWithValue("@Password", user.Password);
             command.Parameters.AddWithValue("@UserType", user.UserType);
 
@@ -194,10 +208,13 @@ public static class UserDAL
                 var user = new User
                 {
                     UserId = (int)reader["UserId"],
-                    Username = reader["Username"].ToString()!,
+                    FirstName = reader["FirstName"].ToString()!,
+                    LastName = reader["LastName"].ToString()!,
+                    Email = reader["Email"].ToString()!,
+                    Phone = reader["Phone"].ToString()!,
+                    DeliveryAddress = reader["DeliveryAddress"].ToString()!,
                     Password = reader["Password"].ToString()!,
-                    UserType = (EUserType)reader["UserType"],
-                    IsActive = (bool)reader["IsActive"]
+                    UserType = (EUserType)reader["UserType"]
                 };
                 users.Add(user);
             }
@@ -222,7 +239,7 @@ public static class UserDAL
         var connection = DALHelper.Connection;
         try
         {
-            var command = new SqlCommand("spUserSelectAllCashiers", connection)
+            var command = new SqlCommand("spUserSelectAllClients", connection)
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -237,10 +254,13 @@ public static class UserDAL
                 var user = new User
                 {
                     UserId = (int)reader["UserId"],
-                    Username = reader["Username"].ToString()!,
+                    FirstName = reader["FirstName"].ToString()!,
+                    LastName = reader["LastName"].ToString()!,
+                    Email = reader["Email"].ToString()!,
+                    Phone = reader["Phone"].ToString()!,
+                    DeliveryAddress = reader["DeliveryAddress"].ToString()!,
                     Password = reader["Password"].ToString()!,
-                    UserType = (EUserType)reader["UserType"],
-                    IsActive = (bool)reader["IsActive"]
+                    UserType = (EUserType)reader["UserType"]
                 };
                 users.Add(user);
             }

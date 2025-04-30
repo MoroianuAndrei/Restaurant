@@ -1,7 +1,8 @@
-﻿namespace Restaurant.Model.EntityLayer.Enums;
+﻿namespace Restaurant.Models.EntityLayer.Enums;
 
 public enum EUserType
 {
     Admin,
-    Cashier
+    Client,
+    Guest
 }

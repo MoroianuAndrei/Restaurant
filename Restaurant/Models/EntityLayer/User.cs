@@ -1,27 +1,26 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using Restaurant.Model.EntityLayer.Enums;
+﻿using System;
+using System.Collections.Generic;
+using Restaurant.Models.EntityLayer.Enums;
 
-namespace Restaurant.Model.EntityLayer;
+namespace Restaurant.Models.EntityLayer;
 
-public sealed class User
+public partial class User
 {
-    [Key]
-    public int? UserId { get; set; }
+    public int UserId { get; set; }
 
-    [Required]
-    [StringLength(50)]
-    public string? Username { get; set; }
+    public string FirstName { get; set; } = null!;
 
-    [Required]
-    [MinLength(8), MaxLength(50)]
-    public string? Password { get; set; }
+    public string LastName { get; set; } = null!;
 
-    [Required]
+    public string Email { get; set; } = null!;
+
+    public string? Phone { get; set; }
+
+    public string? DeliveryAddress { get; set; }
+
+    public string Password { get; set; } = null!;
+
     public EUserType UserType { get; set; }
 
-    [DefaultValue(1)]
-    public bool? IsActive { get; set; }
-
-    public ICollection<Receipt?>? Receipts { get; init; }
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }
