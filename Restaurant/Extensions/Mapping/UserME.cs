@@ -52,6 +52,7 @@ public static class UserME
             {
                 "Admin" => EUserType.Admin,
                 "Client" => EUserType.Client,
+                "Guest" => EUserType.Guest,
                 _ => throw new ArgumentException("Invalid user type")
             }
         };
