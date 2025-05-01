@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Restaurant.Models.DataTransferLayer
+﻿namespace Restaurant.Models.DataTransferLayer
 {
-    class ProductImageDTO
+    public class ProductImageDTO
     {
+        public int Id { get; init; }
+        public int ProductId { get; init; }
+        public string? ImagePath { get; init; }
+        public string? ImageDescription { get; init; }
+        public string? ProductName { get; init; }
     }
 }
