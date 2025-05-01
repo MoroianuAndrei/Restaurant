@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Restaurant.Models.DataTransferLayer
+﻿namespace Restaurant.Models.DataTransferLayer
 {
-    class OrderItemDTO
+    public class OrderItemDTO
     {
+        public int OrderId { get; init; }
+        public int ProductId { get; init; }
+        public int Quantity { get; init; }
+        public decimal UnitPrice { get; init; }
+        public bool IsMenu { get; init; }
+        public decimal TotalPrice => Quantity * UnitPrice;
     }
 }
