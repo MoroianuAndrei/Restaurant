@@ -9,7 +9,7 @@
         public string? MeasurementUnit { get; init; }
         public decimal TotalQuantity { get; init; }
         public int CategoryId { get; init; }
-        public bool IsMenu { get; init; }
+        public bool? IsMenu { get; init; }
         public string? CategoryName { get; init; }
     }
 }

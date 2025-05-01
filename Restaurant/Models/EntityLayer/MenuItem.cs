@@ -11,7 +11,7 @@ public partial class MenuItem
 
     public decimal Quantity { get; set; }
 
-    public virtual Product Menu { get; set; } = null!;
+    public virtual Menu Menu { get; set; } = null!;
 
     public virtual Product Product { get; set; } = null!;
 }

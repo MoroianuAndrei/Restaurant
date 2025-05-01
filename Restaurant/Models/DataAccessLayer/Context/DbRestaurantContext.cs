@@ -22,6 +22,8 @@ public partial class DbRestaurantContext : DbContext
 
     public virtual DbSet<Category> Categories { get; set; }
 
+    public virtual DbSet<Menu> Menus { get; set; }
+
     public virtual DbSet<MenuItem> MenuItems { get; set; }
 
     public virtual DbSet<Order> Orders { get; set; }
@@ -67,6 +69,15 @@ public partial class DbRestaurantContext : DbContext
             entity.Property(e => e.Description).HasMaxLength(500);
         });
 
+        modelBuilder.Entity<Menu>(entity =>
+        {
+            entity.Property(e => e.MenuId)
+                .ValueGeneratedNever()
+                .HasColumnName("MenuID");
+            entity.Property(e => e.Discount).HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.Name).HasMaxLength(50);
+        });
+
         modelBuilder.Entity<MenuItem>(entity =>
         {
             entity.HasKey(e => new { e.MenuId, e.ProductId }).HasName("PK__MenuItem__02DE1E3EE625B12A");
@@ -75,12 +86,12 @@ public partial class DbRestaurantContext : DbContext
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.Quantity).HasColumnType("decimal(10, 2)");
 
-            entity.HasOne(d => d.Menu).WithMany(p => p.MenuItemMenus)
+            entity.HasOne(d => d.Menu).WithMany(p => p.MenuItems)
                 .HasForeignKey(d => d.MenuId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_MenuItems_Menus");
 
-            entity.HasOne(d => d.Product).WithMany(p => p.MenuItemProducts)
+            entity.HasOne(d => d.Product).WithMany(p => p.MenuItems)
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_MenuItems_Products");
@@ -136,6 +147,7 @@ public partial class DbRestaurantContext : DbContext
 
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
+            entity.Property(e => e.IsMenu).HasDefaultValue(false);
             entity.Property(e => e.MeasurementUnit).HasMaxLength(20);
             entity.Property(e => e.PortionQuantity).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.Price).HasColumnType("decimal(10, 2)");
@@ -195,7 +207,6 @@ public partial class DbRestaurantContext : DbContext
             entity.Property(e => e.LastName).HasMaxLength(100);
             entity.Property(e => e.Password).HasMaxLength(255);
             entity.Property(e => e.Phone).HasMaxLength(20);
-            entity.Property(e => e.UserType).HasMaxLength(20);
         });
 
         OnModelCreatingPartial(modelBuilder);

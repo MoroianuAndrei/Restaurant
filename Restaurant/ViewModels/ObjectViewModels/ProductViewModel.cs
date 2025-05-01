@@ -82,8 +82,8 @@ public class ProductViewModel : BaseViewModel
         }
     }
 
-    private bool _isMenu;
-    public bool IsMenu
+    private bool? _isMenu;
+    public bool? IsMenu
     {
         get => _isMenu;
         set
