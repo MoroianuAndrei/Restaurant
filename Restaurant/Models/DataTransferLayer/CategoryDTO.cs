@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Restaurant.Models.DataTransferLayer
+﻿namespace Restaurant.Models.DataTransferLayer
 {
-    class CategoryDTO
+    public class CategoryDTO
     {
+        public int Id { get; init; }
+        public string? CategoryName { get; init; }
+        public string? Description { get; init; }
     }
 }
