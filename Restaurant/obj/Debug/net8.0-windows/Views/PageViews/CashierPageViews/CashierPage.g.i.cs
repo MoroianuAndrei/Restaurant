@@ -71,7 +71,7 @@ namespace Restaurant.Views.PageViews.CashierPageViews {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Restaurant;V1.0.0.0;component/views/pageviews/cashierpageviews/cashierpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Restaurant;component/views/pageviews/cashierpageviews/cashierpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\Views\PageViews\CashierPageViews\CashierPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
