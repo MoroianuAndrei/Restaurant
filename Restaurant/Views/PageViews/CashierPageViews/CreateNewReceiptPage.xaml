@@ -98,49 +98,51 @@
                                         SelectedValuePath="Id"/>
                                 </Grid>
 
-                                <!-- Products List with improved contrast -->
-                                <ListView 
-                                    Grid.Row="1" 
-                                    ItemsSource="{Binding FilteredProducts}" 
-                                    Margin="0,5"
-                                    BorderThickness="0"
-                                    Background="#1E1E1E"
-                                    BorderBrush="#333333"
-                                    Foreground="White">
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate DataType="{x:Type objectViewModels:ProductViewModel}">
-                                            <ui:Card Margin="0,5" Padding="10" Background="#2D2D2D">
-                                                <Grid>
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="Auto"/>
-                                                    </Grid.ColumnDefinitions>
-                                                    <StackPanel Grid.Column="0">
-                                                        <TextBlock Text="{Binding ProductName}" FontWeight="Bold" Foreground="White"/>
-                                                        <TextBlock Foreground="#CCCCCC">
-                                                            <Run Text="{Binding CategoryName}"/>
-                                                            <Run Text=" - "/>
-                                                            <Run Text="{Binding Price, StringFormat='{}{0:C}'}"/>
-                                                        </TextBlock>
-                                                        <TextBlock Foreground="#CCCCCC">
-                                                            <Run Text="{Binding PortionQuantity}"/>
-                                                            <Run Text=" "/>
-                                                            <Run Text="{Binding MeasurementUnit}"/>
-                                                        </TextBlock>
-                                                    </StackPanel>
-                                                    <ui:Button 
-                                                        Grid.Column="1" 
-                                                        Icon="{ui:SymbolIcon Add24}" 
-                                                        VerticalAlignment="Center"
-                                                        Background="#1A73E8"
-                                                        Foreground="White"
-                                                        Command="{Binding DataContext.AddProductToOrderCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                                                        CommandParameter="{Binding}"/>
-                                                </Grid>
-                                            </ui:Card>
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
+                                <!-- Products List with improved contrast and ScrollViewer -->
+                                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                                    <ListView 
+                                        ItemsSource="{Binding FilteredProducts}" 
+                                        Margin="0,5"
+                                        BorderThickness="0"
+                                        Background="#1E1E1E"
+                                        BorderBrush="#333333"
+                                        Foreground="White"
+                                        ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate DataType="{x:Type objectViewModels:ProductViewModel}">
+                                                <ui:Card Margin="0,5" Padding="10" Background="#2D2D2D">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <StackPanel Grid.Column="0">
+                                                            <TextBlock Text="{Binding ProductName}" FontWeight="Bold" Foreground="White"/>
+                                                            <TextBlock Foreground="#CCCCCC">
+                                                                <Run Text="{Binding CategoryName}"/>
+                                                                <Run Text=" - "/>
+                                                                <Run Text="{Binding Price, StringFormat='{}{0:C}'}"/>
+                                                            </TextBlock>
+                                                            <TextBlock Foreground="#CCCCCC">
+                                                                <Run Text="{Binding PortionQuantity}"/>
+                                                                <Run Text=" "/>
+                                                                <Run Text="{Binding MeasurementUnit}"/>
+                                                            </TextBlock>
+                                                        </StackPanel>
+                                                        <ui:Button 
+                                                            Grid.Column="1" 
+                                                            Icon="{ui:SymbolIcon Add24}" 
+                                                            VerticalAlignment="Center"
+                                                            Background="#1A73E8"
+                                                            Foreground="White"
+                                                            Command="{Binding DataContext.AddProductToOrderCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                                            CommandParameter="{Binding}"/>
+                                                    </Grid>
+                                                </ui:Card>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </ScrollViewer>
                             </Grid>
                         </TabItem>
 
@@ -159,71 +161,73 @@
                                     Foreground="White"
                                     Text="{Binding MenuSearchText, UpdateSourceTrigger=PropertyChanged}"/>
 
-                                <!-- Menus List with improved contrast -->
-                                <ListView 
-                                    Grid.Row="1" 
-                                    ItemsSource="{Binding FilteredMenus}" 
-                                    Margin="0,5"
-                                    BorderThickness="0"
-                                    Background="#1E1E1E"
-                                    BorderBrush="#333333"
-                                    Foreground="White">
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate DataType="{x:Type objectViewModels:MenuViewModel}">
-                                            <ui:Card Margin="0,5" Padding="10" Background="#2D2D2D">
-                                                <Grid>
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition Height="Auto"/>
-                                                        <RowDefinition Height="Auto"/>
-                                                    </Grid.RowDefinitions>
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="Auto"/>
-                                                    </Grid.ColumnDefinitions>
+                                <!-- Menus List with improved contrast and ScrollViewer -->
+                                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                                    <ListView 
+                                        ItemsSource="{Binding FilteredMenus}" 
+                                        Margin="0,5"
+                                        BorderThickness="0"
+                                        Background="#1E1E1E"
+                                        BorderBrush="#333333"
+                                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                        Foreground="White">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate DataType="{x:Type objectViewModels:MenuViewModel}">
+                                                <ui:Card Margin="0,5" Padding="10" Background="#2D2D2D">
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="Auto"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                        </Grid.RowDefinitions>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                        </Grid.ColumnDefinitions>
 
-                                                    <StackPanel Grid.Row="0" Grid.Column="0">
-                                                        <TextBlock Text="{Binding Name}" FontWeight="Bold" Foreground="White"/>
-                                                        <TextBlock Foreground="#CCCCCC">
-                                                            <Run Text="Discount:"/>
-                                                            <Run Text="{Binding Discount, StringFormat='{}{0:P0}'}"/>
-                                                        </TextBlock>
-                                                    </StackPanel>
+                                                        <StackPanel Grid.Row="0" Grid.Column="0">
+                                                            <TextBlock Text="{Binding Name}" FontWeight="Bold" Foreground="White"/>
+                                                            <TextBlock Foreground="#CCCCCC">
+                                                                <Run Text="Discount:"/>
+                                                                <Run Text="{Binding Discount, StringFormat='{}{0:P0}'}"/>
+                                                            </TextBlock>
+                                                        </StackPanel>
 
-                                                    <ui:Button 
-                                                        Grid.Row="0" 
-                                                        Grid.Column="1" 
-                                                        Icon="{ui:SymbolIcon Add24}" 
-                                                        VerticalAlignment="Center"
-                                                        Background="#1A73E8"
-                                                        Foreground="White"
-                                                        Command="{Binding DataContext.AddMenuToOrderCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                                                        CommandParameter="{Binding}"/>
+                                                        <ui:Button 
+                                                            Grid.Row="0" 
+                                                            Grid.Column="1" 
+                                                            Icon="{ui:SymbolIcon Add24}" 
+                                                            VerticalAlignment="Center"
+                                                            Background="#1A73E8"
+                                                            Foreground="White"
+                                                            Command="{Binding DataContext.AddMenuToOrderCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                                            CommandParameter="{Binding}"/>
 
-                                                    <Expander Grid.Row="1" Grid.ColumnSpan="2" Header="Menu Items" Margin="0,5,0,0" Foreground="White">
-                                                        <ItemsControl ItemsSource="{Binding MenuItems}">
-                                                            <ItemsControl.ItemTemplate>
-                                                                <DataTemplate DataType="{x:Type objectViewModels:MenuItemViewModel}">
-                                                                    <Grid Margin="0,2">
-                                                                        <Grid.ColumnDefinitions>
-                                                                            <ColumnDefinition Width="*"/>
-                                                                            <ColumnDefinition Width="Auto"/>
-                                                                        </Grid.ColumnDefinitions>
-                                                                        <TextBlock Grid.Column="0" Text="{Binding ProductName}" Foreground="#CCCCCC"/>
-                                                                        <TextBlock Grid.Column="1" Foreground="#CCCCCC">
-                                                                            <Run Text="{Binding Quantity}"/>
-                                                                            <Run Text=" x "/>
-                                                                            <Run Text="{Binding Price, StringFormat='{}{0:C}'}"/>
-                                                                        </TextBlock>
-                                                                    </Grid>
-                                                                </DataTemplate>
-                                                            </ItemsControl.ItemTemplate>
-                                                        </ItemsControl>
-                                                    </Expander>
-                                                </Grid>
-                                            </ui:Card>
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
+                                                        <Expander Grid.Row="1" Grid.ColumnSpan="2" Header="Menu Items" Margin="0,5,0,0" Foreground="White">
+                                                            <ItemsControl ItemsSource="{Binding MenuItems}">
+                                                                <ItemsControl.ItemTemplate>
+                                                                    <DataTemplate DataType="{x:Type objectViewModels:MenuItemViewModel}">
+                                                                        <Grid Margin="0,2">
+                                                                            <Grid.ColumnDefinitions>
+                                                                                <ColumnDefinition Width="*"/>
+                                                                                <ColumnDefinition Width="Auto"/>
+                                                                            </Grid.ColumnDefinitions>
+                                                                            <TextBlock Grid.Column="0" Text="{Binding ProductName}" Foreground="#CCCCCC"/>
+                                                                            <TextBlock Grid.Column="1" Foreground="#CCCCCC">
+                                                                                <Run Text="{Binding Quantity}"/>
+                                                                                <Run Text=" x "/>
+                                                                                <Run Text="{Binding Price, StringFormat='{}{0:C}'}"/>
+                                                                            </TextBlock>
+                                                                        </Grid>
+                                                                    </DataTemplate>
+                                                                </ItemsControl.ItemTemplate>
+                                                            </ItemsControl>
+                                                        </Expander>
+                                                    </Grid>
+                                                </ui:Card>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </ScrollViewer>
                             </Grid>
                         </TabItem>
                     </TabControl>
@@ -250,70 +254,72 @@
                         Foreground="White"
                         Margin="0,0,0,10"/>
 
-                    <!-- Order Items with improved contrast -->
-                    <ListView 
-                        Grid.Row="1" 
-                        ItemsSource="{Binding OrderItems}" 
-                        BorderThickness="0"
-                        Background="#1E1E1E"
-                        BorderBrush="#333333"
-                        Foreground="White">
-                        <ListView.ItemTemplate>
-                            <DataTemplate DataType="{x:Type objectViewModels:OrderItemViewModel}">
-                                <ui:Card Margin="0,5" Padding="10" Background="#2D2D2D">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
+                    <!-- Order Items with improved contrast and ScrollViewer -->
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                        <ListView 
+                            ItemsSource="{Binding OrderItems}" 
+                            BorderThickness="0"
+                            Background="#1E1E1E"
+                            BorderBrush="#333333"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                            Foreground="White">
+                            <ListView.ItemTemplate>
+                                <DataTemplate DataType="{x:Type objectViewModels:OrderItemViewModel}">
+                                    <ui:Card Margin="0,5" Padding="10" Background="#2D2D2D">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
 
-                                        <StackPanel Grid.Column="0">
-                                            <TextBlock Text="{Binding ProductName}" FontWeight="Bold" Foreground="White"/>
-                                            <TextBlock Text="{Binding ProductDescription}" TextWrapping="Wrap" Foreground="#CCCCCC"/>
-                                            <TextBlock Foreground="#999999" FontStyle="Italic" Visibility="{Binding IsMenu, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                                <Run Text="Menu Item"/>
-                                            </TextBlock>
-                                        </StackPanel>
+                                            <StackPanel Grid.Column="0">
+                                                <TextBlock Text="{Binding ProductName}" FontWeight="Bold" Foreground="White"/>
+                                                <TextBlock Text="{Binding ProductDescription}" TextWrapping="Wrap" Foreground="#CCCCCC"/>
+                                                <TextBlock Foreground="#999999" FontStyle="Italic" Visibility="{Binding IsMenu, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                    <Run Text="Menu Item"/>
+                                                </TextBlock>
+                                            </StackPanel>
 
-                                        <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="5,0" VerticalAlignment="Center">
-                                            <ui:Button 
-                                                Icon="{ui:SymbolIcon Remove12}" 
-                                                Appearance="Secondary"
-                                                Command="{Binding DataContext.DecreaseQuantityCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                                                CommandParameter="{Binding}"/>
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="5,0" VerticalAlignment="Center">
+                                                <ui:Button 
+                                                    Icon="{ui:SymbolIcon Remove12}" 
+                                                    Appearance="Secondary"
+                                                    Command="{Binding DataContext.DecreaseQuantityCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                                    CommandParameter="{Binding}"/>
+                                                <TextBlock 
+                                                    Text="{Binding Quantity}" 
+                                                    VerticalAlignment="Center" 
+                                                    TextAlignment="Center" 
+                                                    Width="30"
+                                                    Foreground="White"/>
+                                                <ui:Button 
+                                                    Icon="{ui:SymbolIcon Add12}" 
+                                                    Appearance="Secondary"
+                                                    Command="{Binding DataContext.IncreaseQuantityCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                                    CommandParameter="{Binding}"/>
+                                            </StackPanel>
+
                                             <TextBlock 
-                                                Text="{Binding Quantity}" 
+                                                Grid.Column="2" 
+                                                Text="{Binding TotalPrice, StringFormat='{}{0:C}'}" 
                                                 VerticalAlignment="Center" 
-                                                TextAlignment="Center" 
-                                                Width="30"
+                                                Margin="5,0"
                                                 Foreground="White"/>
+
                                             <ui:Button 
-                                                Icon="{ui:SymbolIcon Add12}" 
-                                                Appearance="Secondary"
-                                                Command="{Binding DataContext.IncreaseQuantityCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                                Grid.Column="3" 
+                                                Icon="{ui:SymbolIcon Delete24}" 
+                                                Appearance="Danger"
+                                                Command="{Binding DataContext.RemoveOrderItemCommand, RelativeSource={RelativeSource AncestorType=Page}}"
                                                 CommandParameter="{Binding}"/>
-                                        </StackPanel>
-
-                                        <TextBlock 
-                                            Grid.Column="2" 
-                                            Text="{Binding TotalPrice, StringFormat='{}{0:C}'}" 
-                                            VerticalAlignment="Center" 
-                                            Margin="5,0"
-                                            Foreground="White"/>
-
-                                        <ui:Button 
-                                            Grid.Column="3" 
-                                            Icon="{ui:SymbolIcon Delete24}" 
-                                            Appearance="Danger"
-                                            Command="{Binding DataContext.RemoveOrderItemCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                                            CommandParameter="{Binding}"/>
-                                    </Grid>
-                                </ui:Card>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                                        </Grid>
+                                    </ui:Card>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
 
                     <!-- Order Summary and Actions with improved contrast -->
                     <Grid Grid.Row="2" Margin="0,10,0,0">
