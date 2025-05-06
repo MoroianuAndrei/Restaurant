@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\App.xaml
-4617686655
+7-734692890
 
-74710687627
-232-1555757264
-Blank.xaml;Views\PageViews\LoginPage.xaml;Views\PageViews\SignInPage.xaml;Views\WindowViews\MainWindow.xaml;
+80-1630345576
+2331020512063
+Blank.xaml;Views\PageViews\CashierPageViews\CashierPage.xaml;Views\PageViews\CashierPageViews\CreateNewReceiptPage.xaml;Views\PageViews\CashierPageViews\HomePage.xaml;Views\PageViews\LoginPage.xaml;Views\PageViews\SignInPage.xaml;Views\WindowViews\MainWindow.xaml;
 
-False
+True
 

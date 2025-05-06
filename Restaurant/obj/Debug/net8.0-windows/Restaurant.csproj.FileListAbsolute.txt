@@ -260,3 +260,10 @@ C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode A
 C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Restaurant.pdb
 C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Restaurant.genruntimeconfig.cache
 C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\ref\Restaurant.dll
+C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\CashierPageViews\CreateNewReceiptPage.g.cs
+C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\CashierPageViews\HomePage.g.cs
+C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll
+C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\CashierPageViews\CashierPage.g.cs
+C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\CashierPageViews\CashierPage.baml
+C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\CashierPageViews\CreateNewReceiptPage.baml
+C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\CashierPageViews\HomePage.baml

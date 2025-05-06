@@ -1,0 +1,54 @@
+﻿<Page x:Class="Restaurant.Views.PageViews.CashierPageViews.CreateNewReceiptPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:cashierPageViewModels="clr-namespace:Restaurant.ViewModels.PageViewModels.CashierPageViewModels"
+      mc:Ignorable="d"
+      Title="CreateNewReceiptPage">
+    <Page.DataContext>
+        <cashierPageViewModels:CreateNewReceiptPageViewModel/>
+    </Page.DataContext>
+    <DockPanel>
+        <ui:TextBlock
+            DockPanel.Dock="Top"
+            Text="Create New Receipt"
+            FontTypography="Title"
+            TextWrapping="Wrap"
+            Foreground="White"
+            Margin="16 32"/>
+
+        <!-- Add your receipt creation form here -->
+        <StackPanel Margin="16">
+            <TextBlock Text="Receipt Details" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+
+            <!-- Example form elements -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Customer:" Margin="0,0,10,5" VerticalAlignment="Center"/>
+                <ui:TextBox Grid.Row="0" Grid.Column="1" PlaceholderText="Enter customer name" Margin="0,0,0,5"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Table:" Margin="0,0,10,5" VerticalAlignment="Center"/>
+                <ui:TextBox Grid.Row="1" Grid.Column="1" PlaceholderText="Enter table number" Margin="0,0,0,5"/>
+            </Grid>
+
+            <ui:Button
+                HorizontalAlignment="Right"
+                Appearance="Primary"
+                Content="Save Receipt"
+                Icon="{ui:SymbolIcon Save24}"
+                Command="{Binding SaveReceiptCommand}"
+                Margin="0,20,0,0"/>
+        </StackPanel>
+    </DockPanel>
+</Page>

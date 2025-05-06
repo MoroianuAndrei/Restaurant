@@ -8,6 +8,7 @@ using Restaurant.Views.PageViews;
 using Wpf.Ui.Input;
 using Wpf.Ui.Controls;
 using System.Windows.Controls;
+using Restaurant.Views.PageViews.CashierPageViews;
 
 namespace Restaurant.ViewModels.PageViewModels;
 
@@ -76,7 +77,7 @@ public class LoginPageViewModel : BaseViewModel
         {
             var user = (UserBLL.GetUsers().FirstOrDefault(u => u.Email == Email) ?? new UserDTO()).ToViewModel();
             UserSession.Instance.SetUser(user);
-            page.NavigationService?.Navigate(new Blank());
+            page.NavigationService?.Navigate(new CashierPage());
         }
     }
 
@@ -102,6 +103,6 @@ public class LoginPageViewModel : BaseViewModel
         };
 
         UserSession.Instance.SetUser(guestUser.ToViewModel());
-        page.NavigationService?.Navigate(new Blank());
+        page.NavigationService?.Navigate(new CashierPage());
     }
 }
