@@ -88,4 +88,9 @@ public static class ProductBLL
     {
         return GetProductById(id);
     }
+
+    public static bool DecreaseQuantity(int productId, decimal quantityToDecrease)
+    {
+        return ProductDAL.DecreaseQuantity(productId, quantityToDecrease);
+    }
 }

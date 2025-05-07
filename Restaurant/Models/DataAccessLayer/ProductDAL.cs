@@ -326,4 +326,31 @@ public static class ProductDAL
             connection.Close();
         }
     }
+
+    public static bool DecreaseQuantity(int productId, decimal quantityToDecrease)
+    {
+        var connection = DALHelper.Connection;
+        try
+        {
+            var command = new SqlCommand("spProductDecreaseQuantity", connection)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            command.Parameters.AddWithValue("@ProductId", productId);
+            command.Parameters.AddWithValue("@QuantityToDecrease", quantityToDecrease);
+
+            connection.Open();
+
+            return command.ExecuteNonQuery() > 0;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return false;
+        }
+        finally
+        {
+            connection.Close();
+        }
+    }
 }

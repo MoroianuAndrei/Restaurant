@@ -398,18 +398,31 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
     {
         if (parameter is not ProductViewModel product) return;
 
-        // Check if product already exists in order
-        var existingItem = OrderItems.FirstOrDefault(item =>
-            item.ProductId == product.Id && !item.IsMenu);
+        decimal requiredQuantity = product.PortionQuantity;
+
+        // Calculează cantitatea totală deja comandată pentru acest produs
+        var existingItem = OrderItems.FirstOrDefault(item => item.ProductId == product.Id && !item.IsMenu);
+        int existingQuantity = existingItem?.Quantity ?? 0;
+
+        decimal totalRequired = (existingQuantity + 1) * requiredQuantity;
+
+        if (totalRequired > product.TotalQuantity)
+        {
+            System.Windows.MessageBox.Show(
+                "Nu există suficientă cantitate disponibilă pentru a adăuga această porție.",
+                "Stoc insuficient",
+                System.Windows.MessageBoxButton.OK,
+                MessageBoxImage.Warning
+            );
+            return;
+        }
 
         if (existingItem != null)
         {
-            // Increase quantity of existing item
             existingItem.Quantity++;
         }
         else
         {
-            // Add new order item
             var orderItem = new OrderItemViewModel
             {
                 ProductId = product.Id,
@@ -419,7 +432,6 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
                 UnitPrice = product.Price,
                 IsMenu = false
             };
-
             OrderItems.Add(orderItem);
         }
 
@@ -569,7 +581,20 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
                     };
 
                     await Task.Run(() => OrderItemBLL.Insert(orderItemDTO));
+
+                    // Scade din stoc doar dacă nu este meniu
+                    if (!item.IsMenu)
+                    {
+                        // Caută produsul ca să obții PortionQuantity
+                        var product = Products.FirstOrDefault(p => p.Id == item.ProductId);
+                        if (product != null)
+                        {
+                            decimal quantityToDecrease = item.Quantity * product.PortionQuantity;
+                            await Task.Run(() => ProductBLL.DecreaseQuantity(item.ProductId, quantityToDecrease));
+                        }
+                    }
                 }
+
 
                 System.Windows.MessageBox.Show($"Comandă salvată cu succes! Cod comandă: {orderDTO.OrderCode}", "Succes",
                     System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
