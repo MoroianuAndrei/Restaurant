@@ -93,7 +93,7 @@ public static class MenuItemDAL
         var connection = DALHelper.Connection;
         try
         {
-            var command = new SqlCommand("spMenuItemSelectByMenuId", connection)
+            var command = new SqlCommand("spMenuItemSelectByMenu", connection)
             {
                 CommandType = CommandType.StoredProcedure
             };
