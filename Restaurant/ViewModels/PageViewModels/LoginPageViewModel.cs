@@ -77,7 +77,6 @@ public class LoginPageViewModel : BaseViewModel
         {
             var user = (UserBLL.GetUsers().FirstOrDefault(u => u.Email == Email) ?? new UserDTO()).ToViewModel();
             UserSession.Instance.SetUser(user);
-            System.Windows.MessageBox.Show(user.Id.ToString());
             page.NavigationService?.Navigate(new CashierPage());
         }
     }

@@ -3,28 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\models\\businesslogiclayer\\userbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\models\\businesslogiclayer\\userbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\viewmodels\\pageviewmodels\\loginpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\pageviewmodels\\loginpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\services\\usersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\services\\usersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\models\\dataaccesslayer\\orderdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\models\\dataaccesslayer\\orderdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\viewmodels\\pageviewmodels\\cashierpageviewmodels\\createnewreceiptpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\pageviewmodels\\cashierpageviewmodels\\createnewreceiptpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\models\\businesslogiclayer\\orderbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\models\\businesslogiclayer\\orderbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\views\\pageviews\\cashierpageviews\\createnewreceiptpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\views\\pageviews\\cashierpageviews\\createnewreceiptpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,84 +18,31 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserBLL.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\BusinessLogicLayer\\UserBLL.cs",
-              "RelativeDocumentMoniker": "Restaurant\\Models\\BusinessLogicLayer\\UserBLL.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\BusinessLogicLayer\\UserBLL.cs",
-              "RelativeToolTip": "Restaurant\\Models\\BusinessLogicLayer\\UserBLL.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAEwAwAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T08:48:30.689Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "LoginPageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\LoginPageViewModel.cs",
-              "RelativeDocumentMoniker": "Restaurant\\ViewModels\\PageViewModels\\LoginPageViewModel.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\LoginPageViewModel.cs",
-              "RelativeToolTip": "Restaurant\\ViewModels\\PageViewModels\\LoginPageViewModel.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAASwE0AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T08:44:37.305Z",
+              "Title": "CreateNewReceiptPage.xaml",
+              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\CashierPageViews\\CreateNewReceiptPage.xaml",
+              "RelativeDocumentMoniker": "Restaurant\\Views\\PageViews\\CashierPageViews\\CreateNewReceiptPage.xaml",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\CashierPageViews\\CreateNewReceiptPage.xaml",
+              "RelativeToolTip": "Restaurant\\Views\\PageViews\\CashierPageViews\\CreateNewReceiptPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-07T09:05:27.041Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserSession.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Services\\UserSession.cs",
-              "RelativeDocumentMoniker": "Restaurant\\Services\\UserSession.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Services\\UserSession.cs",
-              "RelativeToolTip": "Restaurant\\Services\\UserSession.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwAYAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T08:27:21.334Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OrderDAL.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\DataAccessLayer\\OrderDAL.cs",
-              "RelativeDocumentMoniker": "Restaurant\\Models\\DataAccessLayer\\OrderDAL.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\DataAccessLayer\\OrderDAL.cs",
-              "RelativeToolTip": "Restaurant\\Models\\DataAccessLayer\\OrderDAL.cs",
-              "ViewState": "AgIAALEAAAAAAAAAAAASwLcAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T08:19:22.981Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "CreateNewReceiptPageViewModel.cs",
               "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\CashierPageViewModels\\CreateNewReceiptPageViewModel.cs",
               "RelativeDocumentMoniker": "Restaurant\\ViewModels\\PageViewModels\\CashierPageViewModels\\CreateNewReceiptPageViewModel.cs",
               "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\CashierPageViewModels\\CreateNewReceiptPageViewModel.cs",
               "RelativeToolTip": "Restaurant\\ViewModels\\PageViewModels\\CashierPageViewModels\\CreateNewReceiptPageViewModel.cs",
-              "ViewState": "AgIAABQCAAAAAAAAAADwvxoCAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAPcBAAAAAAAAAAAWwAACAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-07T08:11:39.757Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "OrderBLL.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\BusinessLogicLayer\\OrderBLL.cs",
-              "RelativeDocumentMoniker": "Restaurant\\Models\\BusinessLogicLayer\\OrderBLL.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\BusinessLogicLayer\\OrderBLL.cs",
-              "RelativeToolTip": "Restaurant\\Models\\BusinessLogicLayer\\OrderBLL.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAUwCgAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T15:34:43.74Z",
               "EditorCaption": ""
             }
           ]

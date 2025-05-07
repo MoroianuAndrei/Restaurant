@@ -19,8 +19,6 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
 {
     public static NavigationView? NavigationView { get; set; }
 
-    private UserSession _userSession => UserSession.Instance;
-
     // Customer information
     private string? _customerName;
     public string CustomerName
@@ -228,7 +226,6 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
         IncreaseQuantityCommand = new RelayCommand<object>(IncreaseQuantity);
         DecreaseQuantityCommand = new RelayCommand<object>(DecreaseQuantity);
         SaveReceiptCommand = new RelayCommand<object>(SaveReceipt);
-        PrintReceiptCommand = new RelayCommand<object>(PrintReceipt);
         CancelCommand = new RelayCommand<object>(Cancel);
 
         // Set default values
@@ -526,18 +523,10 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(CustomerName))
-            {
-                System.Windows.MessageBox.Show("Introduceți numele clientului.", "Eroare",
-                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
-                return;
-            }
-
             IsLoading = true;
 
             // Get the current user ID from UserSession
             int currentUserId = UserSession.Instance.LoggedInUser?.Id ?? -1;
-            System.Windows.MessageBox.Show(currentUserId.ToString());
 
             if (currentUserId == -1)
             {
@@ -612,34 +601,6 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
         var random = new Random();
         var randomStr = random.Next(1000, 9999).ToString();
         return $"ORDER-{dateStr}-{randomStr}";
-    }
-
-    private void PrintReceipt(object? parameter)
-    {
-        try
-        {
-            // Validate the order first
-            if (OrderItems.Count == 0)
-            {
-                System.Windows.MessageBox.Show("Nu puteți tipări o comandă fără produse.", "Eroare",
-                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
-                return;
-            }
-
-            // Here you would implement printing functionality
-            // For example, generate a PDF and send it to printer
-
-            System.Windows.MessageBox.Show("Funcționalitatea de printare va fi implementată în viitor.", "Informație",
-                System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
-
-            // You might want to save the receipt as well when printing
-            SaveReceipt(parameter);
-        }
-        catch (Exception ex)
-        {
-            System.Windows.MessageBox.Show($"Eroare la printarea bonului: {ex.Message}", "Eroare",
-                System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
-        }
     }
 
     private void Cancel(object? parameter)

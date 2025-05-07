@@ -33,20 +33,6 @@
                     Foreground="White"
                     VerticalAlignment="Center"/>
 
-                <StackPanel Grid.Column="1" Orientation="Horizontal">
-                    <ui:TextBox 
-                        PlaceholderText="Customer Name" 
-                        Foreground="White"
-                        Text="{Binding CustomerName, UpdateSourceTrigger=PropertyChanged}"
-                        Width="200"
-                        Margin="0,0,10,0"/>
-                    <ui:NumberBox 
-                        PlaceholderText="Table" 
-                        Foreground="White"
-                        Value="{Binding TableNumber, UpdateSourceTrigger=PropertyChanged}"
-                        Minimum="1"
-                        Width="100"/>
-                </StackPanel>
             </Grid>
         </ui:Card>
 
@@ -371,21 +357,14 @@
                     Appearance="Secondary"
                     Command="{Binding CancelCommand}"/>
 
-                <StackPanel Grid.Column="2" Orientation="Horizontal">
-                    <ui:Button 
-                        Content="Print Receipt" 
-                        Icon="Print" 
-                        Margin="0,0,10,0"
-                        Command="{Binding PrintReceiptCommand}"/>
-
-                    <ui:Button 
-                        Content="Save Receipt" 
-                        Icon="Save" 
-                        Appearance="Primary"
-                        Background="#1A73E8"
-                        Foreground="White"
-                        Command="{Binding SaveReceiptCommand}"/>
-                </StackPanel>
+                <ui:Button 
+                    Grid.Column="2" 
+                    Content="Save Receipt" 
+                    Icon="Save" 
+                    Appearance="Primary"
+                    Background="#1A73E8"
+                    Foreground="White"
+                    Command="{Binding SaveReceiptCommand}"/>
             </Grid>
         </ui:Card>
     </Grid>
