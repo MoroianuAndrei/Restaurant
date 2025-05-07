@@ -328,7 +328,7 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
         foreach (var menuDTO in menuDTOs)
         {
             // Get menu items for this menu
-            var menuItemDTOs = await Task.Run(() => MenuItemBLL.GetByMenuId(menuDTO.Id));  // VERIFICAM AICI
+            var menuItemDTOs = await Task.Run(() => MenuItemBLL.GetByMenuId(menuDTO.Id));
             var menuItemViewModels = new ObservableCollection<MenuItemViewModel>();
 
             foreach (var menuItemDTO in menuItemDTOs)
@@ -345,12 +345,8 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
                         Price = product.Price,
                         Quantity = menuItemDTO.Quantity
                     });
-                    System.Windows.MessageBox.Show(menuItemDTO.MenuId.ToString());
                 }
-                System.Windows.MessageBox.Show("AICI SE AJUNGE");
             }
-
-            System.Windows.MessageBox.Show("AICI DA");
 
             menuViewModels.Add(new MenuViewModel
             {
