@@ -80,4 +80,20 @@ public static class OrderItemBLL
         orderItem.Quantity = quantity;
         return OrderItemDAL.UpdateOrderItem(orderItem);
     }
+
+    // New methods to match what the ViewModel is trying to call
+    public static ObservableCollection<OrderItemDTO> GetAll()
+    {
+        return GetOrderItems();
+    }
+
+    public static ObservableCollection<OrderItemDTO> GetByOrderId(int orderId)
+    {
+        return GetOrderItemsByOrderId(orderId);
+    }
+
+    public static bool Insert(OrderItemDTO orderItemDTO)
+    {
+        return AddOrderItem(orderItemDTO);
+    }
 }

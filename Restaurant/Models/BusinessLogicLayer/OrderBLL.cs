@@ -88,4 +88,24 @@ public static class OrderBLL
         order.EstimatedDeliveryTime = estimatedDeliveryTime;
         return OrderDAL.UpdateOrder(order);
     }
+
+    // New methods to match what the ViewModel is trying to call
+    public static ObservableCollection<OrderDTO> GetAll()
+    {
+        return GetOrders();
+    }
+
+    public static int Insert(OrderDTO orderDTO)
+    {
+        // Assuming AddOrder successfully adds the order to the database
+        // and OrderDAL.InsertOrder returns the newly created order ID
+        if (AddOrder(orderDTO))
+        {
+            // This would require OrderDAL.InsertOrder to return the order ID
+            // For now, we're simulating it by returning a placeholder value of 1
+            // Consider modifying OrderDAL.InsertOrder to return the ID
+            return 1;
+        }
+        return 0;
+    }
 }

@@ -1,9 +1,16 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using Restaurant.ViewModels.Commands;
 using Restaurant.ViewModels.ObjectViewModels;
 using Wpf.Ui.Controls;
+using Restaurant.Models.BusinessLogicLayer;
+using Restaurant.Models.EntityLayer;
+using Restaurant.Models.DataTransferLayer;
+using Restaurant.Models.DataAccessLayer;
 
 namespace Restaurant.ViewModels.PageViewModels.CashierPageViewModels;
 
@@ -188,6 +195,18 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
         }
     }
 
+    // Loading indicators
+    private bool _isLoading;
+    public bool IsLoading
+    {
+        get => _isLoading;
+        set
+        {
+            _isLoading = value;
+            OnPropertyChanged();
+        }
+    }
+
     public ICommand AddProductToOrderCommand { get; }
     public ICommand AddMenuToOrderCommand { get; }
     public ICommand RemoveOrderItemCommand { get; }
@@ -197,76 +216,148 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
     public ICommand PrintReceiptCommand { get; }
     public ICommand CancelCommand { get; }
 
-
     public CreateNewReceiptPageViewModel()
     {
         // Initialize commands
-        AddProductToOrderCommand = new RelayCommand<object?>(AddProductToOrder);
-        AddMenuToOrderCommand = new RelayCommand<object?>(AddMenuToOrder);
-        RemoveOrderItemCommand = new RelayCommand<object?>(RemoveOrderItem);
-        IncreaseQuantityCommand = new RelayCommand<object?>(IncreaseQuantity);
-        DecreaseQuantityCommand = new RelayCommand<object?>(DecreaseQuantity);
-        SaveReceiptCommand = new RelayCommand<object?>(SaveReceipt);
-        PrintReceiptCommand = new RelayCommand<object?>(PrintReceipt);
-        CancelCommand = new RelayCommand<object?>(Cancel);
+        AddProductToOrderCommand = new RelayCommand<object>(AddProductToOrder);
+        AddMenuToOrderCommand = new RelayCommand<object>(AddMenuToOrder);
+        RemoveOrderItemCommand = new RelayCommand<object>(RemoveOrderItem);
+        IncreaseQuantityCommand = new RelayCommand<object>(IncreaseQuantity);
+        DecreaseQuantityCommand = new RelayCommand<object>(DecreaseQuantity);
+        SaveReceiptCommand = new RelayCommand<object>(SaveReceipt);
+        PrintReceiptCommand = new RelayCommand<object>(PrintReceipt);
+        CancelCommand = new RelayCommand<object>(Cancel);
 
-        // Set some default values
+        // Set default values
         ShippingCost = 5.0m;
+        TableNumber = 1;
 
-        // Load sample data (in a real app, this would come from a database)
-        LoadSampleData();
+        // Load data from database
+        LoadDataAsync();
     }
 
-    private void LoadSampleData()
+    private async void LoadDataAsync()
     {
-        // Sample Categories
-        var categories = new ObservableCollection<CategoryViewModel>
+        try
         {
-            new() { Id = 1, CategoryName = "Toate categoriile" },
-            new() { Id = 2, CategoryName = "Aperitive" },
-            new() { Id = 3, CategoryName = "Feluri principale" },
-            new() { Id = 4, CategoryName = "Deserturi" },
-            new() { Id = 5, CategoryName = "Băuturi" }
-        };
-        Categories = categories;
+            IsLoading = true;
 
-        // Sample Products
-        var products = new ObservableCollection<ProductViewModel>
-        {
-            new() { Id = 1, ProductName = "Salată Caesar", Price = 25.99m, CategoryId = 2, CategoryName = "Aperitive", PortionQuantity = 350, MeasurementUnit = "g" },
-            new() { Id = 2, ProductName = "Pizza Margherita", Price = 35.50m, CategoryId = 3, CategoryName = "Feluri principale", PortionQuantity = 450, MeasurementUnit = "g" },
-            new() { Id = 3, ProductName = "Paste Carbonara", Price = 32.00m, CategoryId = 3, CategoryName = "Feluri principale", PortionQuantity = 400, MeasurementUnit = "g" },
-            new() { Id = 4, ProductName = "Tiramisu", Price = 18.50m, CategoryId = 4, CategoryName = "Deserturi", PortionQuantity = 200, MeasurementUnit = "g" },
-            new() { Id = 5, ProductName = "Coca Cola", Price = 8.00m, CategoryId = 5, CategoryName = "Băuturi", PortionQuantity = 330, MeasurementUnit = "ml" },
-            new() { Id = 6, ProductName = "Apă minerală", Price = 6.00m, CategoryId = 5, CategoryName = "Băuturi", PortionQuantity = 500, MeasurementUnit = "ml" }
-        };
-        Products = products;
+            // Load categories from database
+            await LoadCategoriesAsync();
 
-        // Sample Menus
-        var menuItems1 = new ObservableCollection<MenuItemViewModel>
-        {
-            new() { ProductId = 1, ProductName = "Salată Caesar", Price = 25.99m, Quantity = 1 },
-            new() { ProductId = 3, ProductName = "Paste Carbonara", Price = 32.00m, Quantity = 1 },
-            new() { ProductId = 5, ProductName = "Coca Cola", Price = 8.00m, Quantity = 1 }
-        };
+            // Load products from database
+            await LoadProductsAsync();
 
-        var menuItems2 = new ObservableCollection<MenuItemViewModel>
+            // Load menus and menu items from database
+            await LoadMenusAsync();
+        }
+        catch (Exception ex)
         {
-            new() { ProductId = 2, ProductName = "Pizza Margherita", Price = 35.50m, Quantity = 1 },
-            new() { ProductId = 4, ProductName = "Tiramisu", Price = 18.50m, Quantity = 1 },
-            new() { ProductId = 6, ProductName = "Apă minerală", Price = 6.00m, Quantity = 1 }
+            System.Windows.MessageBox.Show($"Eroare la încărcarea datelor: {ex.Message}", "Eroare",
+                System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+        }
+        finally
+        {
+            IsLoading = false;
+        }
+    }
+
+    private async Task LoadCategoriesAsync()
+    {
+        // Get all categories from database
+        var categoryDTOs = await Task.Run(() => CategoryBLL.GetAll());
+
+        // Create "All Categories" option
+        var allCategories = new ObservableCollection<CategoryViewModel>
+        {
+            new CategoryViewModel { Id = 0, CategoryName = "Toate categoriile" }
         };
 
-        var menus = new ObservableCollection<MenuViewModel>
+        // Convert DTOs to ViewModels
+        foreach (var categoryDTO in categoryDTOs)
         {
-            new() { Id = 1, Name = "Meniu Paste", Discount = 0.15m, MenuItems = menuItems1 },
-            new() { Id = 2, Name = "Meniu Pizza", Discount = 0.10m, MenuItems = menuItems2 }
-        };
-        Menus = menus;
+            allCategories.Add(new CategoryViewModel
+            {
+                Id = categoryDTO.Id,
+                CategoryName = categoryDTO.CategoryName,
+                Description = categoryDTO.Description
+            });
+        }
 
-        // Initialize filtered collections
-        FilterProducts();
-        FilterMenus();
+        Categories = allCategories;
+        SelectedCategory = Categories.FirstOrDefault(); // Select "All Categories" by default
+    }
+
+    private async Task LoadProductsAsync()
+    {
+        // Get all products from database
+        var productDTOs = await Task.Run(() => ProductBLL.GetAll());
+
+        // Convert DTOs to ViewModels
+        var productViewModels = new ObservableCollection<ProductViewModel>();
+        foreach (var productDTO in productDTOs)
+        {
+            // Get category name
+            var category = await Task.Run(() => CategoryBLL.GetById(productDTO.CategoryId));
+            string categoryName = category != null ? category.CategoryName : string.Empty;
+
+            productViewModels.Add(new ProductViewModel
+            {
+                Id = productDTO.Id,
+                ProductName = productDTO.ProductName,
+                Price = productDTO.Price,
+                CategoryId = productDTO.CategoryId,
+                CategoryName = categoryName,
+                PortionQuantity = productDTO.PortionQuantity,
+                MeasurementUnit = productDTO.MeasurementUnit,
+                TotalQuantity = productDTO.TotalQuantity,
+                IsMenu = productDTO.IsMenu
+            });
+        }
+
+        Products = productViewModels;
+    }
+
+    private async Task LoadMenusAsync()
+    {
+        // Get all menus from database
+        var menuDTOs = await Task.Run(() => MenuBLL.GetAll());
+
+        // Convert DTOs to ViewModels
+        var menuViewModels = new ObservableCollection<MenuViewModel>();
+        foreach (var menuDTO in menuDTOs)
+        {
+            // Get menu items for this menu
+            var menuItemDTOs = await Task.Run(() => MenuItemBLL.GetByMenuId(menuDTO.Id));
+            var menuItemViewModels = new ObservableCollection<MenuItemViewModel>();
+
+            foreach (var menuItemDTO in menuItemDTOs)
+            {
+                // Get product details
+                var product = await Task.Run(() => ProductBLL.GetById(menuItemDTO.ProductId));
+                if (product != null)
+                {
+                    menuItemViewModels.Add(new MenuItemViewModel
+                    {
+                        MenuId = menuItemDTO.MenuId,
+                        ProductId = menuItemDTO.ProductId,
+                        ProductName = product.ProductName,
+                        Price = product.Price,
+                        Quantity = menuItemDTO.Quantity
+                    });
+                }
+            }
+
+            menuViewModels.Add(new MenuViewModel
+            {
+                Id = menuDTO.Id,
+                Name = menuDTO.Name,
+                Discount = menuDTO.Discount,
+                MenuItems = menuItemViewModels
+            });
+        }
+
+        Menus = menuViewModels;
     }
 
     private void FilterProducts()
@@ -281,7 +372,7 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
         }
 
         // Apply category filter if selected
-        if (SelectedCategory != null && SelectedCategory.Id != 1) // Assuming ID 1 is "All Categories"
+        if (SelectedCategory != null && SelectedCategory.Id != 0) // ID 0 is "All Categories"
         {
             query = query.Where(p => p.CategoryId == SelectedCategory.Id);
         }
@@ -420,37 +511,139 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
         TotalAmount = SubtotalAmount - DiscountAmount + ShippingCost;
     }
 
-    private void SaveReceipt(object? parameter)
+    private async void SaveReceipt(object? parameter)
     {
-        // Here you would normally:
-        // 1. Validate the order
-        if (OrderItems.Count == 0)
+        try
         {
-            // Show error message - no items in order
-            return;
+            // Validate the order
+            if (OrderItems.Count == 0)
+            {
+                System.Windows.MessageBox.Show("Nu puteți salva o comandă fără produse.", "Eroare",
+                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(CustomerName))
+            {
+                System.Windows.MessageBox.Show("Introduceți numele clientului.", "Eroare",
+                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
+                return;
+            }
+
+            IsLoading = true;
+
+            // Create a new Order DTO
+            var orderDTO = new OrderDTO
+            {
+                OrderCode = GenerateOrderCode(),
+                UserId = 1, // Assuming current logged in user ID is 1, you might want to get this from current session
+                OrderDate = DateTime.Now,
+                Status = "New",
+                EstimatedDeliveryTime = DateTime.Now.AddMinutes(30),
+                SubtotalAmount = SubtotalAmount,
+                DiscountAmount = DiscountAmount,
+                ShippingCost = ShippingCost,
+                TotalAmount = TotalAmount,
+                // Additional fields like CustomerName and TableNumber can be added to your Order entity if needed
+            };
+
+            // Save the order to database
+            var savedOrderId = await Task.Run(() => OrderBLL.Insert(orderDTO));
+
+            if (savedOrderId > 0)
+            {
+                // Save each order item
+                foreach (var item in OrderItems)
+                {
+                    var orderItemDTO = new OrderItemDTO
+                    {
+                        OrderId = savedOrderId,
+                        ProductId = item.ProductId,
+                        Quantity = item.Quantity,
+                        UnitPrice = item.UnitPrice,
+                        IsMenu = item.IsMenu
+                    };
+
+                    await Task.Run(() => OrderItemBLL.Insert(orderItemDTO));
+                }
+
+                System.Windows.MessageBox.Show($"Comandă salvată cu succes! Cod comandă: {orderDTO.OrderCode}", "Succes",
+                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
+
+                // Navigate back
+                NavigationView?.Navigate("Home");
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Nu s-a putut salva comanda.", "Eroare",
+                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+            }
         }
+        catch (Exception ex)
+        {
+            System.Windows.MessageBox.Show($"Eroare la salvarea comenzii: {ex.Message}", "Eroare",
+                System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+        }
+        finally
+        {
+            IsLoading = false;
+        }
+    }
 
-        // 2. Create an order in the database
-        // var order = new OrderViewModel {...}
-
-        // 3. Create order items in the database
-        // foreach (var item in OrderItems) {...}
-
-        // 4. Generate receipt number, etc.
-
-        // For this example, we'll just navigate back to home
-        NavigationView?.Navigate("Home");
+    private string GenerateOrderCode()
+    {
+        // Generate a unique order code (for example: ORDER-YYYYMMDD-XXXX)
+        var dateStr = DateTime.Now.ToString("yyyyMMdd");
+        var random = new Random();
+        var randomStr = random.Next(1000, 9999).ToString();
+        return $"ORDER-{dateStr}-{randomStr}";
     }
 
     private void PrintReceipt(object? parameter)
     {
-        // Implement printing functionality
-        // This is just a placeholder
-        SaveReceipt(parameter);
+        try
+        {
+            // Validate the order first
+            if (OrderItems.Count == 0)
+            {
+                System.Windows.MessageBox.Show("Nu puteți tipări o comandă fără produse.", "Eroare",
+                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
+                return;
+            }
+
+            // Here you would implement printing functionality
+            // For example, generate a PDF and send it to printer
+
+            System.Windows.MessageBox.Show("Funcționalitatea de printare va fi implementată în viitor.", "Informație",
+                System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
+
+            // You might want to save the receipt as well when printing
+            SaveReceipt(parameter);
+        }
+        catch (Exception ex)
+        {
+            System.Windows.MessageBox.Show($"Eroare la printarea bonului: {ex.Message}", "Eroare",
+                System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+        }
     }
 
     private void Cancel(object? parameter)
     {
+        // Ask for confirmation if there are items in the order
+        if (OrderItems.Count > 0)
+        {
+            var result = System.Windows.MessageBox.Show(
+                "Sunteți sigur că doriți să anulați comanda? Toate produsele adăugate vor fi pierdute.",
+                "Confirmare",
+                System.Windows.MessageBoxButton.YesNo,
+                System.Windows.MessageBoxImage.Question);
+
+            if (result != System.Windows.MessageBoxResult.Yes)
+            {
+                return;
+            }
+        }
+
         // Simply navigate back without saving
         NavigationView?.Navigate("Home");
     }

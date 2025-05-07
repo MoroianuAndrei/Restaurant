@@ -50,4 +50,20 @@ public static class MenuItemBLL
         MenuItemDAL.DeleteMenuItem(menuItemDTO.ToEntity());
         return true;
     }
+
+    // New methods to match what the ViewModel is trying to call
+    public static ObservableCollection<MenuItemDTO> GetAll()
+    {
+        return GetMenuItems();
+    }
+
+    public static ObservableCollection<MenuItemDTO> GetByMenuId(int menuId)
+    {
+        return GetMenuItemsByMenuId(menuId);
+    }
+
+    public static bool Insert(MenuItemDTO menuItemDTO)
+    {
+        return AddMenuItem(menuItemDTO);
+    }
 }

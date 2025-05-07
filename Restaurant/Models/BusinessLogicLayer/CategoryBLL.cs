@@ -49,4 +49,15 @@ public static class CategoryBLL
         CategoryDAL.DeleteCategory(categoryDTO.ToEntity());
         return true;
     }
+
+    // New methods to match what the ViewModel is trying to call
+    public static ObservableCollection<CategoryDTO> GetAll()
+    {
+        return GetCategories();
+    }
+
+    public static CategoryDTO GetById(int id)
+    {
+        return GetCategoryById(id);
+    }
 }

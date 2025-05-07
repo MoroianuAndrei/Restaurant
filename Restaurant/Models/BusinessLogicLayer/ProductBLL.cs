@@ -77,4 +77,15 @@ public static class ProductBLL
         }
         return products;
     }
+
+    // New methods to match what the ViewModel is trying to call
+    public static ObservableCollection<ProductDTO> GetAll()
+    {
+        return GetProducts();
+    }
+
+    public static ProductDTO? GetById(int id)
+    {
+        return GetProductById(id);
+    }
 }
