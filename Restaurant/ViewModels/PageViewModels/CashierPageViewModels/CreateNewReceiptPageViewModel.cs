@@ -483,6 +483,28 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
     {
         if (parameter is not OrderItemViewModel item) return;
 
+        // Găsește produsul asociat
+        var product = Products.FirstOrDefault(p => p.Id == item.ProductId);
+        if (product == null || product.IsMenu == true)
+        {
+            item.Quantity++;
+            UpdateOrderTotals();
+            return;
+        }
+
+        decimal requiredQuantity = (item.Quantity + 1) * product.PortionQuantity;
+
+        if (requiredQuantity > product.TotalQuantity)
+        {
+            System.Windows.MessageBox.Show(
+                $"Nu există suficientă cantitate disponibilă pentru a crește porția de {product.ProductName}.",
+                "Stoc insuficient",
+                System.Windows.MessageBoxButton.OK,
+                MessageBoxImage.Warning
+            );
+            return;
+        }
+
         item.Quantity++;
         UpdateOrderTotals();
     }
