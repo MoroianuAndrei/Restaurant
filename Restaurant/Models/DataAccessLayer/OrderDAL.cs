@@ -159,19 +159,26 @@ public static class OrderDAL
             {
                 CommandType = CommandType.StoredProcedure
             };
+
             command.Parameters.AddWithValue("@OrderCode", order.OrderCode);
             command.Parameters.AddWithValue("@UserId", order.UserId);
-            command.Parameters.AddWithValue("@OrderDate", order.OrderDate);
-            command.Parameters.AddWithValue("@Status", order.Status);
             command.Parameters.AddWithValue("@EstimatedDeliveryTime", order.EstimatedDeliveryTime ?? (object)DBNull.Value);
             command.Parameters.AddWithValue("@SubtotalAmount", order.SubtotalAmount);
             command.Parameters.AddWithValue("@DiscountAmount", order.DiscountAmount);
             command.Parameters.AddWithValue("@ShippingCost", order.ShippingCost);
             command.Parameters.AddWithValue("@TotalAmount", order.TotalAmount);
 
+            var orderIdParam = new SqlParameter("@OrderID", SqlDbType.Int)
+            {
+                Direction = ParameterDirection.Output
+            };
+            command.Parameters.Add(orderIdParam);
+
             connection.Open();
 
             var result = command.ExecuteNonQuery();
+            int newOrderId = (int)orderIdParam.Value;
+
             return result > 0;
         }
         catch (Exception e)

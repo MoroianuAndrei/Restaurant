@@ -131,7 +131,7 @@
                                                         </StackPanel>
                                                         <ui:Button 
                                                             Grid.Column="1" 
-                                                            Icon="{ui:SymbolIcon Add24}" 
+                                                            Icon="Add" 
                                                             VerticalAlignment="Center"
                                                             Background="#1A73E8"
                                                             Foreground="White"
@@ -195,7 +195,7 @@
                                                         <ui:Button 
                                                             Grid.Row="0" 
                                                             Grid.Column="1" 
-                                                            Icon="{ui:SymbolIcon Add24}" 
+                                                            Icon="Add" 
                                                             VerticalAlignment="Center"
                                                             Background="#1A73E8"
                                                             Foreground="White"
@@ -284,7 +284,7 @@
 
                                             <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="5,0" VerticalAlignment="Center">
                                                 <ui:Button 
-                                                    Icon="{ui:SymbolIcon Remove12}" 
+                                                    Icon="Remove" 
                                                     Appearance="Secondary"
                                                     Command="{Binding DataContext.DecreaseQuantityCommand, RelativeSource={RelativeSource AncestorType=Page}}"
                                                     CommandParameter="{Binding}"/>
@@ -295,7 +295,7 @@
                                                     Width="30"
                                                     Foreground="White"/>
                                                 <ui:Button 
-                                                    Icon="{ui:SymbolIcon Add12}" 
+                                                    Icon="Add" 
                                                     Appearance="Secondary"
                                                     Command="{Binding DataContext.IncreaseQuantityCommand, RelativeSource={RelativeSource AncestorType=Page}}"
                                                     CommandParameter="{Binding}"/>
@@ -310,7 +310,7 @@
 
                                             <ui:Button 
                                                 Grid.Column="3" 
-                                                Icon="{ui:SymbolIcon Delete24}" 
+                                                Icon="Delete" 
                                                 Appearance="Danger"
                                                 Command="{Binding DataContext.RemoveOrderItemCommand, RelativeSource={RelativeSource AncestorType=Page}}"
                                                 CommandParameter="{Binding}"/>
@@ -374,13 +374,13 @@
                 <StackPanel Grid.Column="2" Orientation="Horizontal">
                     <ui:Button 
                         Content="Print Receipt" 
-                        Icon="{ui:SymbolIcon Print24}" 
+                        Icon="Print" 
                         Margin="0,0,10,0"
                         Command="{Binding PrintReceiptCommand}"/>
 
                     <ui:Button 
                         Content="Save Receipt" 
-                        Icon="{ui:SymbolIcon Save24}" 
+                        Icon="Save" 
                         Appearance="Primary"
                         Background="#1A73E8"
                         Foreground="White"

@@ -11,12 +11,15 @@ using Restaurant.Models.BusinessLogicLayer;
 using Restaurant.Models.EntityLayer;
 using Restaurant.Models.DataTransferLayer;
 using Restaurant.Models.DataAccessLayer;
+using Restaurant.Services;
 
 namespace Restaurant.ViewModels.PageViewModels.CashierPageViewModels;
 
 public class CreateNewReceiptPageViewModel : BaseViewModel
 {
     public static NavigationView? NavigationView { get; set; }
+
+    private UserSession _userSession => UserSession.Instance;
 
     // Customer information
     private string? _customerName;
@@ -532,11 +535,23 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
 
             IsLoading = true;
 
+            // Get the current user ID from UserSession
+            int currentUserId = UserSession.Instance.LoggedInUser?.Id ?? -1;
+            System.Windows.MessageBox.Show(currentUserId.ToString());
+
+            if (currentUserId == -1)
+            {
+                System.Windows.MessageBox.Show("Utilizatorul nu este autentificat corect.", "Eroare",
+                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+                IsLoading = false;
+                return;
+            }
+
             // Create a new Order DTO
             var orderDTO = new OrderDTO
             {
                 OrderCode = GenerateOrderCode(),
-                UserId = 1, // Assuming current logged in user ID is 1, you might want to get this from current session
+                UserId = currentUserId, // Use the current user's ID from the session
                 OrderDate = DateTime.Now,
                 Status = "New",
                 EstimatedDeliveryTime = DateTime.Now.AddMinutes(30),
