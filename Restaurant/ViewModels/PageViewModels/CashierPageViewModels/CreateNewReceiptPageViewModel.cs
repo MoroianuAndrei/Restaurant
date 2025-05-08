@@ -288,6 +288,7 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
         SelectedCategory = Categories.FirstOrDefault(); // Select "All Categories" by default
     }
 
+    // Adăugăm metoda pentru a încărca imaginile produselor
     private async Task LoadProductsAsync()
     {
         // Get all products from database
@@ -301,7 +302,7 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
             var category = await Task.Run(() => CategoryBLL.GetById(productDTO.CategoryId));
             string categoryName = category != null ? category.CategoryName : string.Empty;
 
-            productViewModels.Add(new ProductViewModel
+            var productViewModel = new ProductViewModel
             {
                 Id = productDTO.Id,
                 ProductName = productDTO.ProductName,
@@ -312,10 +313,38 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
                 MeasurementUnit = productDTO.MeasurementUnit,
                 TotalQuantity = productDTO.TotalQuantity,
                 IsMenu = productDTO.IsMenu
-            });
+            };
+
+            // Încărcăm imaginea principală pentru produs
+            await LoadProductImageAsync(productViewModel);
+
+            productViewModels.Add(productViewModel);
         }
 
         Products = productViewModels;
+    }
+
+    private async Task LoadProductImageAsync(ProductViewModel productViewModel)
+    {
+        try
+        {
+            // Încarcă imaginile asociate produsului
+            var productImages = await Task.Run(() => ProductImageBLL.GetProductImagesByProductId(productViewModel.Id));
+
+            // Dacă există cel puțin o imagine, folosește prima imagine ca imagine principală
+            if (productImages.Count > 0)
+            {
+                productViewModel.ImagePath = productImages[0].ImagePath;
+                productViewModel.ImageDescription = productImages[0].ImageDescription;
+            }
+        }
+        catch (Exception ex)
+        {
+            // Tratează erorile de încărcare a imaginii, dar nu bloca restul aplicației
+            Console.WriteLine($"Eroare la încărcarea imaginii produsului {productViewModel.Id}: {ex.Message}");
+        }
+
+        System.Windows.MessageBox.Show(productViewModel.ImagePath);
     }
 
     private async Task LoadMenusAsync()
@@ -430,7 +459,8 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
                 ProductDescription = $"{product.PortionQuantity} {product.MeasurementUnit}",
                 Quantity = 1,
                 UnitPrice = product.Price,
-                IsMenu = false
+                IsMenu = false,
+                ProductImagePath = product.ImagePath // Adăugăm calea către imaginea produsului
             };
             OrderItems.Add(orderItem);
         }

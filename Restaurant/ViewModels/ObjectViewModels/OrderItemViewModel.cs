@@ -95,6 +95,10 @@ public class OrderItemViewModel : BaseViewModel
         {
             _productImagePath = value;
             OnPropertyChanged();
+            OnPropertyChanged(nameof(HasImage));
         }
     }
+
+    // Proprietate calculată pentru a verifica dacă produsul are imagine
+    public bool HasImage => !string.IsNullOrEmpty(ProductImagePath);
 }

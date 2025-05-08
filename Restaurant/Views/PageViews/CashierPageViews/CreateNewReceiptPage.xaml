@@ -11,6 +11,9 @@
     <Page.DataContext>
         <cashierPageViewModels:CreateNewReceiptPageViewModel/>
     </Page.DataContext>
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -99,30 +102,50 @@
                                                 <ui:Card Margin="0,5" Padding="10" Background="#2D2D2D">
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto"/>
                                                             <ColumnDefinition Width="*"/>
                                                             <ColumnDefinition Width="Auto"/>
                                                         </Grid.ColumnDefinitions>
-                                                        <StackPanel Grid.Column="0">
+
+                                                        <!-- Adăugăm imagine pentru produs -->
+                                                        <Border Grid.Column="0" Width="60" Height="60" Margin="0,0,10,0" 
+                        CornerRadius="4" Background="#1E1E1E">
+                                                            <Image Source="{Binding ImagePath}" 
+                           Stretch="UniformToFill"
+                           ToolTip="{Binding ImageDescription}">
+                                                                <Image.Style>
+                                                                    <Style TargetType="Image">
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger Binding="{Binding HasImage}" Value="False">
+                                                                                <Setter Property="Source" Value="/Assets/Images/home_page.png"/>
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Image.Style>
+                                                            </Image>
+                                                        </Border>
+
+                                                        <StackPanel Grid.Column="1">
                                                             <TextBlock Text="{Binding ProductName}" FontWeight="Bold" Foreground="White"/>
                                                             <TextBlock Foreground="#CCCCCC">
-                                                                <Run Text="{Binding CategoryName}"/>
-                                                                <Run Text=" - "/>
-                                                                <Run Text="{Binding Price, StringFormat='{}{0:C}'}"/>
+                        <Run Text="{Binding CategoryName}"/>
+                        <Run Text=" - "/>
+                        <Run Text="{Binding Price, StringFormat='{}{0:C}'}"/>
                                                             </TextBlock>
                                                             <TextBlock Foreground="#CCCCCC">
-                                                                <Run Text="{Binding PortionQuantity}"/>
-                                                                <Run Text=" "/>
-                                                                <Run Text="{Binding MeasurementUnit}"/>
+                        <Run Text="{Binding PortionQuantity}"/>
+                        <Run Text=" "/>
+                        <Run Text="{Binding MeasurementUnit}"/>
                                                             </TextBlock>
                                                         </StackPanel>
                                                         <ui:Button 
-                                                            Grid.Column="1" 
-                                                            Icon="Add" 
-                                                            VerticalAlignment="Center"
-                                                            Background="#1A73E8"
-                                                            Foreground="White"
-                                                            Command="{Binding DataContext.AddProductToOrderCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                                                            CommandParameter="{Binding}"/>
+                    Grid.Column="2" 
+                    Icon="Add" 
+                    VerticalAlignment="Center"
+                    Background="#1A73E8"
+                    Foreground="White"
+                    Command="{Binding DataContext.AddProductToOrderCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                    CommandParameter="{Binding}"/>
                                                     </Grid>
                                                 </ui:Card>
                                             </DataTemplate>
@@ -254,52 +277,70 @@
                                     <ui:Card Margin="0,5" Padding="10" Background="#2D2D2D">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
 
-                                            <StackPanel Grid.Column="0">
+                                            <!-- Adăugăm imagine pentru produsul din coș -->
+                                            <Border Grid.Column="0" Width="40" Height="40" Margin="0,0,10,0" 
+                        CornerRadius="4" Background="#1E1E1E">
+                                                <Image Source="{Binding ProductImagePath}" 
+                           Stretch="UniformToFill">
+                                                    <Image.Style>
+                                                        <Style TargetType="Image">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding HasImage}" Value="False">
+                                                                    <Setter Property="Source" Value="/Assets/Images/home_page.png"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Image.Style>
+                                                </Image>
+                                            </Border>
+
+                                            <StackPanel Grid.Column="1">
                                                 <TextBlock Text="{Binding ProductName}" FontWeight="Bold" Foreground="White"/>
                                                 <TextBlock Text="{Binding ProductDescription}" TextWrapping="Wrap" Foreground="#CCCCCC"/>
                                                 <TextBlock Foreground="#999999" FontStyle="Italic" Visibility="{Binding IsMenu, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                                    <Run Text="Menu Item"/>
+                        <Run Text="Menu Item"/>
                                                 </TextBlock>
                                             </StackPanel>
 
-                                            <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="5,0" VerticalAlignment="Center">
+                                            <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="5,0" VerticalAlignment="Center">
                                                 <ui:Button 
-                                                    Icon="Remove" 
-                                                    Appearance="Secondary"
-                                                    Command="{Binding DataContext.DecreaseQuantityCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                                                    CommandParameter="{Binding}"/>
+                        Icon="Remove" 
+                        Appearance="Secondary"
+                        Command="{Binding DataContext.DecreaseQuantityCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                        CommandParameter="{Binding}"/>
                                                 <TextBlock 
-                                                    Text="{Binding Quantity}" 
-                                                    VerticalAlignment="Center" 
-                                                    TextAlignment="Center" 
-                                                    Width="30"
-                                                    Foreground="White"/>
+                        Text="{Binding Quantity}" 
+                        VerticalAlignment="Center" 
+                        TextAlignment="Center" 
+                        Width="30"
+                        Foreground="White"/>
                                                 <ui:Button 
-                                                    Icon="Add" 
-                                                    Appearance="Secondary"
-                                                    Command="{Binding DataContext.IncreaseQuantityCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                                                    CommandParameter="{Binding}"/>
+                        Icon="Add" 
+                        Appearance="Secondary"
+                        Command="{Binding DataContext.IncreaseQuantityCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                        CommandParameter="{Binding}"/>
                                             </StackPanel>
 
                                             <TextBlock 
-                                                Grid.Column="2" 
-                                                Text="{Binding TotalPrice, StringFormat='{}{0:C}'}" 
-                                                VerticalAlignment="Center" 
-                                                Margin="5,0"
-                                                Foreground="White"/>
+                    Grid.Column="3" 
+                    Text="{Binding TotalPrice, StringFormat='{}{0:C}'}" 
+                    VerticalAlignment="Center" 
+                    Margin="5,0"
+                    Foreground="White"/>
 
                                             <ui:Button 
-                                                Grid.Column="3" 
-                                                Icon="Delete" 
-                                                Appearance="Danger"
-                                                Command="{Binding DataContext.RemoveOrderItemCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                                                CommandParameter="{Binding}"/>
+                    Grid.Column="4" 
+                    Icon="Delete" 
+                    Appearance="Danger"
+                    Command="{Binding DataContext.RemoveOrderItemCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                    CommandParameter="{Binding}"/>
                                         </Grid>
                                     </ui:Card>
                                 </DataTemplate>

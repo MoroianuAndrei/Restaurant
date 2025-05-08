@@ -93,7 +93,7 @@ public static class ProductImageDAL
         var connection = DALHelper.Connection;
         try
         {
-            var command = new SqlCommand("spProductImageSelectByProductId", connection)
+            var command = new SqlCommand("spProductImageSelectByProduct", connection)
             {
                 CommandType = CommandType.StoredProcedure
             };

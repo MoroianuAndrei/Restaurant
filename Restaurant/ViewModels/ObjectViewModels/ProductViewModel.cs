@@ -103,4 +103,31 @@ public class ProductViewModel : BaseViewModel
             OnPropertyChanged();
         }
     }
+
+    // Proprietăți noi pentru imagine
+    private string? _imagePath;
+    public string ImagePath
+    {
+        get => _imagePath ?? "";
+        set
+        {
+            _imagePath = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(HasImage));
+        }
+    }
+
+    private string? _imageDescription;
+    public string ImageDescription
+    {
+        get => _imageDescription ?? "";
+        set
+        {
+            _imageDescription = value;
+            OnPropertyChanged();
+        }
+    }
+
+    // Proprietate calculată pentru a verifica dacă produsul are imagine
+    public bool HasImage => !string.IsNullOrEmpty(ImagePath);
 }
