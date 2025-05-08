@@ -5,6 +5,9 @@
     <Compile Update="Blank.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\PageViews\AdminItemEditPages\ProductEditPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\PageViews\LoginPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

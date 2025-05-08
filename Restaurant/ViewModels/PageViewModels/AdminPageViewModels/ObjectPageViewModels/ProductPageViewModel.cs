@@ -4,7 +4,7 @@ using Restaurant.Extensions.Mapping;
 using Restaurant.Models.BusinessLogicLayer;
 using Restaurant.ViewModels.Commands;
 using Restaurant.ViewModels.ObjectViewModels;
-//using Restaurant.Views.AdminItemEditPages;
+using Restaurant.Views.AdminItemEditPages;
 using Restaurant.Views.AdminItemPageViews;
 using Wpf.Ui.Controls;
 
@@ -28,9 +28,9 @@ public class ProductPageViewModel
                 return;
             }
 
-            //var productEditPage = new ProductEditPage();
+            var productEditPage = new ProductEditPage();
 
-            //currentPage.NavigationService?.Navigate(productEditPage);
+            currentPage.NavigationService?.Navigate(productEditPage);
         });
 
         EditCommand = new RelayCommand<object>(obj =>
@@ -42,9 +42,9 @@ public class ProductPageViewModel
                 return;
             }
 
-            //var productEditPage = new ProductEditPage(product);
+            var productEditPage = new ProductEditPage(product);
 
-            //currentPage.NavigationService?.Navigate(productEditPage);
+            currentPage.NavigationService?.Navigate(productEditPage);
 
         });
         RemoveCommand = new RelayCommand<object>(Remove);
