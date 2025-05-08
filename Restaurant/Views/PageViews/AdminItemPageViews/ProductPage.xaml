@@ -1,0 +1,112 @@
+﻿<Page x:Class="Restaurant.Views.AdminItemPageViews.ProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:objectPageViewModels="clr-namespace:Restaurant.ViewModels.PageViewModels.AdminPageViewModels.ObjectPageViewModels"
+      mc:Ignorable="d"
+      Title="ProductPage">
+    <Page.DataContext>
+        <objectPageViewModels:ProductPageViewModel/>
+    </Page.DataContext>
+    <DockPanel>
+        <Grid
+            DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <ui:TextBlock
+                Text="Products" 
+                Foreground="White"
+                FontTypography="Title"
+                Padding="16 24"/>
+            <ui:Button
+                Name="AddIconButton"
+                Content="Add New"
+                Icon="{ui:SymbolIcon Add16}"
+                Margin="12"
+                Command="{Binding AddNewCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                Grid.Column="1"/>
+        </Grid>
+        
+        <ui:DataGrid
+            ItemsSource="{Binding Products}"
+            Margin="12 0 12 12"
+            Padding="4 12 12 12"
+            GridLinesVisibility="All"
+            AutoGenerateColumns="False"
+            IsReadOnly="True">
+            <ui:DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="FontSize" Value="18"/>
+                    <Setter Property="BorderThickness" Value="0 0 0 1 "/>
+                    <Setter Property="BorderBrush" Value="DarkGray"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="Padding" Value="10"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </ui:DataGrid.ColumnHeaderStyle>
+            <ui:DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                <Grid>
+                                    <ContentPresenter
+                                        VerticalAlignment="Center" 
+                                        Margin="8"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="FontSize" Value="16"/>
+                </Style>
+            </ui:DataGrid.CellStyle>
+            <ui:DataGrid.Columns>
+                <DataGridTextColumn 
+                    Header="Product Name" 
+                    Binding="{Binding ProductName}"
+                    Width="*"/>
+                <DataGridTextColumn 
+                    Header="Portion Quantity" 
+                    Binding="{Binding PortionQuantity}"
+                    Width="*"/>
+                <DataGridTemplateColumn 
+                    Header="Actions" 
+                    CanUserResize="False"
+                    CanUserReorder="False"
+                    CanUserSort="False"
+                    Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel 
+                                Orientation="Horizontal">
+                                <ui:Button 
+                                    Content="Edit" 
+                                    Margin="4" 
+                                    Icon="{ui:SymbolIcon Edit16}" 
+                                    Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}">
+                                    <ui:Button.CommandParameter>
+                                        <MultiBinding Converter="{StaticResource BindingConverter}">
+                                            <Binding />
+                                            <Binding RelativeSource="{RelativeSource AncestorType={x:Type Page}}"/>
+                                        </MultiBinding>
+                                    </ui:Button.CommandParameter>
+                                </ui:Button>
+                                <ui:Button 
+                                    Content="Remove" 
+                                    Margin="4" 
+                                    Icon="{ui:SymbolIcon Delete16}" 
+                                    Command="{Binding DataContext.RemoveCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                                    CommandParameter="{Binding}"/>
+                            </StackPanel>
+                            </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </ui:DataGrid.Columns>
+        </ui:DataGrid>
+    </DockPanel>
+</Page>

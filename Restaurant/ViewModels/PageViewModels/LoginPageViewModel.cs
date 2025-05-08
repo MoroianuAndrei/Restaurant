@@ -9,6 +9,7 @@ using Wpf.Ui.Input;
 using Wpf.Ui.Controls;
 using System.Windows.Controls;
 using Restaurant.Views.PageViews.CashierPageViews;
+using Restaurant.Views.PageViews.AdminPageViews;
 
 namespace Restaurant.ViewModels.PageViewModels;
 
@@ -71,7 +72,7 @@ public class LoginPageViewModel : BaseViewModel
 
         if (UserBLL.IsValidAdmin(Email, Password))
         {
-            page.NavigationService?.Navigate(new Blank());
+            page.NavigationService?.Navigate(new AdminPage());
         }
         else
         {
