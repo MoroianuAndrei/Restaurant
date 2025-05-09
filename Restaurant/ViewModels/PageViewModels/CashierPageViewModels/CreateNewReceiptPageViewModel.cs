@@ -316,36 +316,10 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
                 ImagePath = productDTO.ImagePath
             };
 
-            // Încărcăm imaginea principală pentru produs
-            //await LoadProductImageAsync(productViewModel);
-
             productViewModels.Add(productViewModel);
         }
 
         Products = productViewModels;
-    }
-
-    private async Task LoadProductImageAsync(ProductViewModel productViewModel)
-    {
-        try
-        {
-            // Încarcă imaginile asociate produsului
-            var productImages = await Task.Run(() => ProductImageBLL.GetProductImagesByProductId(productViewModel.Id));
-
-            // Dacă există cel puțin o imagine, folosește prima imagine ca imagine principală
-            if (productImages.Count > 0)
-            {
-                productViewModel.ImagePath = productImages[0].ImagePath;
-                productViewModel.ImageDescription = productImages[0].ImageDescription;
-            }
-        }
-        catch (Exception ex)
-        {
-            // Tratează erorile de încărcare a imaginii, dar nu bloca restul aplicației
-            Console.WriteLine($"Eroare la încărcarea imaginii produsului {productViewModel.Id}: {ex.Message}");
-        }
-
-        System.Windows.MessageBox.Show(productViewModel.ImagePath);
     }
 
     private async Task LoadMenusAsync()
