@@ -34,7 +34,8 @@ public static class ProductDAL
                     MeasurementUnit = reader["MeasurementUnit"].ToString()!,
                     TotalQuantity = (decimal)reader["TotalQuantity"],
                     CategoryId = (int)reader["CategoryId"],
-                    IsMenu = (bool)reader["IsMenu"]
+                    IsMenu = (bool)reader["IsMenu"],
+                    ImagePath = reader["ImagePath"].ToString()
                 };
                 products.Add(product);
             }
@@ -80,6 +81,7 @@ public static class ProductDAL
                 product.TotalQuantity = (decimal)reader["TotalQuantity"];
                 product.CategoryId = (int)reader["CategoryId"];
                 product.IsMenu = (bool)reader["IsMenu"];
+                product.ImagePath = reader["ImagePath"].ToString();
             }
 
             reader.Close();
@@ -113,6 +115,7 @@ public static class ProductDAL
             command.Parameters.AddWithValue("@TotalQuantity", product.TotalQuantity);
             command.Parameters.AddWithValue("@CategoryId", product.CategoryId);
             command.Parameters.AddWithValue("@IsMenu", product.IsMenu);
+            command.Parameters.AddWithValue("@ImagePath", product.ImagePath ?? (object)DBNull.Value);
 
             connection.Open();
 
@@ -146,6 +149,7 @@ public static class ProductDAL
             command.Parameters.AddWithValue("@TotalQuantity", product.TotalQuantity);
             command.Parameters.AddWithValue("@CategoryId", product.CategoryId);
             command.Parameters.AddWithValue("@IsMenu", product.IsMenu);
+            command.Parameters.AddWithValue("@ImagePath", product.ImagePath ?? (object)DBNull.Value);
 
             connection.Open();
 
@@ -214,7 +218,8 @@ public static class ProductDAL
                     MeasurementUnit = reader["MeasurementUnit"].ToString()!,
                     TotalQuantity = (decimal)reader["TotalQuantity"],
                     CategoryId = (int)reader["CategoryId"],
-                    IsMenu = (bool)reader["IsMenu"]
+                    IsMenu = (bool)reader["IsMenu"],
+                    ImagePath = reader["ImagePath"].ToString()
                 };
                 products.Add(product);
             }
@@ -260,7 +265,8 @@ public static class ProductDAL
                     MeasurementUnit = reader["MeasurementUnit"].ToString()!,
                     TotalQuantity = (decimal)reader["TotalQuantity"],
                     CategoryId = (int)reader["CategoryId"],
-                    IsMenu = (bool)reader["IsMenu"]
+                    IsMenu = (bool)reader["IsMenu"],
+                    ImagePath = reader["ImagePath"].ToString()
                 };
                 products.Add(product);
             }
@@ -307,7 +313,8 @@ public static class ProductDAL
                     MeasurementUnit = reader["MeasurementUnit"].ToString()!,
                     TotalQuantity = (decimal)reader["TotalQuantity"],
                     CategoryId = (int)reader["CategoryId"],
-                    IsMenu = (bool)reader["IsMenu"]
+                    IsMenu = (bool)reader["IsMenu"],
+                    ImagePath = reader["ImagePath"].ToString()
                 };
                 products.Add(product);
             }

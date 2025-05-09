@@ -18,7 +18,8 @@ public static class ProductME
             TotalQuantity = product.TotalQuantity,
             CategoryId = product.CategoryId,
             IsMenu = product.IsMenu,
-            CategoryName = product.Category?.ToString() // You might want to adjust this based on your Category class
+            CategoryName = product.Category?.ToString(), // You might want to adjust this based on your Category class
+            ImagePath = product.ImagePath
         };
     }
 
@@ -34,7 +35,8 @@ public static class ProductME
             TotalQuantity = productViewModel.TotalQuantity,
             CategoryId = productViewModel.CategoryId,
             IsMenu = productViewModel.IsMenu,
-            CategoryName = productViewModel.CategoryName
+            CategoryName = productViewModel.CategoryName,
+            ImagePath = productViewModel.ImagePath
         };
     }
 
@@ -49,7 +51,8 @@ public static class ProductME
             MeasurementUnit = productDTO.MeasurementUnit ?? "",
             TotalQuantity = productDTO.TotalQuantity,
             CategoryId = productDTO.CategoryId,
-            IsMenu = productDTO.IsMenu
+            IsMenu = productDTO.IsMenu,
+            ImagePath = productDTO.ImagePath
         };
     }
 
@@ -65,7 +68,8 @@ public static class ProductME
             TotalQuantity = productDTO.TotalQuantity,
             CategoryId = productDTO.CategoryId,
             IsMenu = productDTO.IsMenu,
-            CategoryName = productDTO.CategoryName ?? ""
+            CategoryName = productDTO.CategoryName ?? "",
+            ImagePath = productDTO.ImagePath
         };
     }
 }

@@ -312,11 +312,12 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
                 PortionQuantity = productDTO.PortionQuantity,
                 MeasurementUnit = productDTO.MeasurementUnit,
                 TotalQuantity = productDTO.TotalQuantity,
-                IsMenu = productDTO.IsMenu
+                IsMenu = productDTO.IsMenu,
+                ImagePath = productDTO.ImagePath
             };
 
             // Încărcăm imaginea principală pentru produs
-            await LoadProductImageAsync(productViewModel);
+            //await LoadProductImageAsync(productViewModel);
 
             productViewModels.Add(productViewModel);
         }

@@ -32,8 +32,6 @@ public partial class DbRestaurantContext : DbContext
 
     public virtual DbSet<Product> Products { get; set; }
 
-    public virtual DbSet<ProductImage> ProductImages { get; set; }
-
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -147,6 +145,7 @@ public partial class DbRestaurantContext : DbContext
 
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
+            entity.Property(e => e.ImagePath).HasMaxLength(500);
             entity.Property(e => e.IsMenu).HasDefaultValue(false);
             entity.Property(e => e.MeasurementUnit).HasMaxLength(20);
             entity.Property(e => e.PortionQuantity).HasColumnType("decimal(10, 2)");
@@ -179,21 +178,6 @@ public partial class DbRestaurantContext : DbContext
                     });
         });
 
-        modelBuilder.Entity<ProductImage>(entity =>
-        {
-            entity.HasKey(e => e.ImageId).HasName("PK__ProductI__7516F4EC012E4FFF");
-
-            entity.Property(e => e.ImageId).HasColumnName("ImageID");
-            entity.Property(e => e.ImageDescription).HasMaxLength(200);
-            entity.Property(e => e.ImagePath).HasMaxLength(500);
-            entity.Property(e => e.ProductId).HasColumnName("ProductID");
-
-            entity.HasOne(d => d.Product).WithMany(p => p.ProductImages)
-                .HasForeignKey(d => d.ProductId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_ProductImages_Products");
-        });
-
         modelBuilder.Entity<User>(entity =>
         {
             entity.HasKey(e => e.UserId).HasName("PK__Users__1788CCACC05F4195");
@@ -214,3 +198,4 @@ public partial class DbRestaurantContext : DbContext
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
+
