@@ -22,6 +22,7 @@ public static class ProductDAL
 
             var reader = command.ExecuteReader();
             var products = new List<Product>();
+            var categories = CategoryDAL.GetCategories().ToList();
 
             while (reader.Read())
             {
@@ -33,7 +34,9 @@ public static class ProductDAL
                     PortionQuantity = (decimal)reader["PortionQuantity"],
                     MeasurementUnit = reader["MeasurementUnit"].ToString()!,
                     TotalQuantity = (decimal)reader["TotalQuantity"],
-                    CategoryId = (int)reader["CategoryId"],
+                    Category = (from c in categories
+                                where c.CategoryId == (int)reader["CategoryId"]
+                                select c).FirstOrDefault(),
                     IsMenu = (bool)reader["IsMenu"],
                     ImagePath = reader["ImagePath"].ToString()
                 };

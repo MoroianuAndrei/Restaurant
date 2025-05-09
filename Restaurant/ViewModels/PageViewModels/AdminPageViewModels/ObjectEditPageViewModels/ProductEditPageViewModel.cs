@@ -31,13 +31,66 @@ public class ProductEditPageViewModel : BaseViewModel
 
     public string Category
     {
-        get => Product.CategoryName;
+        get => Product.Category.CategoryName;
         set
         {
-            Product.CategoryId = (from category in CategoryBLL.GetCategories().Select(c => c.ToViewModel())
-                                  where category.CategoryName == value
-                                  select category.Id).FirstOrDefault();
-            Product.CategoryName = value;
+            Product.Category = (from category in CategoryBLL.GetCategories().Select(c => c.ToViewModel())
+                                where category.CategoryName == value
+                                select category).FirstOrDefault() ?? new CategoryViewModel();
+            OnPropertyChanged();
+        }
+    }
+
+    // Proprietate pentru afișarea prețului (evită afișarea valorii 0)
+    public string PriceDisplay
+    {
+        get => Product.Price > 0 ? Product.Price.ToString() : "";
+        set
+        {
+            if (decimal.TryParse(value, out decimal price))
+            {
+                Product.Price = price;
+            }
+            else if (string.IsNullOrWhiteSpace(value))
+            {
+                Product.Price = 0;
+            }
+            OnPropertyChanged();
+        }
+    }
+
+    // Proprietate pentru afișarea cantității porției (evită afișarea valorii 0)
+    public string PortionQuantityDisplay
+    {
+        get => Product.PortionQuantity > 0 ? Product.PortionQuantity.ToString() : "";
+        set
+        {
+            if (decimal.TryParse(value, out decimal quantity))
+            {
+                Product.PortionQuantity = quantity;
+            }
+            else if (string.IsNullOrWhiteSpace(value))
+            {
+                Product.PortionQuantity = 0;
+            }
+            OnPropertyChanged();
+        }
+    }
+
+    // Proprietate pentru afișarea cantității totale (evită afișarea valorii 0)
+    public string TotalQuantityDisplay
+    {
+        get => Product.TotalQuantity > 0 ? Product.TotalQuantity.ToString() : "";
+        set
+        {
+            if (decimal.TryParse(value, out decimal quantity))
+            {
+                Product.TotalQuantity = quantity;
+            }
+            else if (string.IsNullOrWhiteSpace(value))
+            {
+                Product.TotalQuantity = 0;
+            }
             OnPropertyChanged();
         }
     }
@@ -150,7 +203,7 @@ public class ProductEditPageViewModel : BaseViewModel
             }
 
             // Validate category
-            if (string.IsNullOrEmpty(Product.CategoryName))
+            if (string.IsNullOrEmpty(Product.Category.CategoryName))
             {
                 ErrorMessage = "Category is required";
                 CategoryHasError = true;

@@ -8,9 +8,8 @@
         public decimal PortionQuantity { get; init; }
         public string? MeasurementUnit { get; init; }
         public decimal TotalQuantity { get; init; }
-        public int CategoryId { get; init; }
+        public CategoryDTO? Category { get; init; }
         public bool? IsMenu { get; init; }
-        public string? CategoryName { get; init; }
         public string? ImagePath { get; init; }
     }
 }

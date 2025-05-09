@@ -12,6 +12,7 @@ using Restaurant.Models.EntityLayer;
 using Restaurant.Models.DataTransferLayer;
 using Restaurant.Models.DataAccessLayer;
 using Restaurant.Services;
+using Restaurant.Extensions.Mapping;
 
 namespace Restaurant.ViewModels.PageViewModels.CashierPageViewModels;
 
@@ -298,8 +299,12 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
         var productViewModels = new ObservableCollection<ProductViewModel>();
         foreach (var productDTO in productDTOs)
         {
+            // Add null check before accessing Category.Id
+            int categoryId = productDTO.Category?.Id ?? 0;
+
             // Get category name
-            var category = await Task.Run(() => CategoryBLL.GetById(productDTO.CategoryId));
+            var category = categoryId > 0 ?
+                await Task.Run(() => CategoryBLL.GetById(categoryId)) : null;
             string categoryName = category != null ? category.CategoryName : string.Empty;
 
             var productViewModel = new ProductViewModel
@@ -307,8 +312,7 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
                 Id = productDTO.Id,
                 ProductName = productDTO.ProductName,
                 Price = productDTO.Price,
-                CategoryId = productDTO.CategoryId,
-                CategoryName = categoryName,
+                Category = productDTO.Category != null ? productDTO.Category.ToViewModel() : new CategoryViewModel(),
                 PortionQuantity = productDTO.PortionQuantity,
                 MeasurementUnit = productDTO.MeasurementUnit,
                 TotalQuantity = productDTO.TotalQuantity,
@@ -378,7 +382,7 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
         // Apply category filter if selected
         if (SelectedCategory != null && SelectedCategory.Id != 0) // ID 0 is "All Categories"
         {
-            query = query.Where(p => p.CategoryId == SelectedCategory.Id);
+            query = query.Where(p => p.Category.Id == SelectedCategory.Id);
         }
 
         FilteredProducts = new ObservableCollection<ProductViewModel>(query);

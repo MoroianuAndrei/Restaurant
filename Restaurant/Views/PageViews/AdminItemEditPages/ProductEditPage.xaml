@@ -91,7 +91,7 @@
                 Padding="8"
                 Margin="16 8"/>
             <ui:TextBox
-                Text="{Binding Product.Price}"
+                Text="{Binding Product.Price, UpdateSourceTrigger=PropertyChanged}"
                 Grid.Row="2"
                 Grid.Column="1"
                 Margin="16 8"/>
@@ -114,7 +114,7 @@
                 Padding="8"
                 Margin="16 8"/>
             <ui:TextBox
-                Text="{Binding Product.PortionQuantity}"
+                Text="{Binding Product.PortionQuantity, UpdateSourceTrigger=PropertyChanged}"
                 Grid.Row="4"
                 Grid.Column="1"
                 Margin="16 8"/>
@@ -144,7 +144,7 @@
                 Padding="8"
                 Margin="16 8"/>
             <ui:TextBox
-                Text="{Binding Product.TotalQuantity}"
+                Text="{Binding Product.TotalQuantity, UpdateSourceTrigger=PropertyChanged}"
                 Grid.Row="6"
                 Grid.Column="1"
                 Margin="16 8"/>

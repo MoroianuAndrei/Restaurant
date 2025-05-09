@@ -71,13 +71,13 @@ public class ProductViewModel : BaseViewModel
         }
     }
 
-    private int _categoryId;
-    public int CategoryId
+    private CategoryViewModel? _category;
+    public CategoryViewModel Category
     {
-        get => _categoryId;
+        get => _category ?? new CategoryViewModel();
         set
         {
-            _categoryId = value;
+            _category = value;
             OnPropertyChanged();
         }
     }
@@ -89,17 +89,6 @@ public class ProductViewModel : BaseViewModel
         set
         {
             _isMenu = value;
-            OnPropertyChanged();
-        }
-    }
-
-    private string? _categoryName;
-    public string CategoryName
-    {
-        get => _categoryName ?? "";
-        set
-        {
-            _categoryName = value;
             OnPropertyChanged();
         }
     }
