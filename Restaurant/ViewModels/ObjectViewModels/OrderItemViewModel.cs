@@ -1,4 +1,6 @@
-﻿namespace Restaurant.ViewModels.ObjectViewModels;
+﻿using System.Collections.ObjectModel;
+
+namespace Restaurant.ViewModels.ObjectViewModels;
 
 public class OrderItemViewModel : BaseViewModel
 {
@@ -101,4 +103,32 @@ public class OrderItemViewModel : BaseViewModel
 
     // Proprietate calculată pentru a verifica dacă produsul are imagine
     public bool HasImage => !string.IsNullOrEmpty(ProductImagePath);
+
+    // Alergeni asociați cu acest element de comandă
+    private ObservableCollection<AllergenViewModel> _allergens = new();
+    public ObservableCollection<AllergenViewModel> Allergens
+    {
+        get => _allergens;
+        set
+        {
+            _allergens = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(HasAllergens));
+            OnPropertyChanged(nameof(AllergensDisplay));
+        }
+    }
+
+    // Proprietate calculată pentru a verifica dacă produsul are alergeni
+    public bool HasAllergens => Allergens.Count > 0;
+
+    // Proprietate calculată pentru afișarea listei de alergeni într-un format ușor de citit
+    public string AllergensDisplay
+    {
+        get
+        {
+            if (!HasAllergens) return string.Empty;
+
+            return string.Join(", ", Allergens.Select(a => a.AllergenName));
+        }
+    }
 }

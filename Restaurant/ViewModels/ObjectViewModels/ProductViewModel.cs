@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using Restaurant.ViewModels;
 
 namespace Restaurant.ViewModels.ObjectViewModels;
@@ -93,7 +94,7 @@ public class ProductViewModel : BaseViewModel
         }
     }
 
-    // Proprietăți noi pentru imagine
+    // Proprietăți pentru imagine
     private string? _imagePath;
     public string ImagePath
     {
@@ -119,4 +120,32 @@ public class ProductViewModel : BaseViewModel
 
     // Proprietate calculată pentru a verifica dacă produsul are imagine
     public bool HasImage => !string.IsNullOrEmpty(ImagePath);
+
+    // Colecție de alergeni pentru produs
+    private ObservableCollection<AllergenViewModel> _allergens = new();
+    public ObservableCollection<AllergenViewModel> Allergens
+    {
+        get => _allergens;
+        set
+        {
+            _allergens = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(HasAllergens));
+            OnPropertyChanged(nameof(AllergensDisplay));
+        }
+    }
+
+    // Proprietate calculată pentru a verifica dacă produsul are alergeni
+    public bool HasAllergens => Allergens.Count > 0;
+
+    // Proprietate calculată pentru afișarea listei de alergeni într-un format ușor de citit
+    public string AllergensDisplay
+    {
+        get
+        {
+            if (!HasAllergens) return string.Empty;
+
+            return string.Join(", ", Allergens.Select(a => a.AllergenName));
+        }
+    }
 }

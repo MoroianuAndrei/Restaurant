@@ -320,10 +320,42 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
                 ImagePath = productDTO.ImagePath
             };
 
+            // Load allergens for this product
+            await LoadAllergensForProductAsync(productViewModel, productDTO.Id);
+
             productViewModels.Add(productViewModel);
         }
 
         Products = productViewModels;
+    }
+
+    // Helper method to load allergens for a specific product
+    private async Task LoadAllergensForProductAsync(ProductViewModel productViewModel, int productId)
+    {
+        try
+        {
+            // Assuming there's a method in your BLL layer to get allergens for a product
+            // If it doesn't exist, you'll need to create it
+            var allergenDTOs = await Task.Run(() => ProductAllergenBLL.GetAllergensByProductId(productId));
+
+            System.Windows.MessageBox.Show(productId.ToString() + " " + allergenDTOs.Count.ToString());
+
+            if (allergenDTOs != null && allergenDTOs.Count > 0)
+            {
+                // Convert allergen DTOs to ViewModels and assign to the product
+                var allergenViewModels = new ObservableCollection<AllergenViewModel>();
+                foreach (var allergenDTO in allergenDTOs)
+                {
+                    allergenViewModels.Add(allergenDTO.ToViewModel());
+                }
+                productViewModel.Allergens = allergenViewModels;
+            }
+        }
+        catch (Exception ex)
+        {
+            // Log the error but don't crash the application
+            System.Diagnostics.Debug.WriteLine($"Error loading allergens for product {productId}: {ex.Message}");
+        }
     }
 
     private async Task LoadMenusAsync()
@@ -431,6 +463,23 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
         }
         else
         {
+            // Create a new ObservableCollection for allergens to avoid reference issues
+            var orderAllergens = new ObservableCollection<AllergenViewModel>();
+
+            // Copy each allergen from the product to the order item
+            if (product.Allergens != null && product.Allergens.Count > 0)
+            {
+                foreach (var allergen in product.Allergens)
+                {
+                    orderAllergens.Add(new AllergenViewModel
+                    {
+                        Id = allergen.Id,
+                        AllergenName = allergen.AllergenName,
+                        Description = allergen.Description
+                    });
+                }
+            }
+
             var orderItem = new OrderItemViewModel
             {
                 ProductId = product.Id,
@@ -439,7 +488,8 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
                 Quantity = 1,
                 UnitPrice = product.Price,
                 IsMenu = false,
-                ProductImagePath = product.ImagePath // Adăugăm calea către imaginea produsului
+                ProductImagePath = product.ImagePath,
+                Allergens = orderAllergens // Assign the new collection of allergens
             };
             OrderItems.Add(orderItem);
         }

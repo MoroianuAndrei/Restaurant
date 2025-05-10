@@ -1,4 +1,7 @@
-﻿namespace Restaurant.Models.DataTransferLayer
+﻿using System.Collections.ObjectModel;
+using Restaurant.Models.EntityLayer;
+
+namespace Restaurant.Models.DataTransferLayer
 {
     public class ProductDTO
     {
@@ -9,6 +12,7 @@
         public string? MeasurementUnit { get; init; }
         public decimal TotalQuantity { get; init; }
         public CategoryDTO? Category { get; init; }
+        public ObservableCollection<Allergen>? Allergens {  get; init; }
         public bool? IsMenu { get; init; }
         public string? ImagePath { get; init; }
     }
