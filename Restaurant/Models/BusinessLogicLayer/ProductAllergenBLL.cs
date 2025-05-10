@@ -12,7 +12,6 @@ public static class ProductAllergenBLL
     {
         // Call the data access layer to get allergens for this product
         var allergens = ProductAllergenDAL.GetAllergensByProductId(productId);
-        MessageBox.Show("ALLERGENS " + allergens.Count().ToString());
 
         // Convert entities to DTOs
         var allergenDTOs = new ObservableCollection<AllergenDTO>();

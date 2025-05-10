@@ -131,4 +131,16 @@ public class OrderItemViewModel : BaseViewModel
             return string.Join(", ", Allergens.Select(a => a.AllergenName));
         }
     }
+
+    // Adăugăm o proprietate pentru elementele meniului
+    private ObservableCollection<MenuItemViewModel>? _menuItems;
+    public ObservableCollection<MenuItemViewModel>? MenuItems
+    {
+        get => _menuItems;
+        set
+        {
+            _menuItems = value;
+            OnPropertyChanged();
+        }
+    }
 }

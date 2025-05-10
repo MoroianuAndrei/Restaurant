@@ -338,8 +338,6 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
             // If it doesn't exist, you'll need to create it
             var allergenDTOs = await Task.Run(() => ProductAllergenBLL.GetAllergensByProductId(productId));
 
-            System.Windows.MessageBox.Show(productId.ToString() + " " + allergenDTOs.Count.ToString());
-
             if (allergenDTOs != null && allergenDTOs.Count > 0)
             {
                 // Convert allergen DTOs to ViewModels and assign to the product
@@ -501,17 +499,56 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
     {
         if (parameter is not MenuViewModel menu) return;
 
+        // Verifică disponibilitatea stocului pentru toate produsele din meniu
+        if (!IsMenuStockAvailable(menu))
+        {
+            System.Windows.MessageBox.Show(
+                "Nu există suficientă cantitate disponibilă pentru unul sau mai multe produse din acest meniu.",
+                "Stoc insuficient",
+                System.Windows.MessageBoxButton.OK,
+                MessageBoxImage.Warning
+            );
+            return;
+        }
+
         // Verifică dacă meniul există deja în comandă
         var existingItem = OrderItems.FirstOrDefault(item => item.ProductId == menu.Id && item.IsMenu);
 
         if (existingItem != null)
         {
-            // Dacă meniul există deja, îi crește cantitatea
+            // Verifică din nou disponibilitatea stocului pentru încă o cantitate din acest meniu
+            if (!IsMenuStockAvailable(menu, existingItem.Quantity + 1))
+            {
+                System.Windows.MessageBox.Show(
+                    "Nu există suficientă cantitate disponibilă pentru a crește numărul de meniuri.",
+                    "Stoc insuficient",
+                    System.Windows.MessageBoxButton.OK,
+                    MessageBoxImage.Warning
+                );
+                return;
+            }
+
+            // Dacă meniul există deja și avem stoc suficient, îi crește cantitatea
             existingItem.Quantity++;
         }
         else
         {
             // Dacă nu există, creează un nou element pentru meniu
+            var menuItems = new ObservableCollection<MenuItemViewModel>();
+
+            // Adăugăm elementele meniului pentru a le putea utiliza la scăderea din stoc
+            foreach (var item in menu.MenuItems)
+            {
+                menuItems.Add(new MenuItemViewModel
+                {
+                    MenuId = item.MenuId,
+                    ProductId = item.ProductId,
+                    ProductName = item.ProductName,
+                    Price = item.Price,
+                    Quantity = item.Quantity
+                });
+            }
+
             var orderItem = new OrderItemViewModel
             {
                 ProductId = menu.Id,
@@ -519,13 +556,163 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
                 ProductDescription = $"Discount: {menu.Discount:P0}",
                 Quantity = 1,
                 UnitPrice = CalculateMenuPrice(menu),
-                IsMenu = true
+                IsMenu = true,
+                MenuItems = menuItems // Salvăm elementele meniului în orderItem
             };
 
             OrderItems.Add(orderItem);
         }
 
         UpdateOrderTotals();
+    }
+
+    // Metoda verifică dacă există suficient stoc pentru toate produsele din meniu
+    private bool IsMenuStockAvailable(MenuViewModel menu, int quantity = 1)
+    {
+        foreach (var menuItem in menu.MenuItems)
+        {
+            // Găsește produsul din lista de produse
+            var product = Products.FirstOrDefault(p => p.Id == menuItem.ProductId);
+            if (product == null) continue; // Skip if product not found
+
+            // Calculează cantitatea necesară pentru acest produs în cadrul meniului
+            decimal requiredQuantity = menuItem.Quantity * product.PortionQuantity * quantity;
+
+            // Verifică cantitatea totală deja comandată pentru acest produs (în afara meniurilor)
+            var existingOrderItems = OrderItems.Where(item => item.ProductId == menuItem.ProductId && !item.IsMenu);
+            decimal existingQuantityUsed = 0;
+            foreach (var item in existingOrderItems)
+            {
+                existingQuantityUsed += item.Quantity * product.PortionQuantity;
+            }
+
+            // Verifică cantitatea folosită în meniurile deja comandate
+            var existingMenuItems = OrderItems.Where(item => item.IsMenu && item.MenuItems != null);
+            foreach (var orderItem in existingMenuItems)
+            {
+                var menuItemInExistingMenu = orderItem.MenuItems.FirstOrDefault(mi => mi.ProductId == menuItem.ProductId);
+                if (menuItemInExistingMenu != null)
+                {
+                    existingQuantityUsed += menuItemInExistingMenu.Quantity * product.PortionQuantity * orderItem.Quantity;
+                }
+            }
+
+            // Verifică dacă mai avem suficientă cantitate disponibilă
+            if (existingQuantityUsed + requiredQuantity > product.TotalQuantity)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private async void SaveReceipt(object? parameter)
+    {
+        try
+        {
+            // Validate the order
+            if (OrderItems.Count == 0)
+            {
+                System.Windows.MessageBox.Show("Nu puteți salva o comandă fără produse.", "Eroare",
+                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
+                return;
+            }
+
+            IsLoading = true;
+
+            // Get the current user ID from UserSession
+            int currentUserId = UserSession.Instance.LoggedInUser?.Id ?? -1;
+
+            if (currentUserId == -1)
+            {
+                System.Windows.MessageBox.Show("Utilizatorul nu este autentificat corect.", "Eroare",
+                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+                IsLoading = false;
+                return;
+            }
+
+            // Create a new Order DTO
+            var orderDTO = new OrderDTO
+            {
+                OrderCode = GenerateOrderCode(),
+                UserId = currentUserId, // Use the current user's ID from the session
+                OrderDate = DateTime.Now,
+                Status = "New",
+                EstimatedDeliveryTime = DateTime.Now.AddMinutes(30),
+                SubtotalAmount = SubtotalAmount,
+                DiscountAmount = DiscountAmount,
+                ShippingCost = ShippingCost,
+                TotalAmount = TotalAmount,
+                // Additional fields like CustomerName and TableNumber can be added to your Order entity if needed
+            };
+
+            // Save the order to database
+            var savedOrderId = await Task.Run(() => OrderBLL.Insert(orderDTO));
+
+            if (savedOrderId > 0)
+            {
+                // Save each order item
+                foreach (var item in OrderItems)
+                {
+                    var orderItemDTO = new OrderItemDTO
+                    {
+                        OrderId = savedOrderId,
+                        ProductId = item.ProductId,
+                        Quantity = item.Quantity,
+                        UnitPrice = item.UnitPrice,
+                        IsMenu = item.IsMenu
+                    };
+
+                    await Task.Run(() => OrderItemBLL.Insert(orderItemDTO));
+
+                    // Scade din stoc pentru produse individuale
+                    if (!item.IsMenu)
+                    {
+                        // Caută produsul ca să obții PortionQuantity
+                        var product = Products.FirstOrDefault(p => p.Id == item.ProductId);
+                        if (product != null)
+                        {
+                            decimal quantityToDecrease = item.Quantity * product.PortionQuantity;
+                            await Task.Run(() => ProductBLL.DecreaseQuantity(item.ProductId, quantityToDecrease));
+                        }
+                    }
+                    // Scade din stoc pentru produsele din meniu
+                    else if (item.IsMenu && item.MenuItems != null && item.MenuItems.Count > 0)
+                    {
+                        foreach (var menuItem in item.MenuItems)
+                        {
+                            var product = Products.FirstOrDefault(p => p.Id == menuItem.ProductId);
+                            if (product != null)
+                            {
+                                decimal quantityToDecrease = item.Quantity * menuItem.Quantity * product.PortionQuantity;
+                                await Task.Run(() => ProductBLL.DecreaseQuantity(menuItem.ProductId, quantityToDecrease));
+                            }
+                        }
+                    }
+                }
+
+                System.Windows.MessageBox.Show($"Comandă salvată cu succes! Cod comandă: {orderDTO.OrderCode}", "Succes",
+                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
+
+                // Navigate back
+                NavigationView?.Navigate("Home");
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Nu s-a putut salva comanda.", "Eroare",
+                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Windows.MessageBox.Show($"Eroare la salvarea comenzii: {ex.Message}", "Eroare",
+                System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+        }
+        finally
+        {
+            IsLoading = false;
+        }
     }
 
     private decimal CalculateMenuPrice(MenuViewModel menu)
@@ -614,102 +801,6 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
     private void CalculateTotal()
     {
         TotalAmount = SubtotalAmount - DiscountAmount + ShippingCost;
-    }
-
-    private async void SaveReceipt(object? parameter)
-    {
-        try
-        {
-            // Validate the order
-            if (OrderItems.Count == 0)
-            {
-                System.Windows.MessageBox.Show("Nu puteți salva o comandă fără produse.", "Eroare",
-                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
-                return;
-            }
-
-            IsLoading = true;
-
-            // Get the current user ID from UserSession
-            int currentUserId = UserSession.Instance.LoggedInUser?.Id ?? -1;
-
-            if (currentUserId == -1)
-            {
-                System.Windows.MessageBox.Show("Utilizatorul nu este autentificat corect.", "Eroare",
-                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
-                IsLoading = false;
-                return;
-            }
-
-            // Create a new Order DTO
-            var orderDTO = new OrderDTO
-            {
-                OrderCode = GenerateOrderCode(),
-                UserId = currentUserId, // Use the current user's ID from the session
-                OrderDate = DateTime.Now,
-                Status = "New",
-                EstimatedDeliveryTime = DateTime.Now.AddMinutes(30),
-                SubtotalAmount = SubtotalAmount,
-                DiscountAmount = DiscountAmount,
-                ShippingCost = ShippingCost,
-                TotalAmount = TotalAmount,
-                // Additional fields like CustomerName and TableNumber can be added to your Order entity if needed
-            };
-
-            // Save the order to database
-            var savedOrderId = await Task.Run(() => OrderBLL.Insert(orderDTO));
-
-            if (savedOrderId > 0)
-            {
-                // Save each order item
-                foreach (var item in OrderItems)
-                {
-                    var orderItemDTO = new OrderItemDTO
-                    {
-                        OrderId = savedOrderId,
-                        ProductId = item.ProductId,
-                        Quantity = item.Quantity,
-                        UnitPrice = item.UnitPrice,
-                        IsMenu = item.IsMenu
-                    };
-
-                    await Task.Run(() => OrderItemBLL.Insert(orderItemDTO));
-
-                    // Scade din stoc doar dacă nu este meniu
-                    if (!item.IsMenu)
-                    {
-                        // Caută produsul ca să obții PortionQuantity
-                        var product = Products.FirstOrDefault(p => p.Id == item.ProductId);
-                        if (product != null)
-                        {
-                            decimal quantityToDecrease = item.Quantity * product.PortionQuantity;
-                            await Task.Run(() => ProductBLL.DecreaseQuantity(item.ProductId, quantityToDecrease));
-                        }
-                    }
-                }
-
-
-                System.Windows.MessageBox.Show($"Comandă salvată cu succes! Cod comandă: {orderDTO.OrderCode}", "Succes",
-                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
-
-                // Navigate back
-                NavigationView?.Navigate("Home");
-            }
-            else
-            {
-                System.Windows.MessageBox.Show("Nu s-a putut salva comanda.", "Eroare",
-                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
-            }
-        }
-        catch (Exception ex)
-        {
-            System.Windows.MessageBox.Show($"Eroare la salvarea comenzii: {ex.Message}", "Eroare",
-                System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
-        }
-        finally
-        {
-            IsLoading = false;
-        }
     }
 
     private string GenerateOrderCode()
