@@ -308,11 +308,16 @@ public class ProductEditPageViewModel : BaseViewModel
             // Save product based on whether it's a new product or an existing one
             if (Product.Id == 0) // New product
             {
-                ProductBLL.AddProduct(Product.ToDTO());
+                var productEntity = Product.ToDTO();
+                ProductBLL.AddProduct(productEntity);
+
+                ProductAllergenBLL.AssignAllergenToProduct(productEntity.Id, Product.Allergens);
             }
             else // Existing product
             {
                 ProductBLL.EditProduct(Product.ToDTO());
+
+                ProductAllergenBLL.AssignAllergenToProduct(Product.Id, Product.Allergens);
             }
 
             // Navigate back to product page
