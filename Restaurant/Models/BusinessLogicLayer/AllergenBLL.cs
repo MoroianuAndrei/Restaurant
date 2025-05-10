@@ -17,6 +17,16 @@ public static class AllergenBLL
         return allergens;
     }
 
+    public static ObservableCollection<AllergenDTO> GetAllergensForProduct(int productId)
+    {
+        var allergens = new ObservableCollection<AllergenDTO>();
+        foreach (var allergen in AllergenDAL.GetAllergensForProduct(productId))
+        {
+            allergens.Add(allergen.ToDTO());
+        }
+        return allergens;
+    }
+
     public static AllergenDTO GetAllergenById(int id)
     {
         return AllergenDAL.GetAllergenById(id).ToDTO();

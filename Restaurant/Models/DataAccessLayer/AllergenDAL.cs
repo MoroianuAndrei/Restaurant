@@ -49,6 +49,48 @@ public static class AllergenDAL
         }
     }
 
+    public static IEnumerable<Allergen> GetAllergensForProduct(int productId)
+    {
+        var connection = DALHelper.Connection;
+        try
+        {
+            var command = new SqlCommand("spAllergenSelectByProductId", connection)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            command.Parameters.AddWithValue("@ProductId", productId);
+
+            connection.Open();
+
+            var reader = command.ExecuteReader();
+            var allergens = new List<Allergen>();
+
+            while (reader.Read())
+            {
+                var allergen = new Allergen
+                {
+                    AllergenId = (int)reader["AllergenId"],
+                    AllergenName = reader["AllergenName"].ToString()!,
+                    Description = reader["Description"].ToString()
+                };
+                allergens.Add(allergen);
+            }
+
+            reader.Close();
+
+            return allergens;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return new List<Allergen>();
+        }
+        finally
+        {
+            connection.Close();
+        }
+    }
+
     public static Allergen GetAllergenById(int allergenId)
     {
         var connection = DALHelper.Connection;

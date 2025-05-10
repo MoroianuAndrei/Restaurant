@@ -38,217 +38,308 @@
                     Margin="0 16 16 16"/>
             </StackPanel>
         </Grid>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" MinWidth="108"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+        <ScrollViewer>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="108"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-            <ui:TextBlock
-                Text="Name"
-                Grid.Row="0"
-                Grid.Column="0"
-                FontSize="14"
-                Foreground="White"
-                VerticalAlignment="Center"
-                Padding="8"
-                Margin="16 8"/>
-            <ui:TextBox
-                Text="{Binding Product.ProductName}"
-                Grid.Row="0"
-                Grid.Column="1"
-                Margin="16 8"/>
-            <ui:InfoBar 
-                Title="Error" 
-                Message="{Binding ErrorMessage}" 
-                IsOpen="{Binding NameHasError}"
-                Severity="Error"
-                Margin="16 0 16 16"
-                Grid.Row="1"
-                Grid.Column="1" />
+                <ui:TextBlock
+                    Text="Name"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    FontSize="14"
+                    Foreground="White"
+                    VerticalAlignment="Center"
+                    Padding="8"
+                    Margin="16 8"/>
+                <ui:TextBox
+                    Text="{Binding Product.ProductName}"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="16 8"/>
+                <ui:InfoBar 
+                    Title="Error" 
+                    Message="{Binding ErrorMessage}" 
+                    IsOpen="{Binding NameHasError}"
+                    Severity="Error"
+                    Margin="16 0 16 16"
+                    Grid.Row="1"
+                    Grid.Column="1" />
 
-            <ui:TextBlock
-                Text="Price"
-                Grid.Row="2"
-                Grid.Column="0"
-                FontSize="14"
-                Foreground="White"
-                VerticalAlignment="Center"
-                Padding="8"
-                Margin="16 8"/>
-            <ui:TextBox
-                Text="{Binding Product.Price, UpdateSourceTrigger=PropertyChanged}"
-                Grid.Row="2"
-                Grid.Column="1"
-                Margin="16 8"/>
-            <ui:InfoBar 
-                Title="Error" 
-                Message="{Binding ErrorMessage}" 
-                IsOpen="{Binding PriceHasError}"
-                Severity="Error"
-                Margin="16 0 16 16"
-                Grid.Row="3"
-                Grid.Column="1" />
+                <ui:TextBlock
+                    Text="Price"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    FontSize="14"
+                    Foreground="White"
+                    VerticalAlignment="Center"
+                    Padding="8"
+                    Margin="16 8"/>
+                <ui:TextBox
+                    Text="{Binding Product.Price, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="16 8"/>
+                <ui:InfoBar 
+                    Title="Error" 
+                    Message="{Binding ErrorMessage}" 
+                    IsOpen="{Binding PriceHasError}"
+                    Severity="Error"
+                    Margin="16 0 16 16"
+                    Grid.Row="3"
+                    Grid.Column="1" />
 
-            <ui:TextBlock
-                Text="Portion Quantity"
-                Grid.Row="4"
-                Grid.Column="0"
-                FontSize="14"
-                Foreground="White"
-                VerticalAlignment="Center"
-                Padding="8"
-                Margin="16 8"/>
-            <ui:TextBox
-                Text="{Binding Product.PortionQuantity, UpdateSourceTrigger=PropertyChanged}"
-                Grid.Row="4"
-                Grid.Column="1"
-                Margin="16 8"/>
+                <ui:TextBlock
+                    Text="Portion Quantity"
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    FontSize="14"
+                    Foreground="White"
+                    VerticalAlignment="Center"
+                    Padding="8"
+                    Margin="16 8"/>
+                <ui:TextBox
+                    Text="{Binding Product.PortionQuantity, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Margin="16 8"/>
 
-            <ui:TextBlock
-                Text="Measurement Unit"
-                Grid.Row="5"
-                Grid.Column="0"
-                FontSize="14"
-                Foreground="White"
-                VerticalAlignment="Center"
-                Padding="8"
-                Margin="16 8"/>
-            <ui:TextBox
-                Text="{Binding Product.MeasurementUnit}"
-                Grid.Row="5"
-                Grid.Column="1"
-                Margin="16 8"/>
+                <ui:TextBlock
+                    Text="Measurement Unit"
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    FontSize="14"
+                    Foreground="White"
+                    VerticalAlignment="Center"
+                    Padding="8"
+                    Margin="16 8"/>
+                <ui:TextBox
+                    Text="{Binding Product.MeasurementUnit}"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Margin="16 8"/>
 
-            <ui:TextBlock
-                Text="Total Quantity"
-                Grid.Row="6"
-                Grid.Column="0"
-                FontSize="14"
-                Foreground="White"
-                VerticalAlignment="Center"
-                Padding="8"
-                Margin="16 8"/>
-            <ui:TextBox
-                Text="{Binding Product.TotalQuantity, UpdateSourceTrigger=PropertyChanged}"
-                Grid.Row="6"
-                Grid.Column="1"
-                Margin="16 8"/>
+                <ui:TextBlock
+                    Text="Total Quantity"
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    FontSize="14"
+                    Foreground="White"
+                    VerticalAlignment="Center"
+                    Padding="8"
+                    Margin="16 8"/>
+                <ui:TextBox
+                    Text="{Binding Product.TotalQuantity, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    Margin="16 8"/>
 
-            <ui:TextBlock
-                Text="Category"
-                Grid.Row="7"
-                Grid.Column="0"
-                FontSize="14"
-                Foreground="White"
-                VerticalAlignment="Center"
-                Padding="8"
-                Margin="16 8"/>
-            <ComboBox
-                ItemsSource="{Binding Categories}"
-                SelectedItem="{Binding Category}"
-                Grid.Row="7"
-                Grid.Column="1"
-                Margin="16 8"/>
-            <ui:InfoBar
-                Title="Error"
-                Message="{Binding ErrorMessage}"
-                IsOpen="{Binding CategoryHasError}"
-                Severity="Error"
-                Margin="16 0 16 16"
-                Grid.Row="8"
-                Grid.Column="1"/>
+                <ui:TextBlock
+                    Text="Category"
+                    Grid.Row="7"
+                    Grid.Column="0"
+                    FontSize="14"
+                    Foreground="White"
+                    VerticalAlignment="Center"
+                    Padding="8"
+                    Margin="16 8"/>
+                <ComboBox
+                    ItemsSource="{Binding Categories}"
+                    SelectedItem="{Binding Category}"
+                    Grid.Row="7"
+                    Grid.Column="1"
+                    Margin="16 8"/>
+                <ui:InfoBar
+                    Title="Error"
+                    Message="{Binding ErrorMessage}"
+                    IsOpen="{Binding CategoryHasError}"
+                    Severity="Error"
+                    Margin="16 0 16 16"
+                    Grid.Row="8"
+                    Grid.Column="1"/>
 
-            <ui:TextBlock
-                Text="Is Menu Item"
-                Grid.Row="9"
-                Grid.Column="0"
-                FontSize="14"
-                Foreground="White"
-                VerticalAlignment="Center"
-                Padding="8"
-                Margin="16 8"/>
-            <CheckBox
-                IsChecked="{Binding Product.IsMenu}"
-                Grid.Row="9"
-                Grid.Column="1"
-                Margin="16 8"
-                VerticalAlignment="Center"/>
+                <ui:TextBlock
+                    Text="Is Menu Item"
+                    Grid.Row="9"
+                    Grid.Column="0"
+                    FontSize="14"
+                    Foreground="White"
+                    VerticalAlignment="Center"
+                    Padding="8"
+                    Margin="16 8"/>
+                <CheckBox
+                    IsChecked="{Binding Product.IsMenu}"
+                    Grid.Row="9"
+                    Grid.Column="1"
+                    Margin="16 8"
+                    VerticalAlignment="Center"/>
 
-            <ui:CardExpander
-                Grid.Row="10"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                Icon="{ui:SymbolIcon Image24}"
-                Margin="16 8">
-                <ui:CardExpander.Header>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <ui:TextBlock
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            FontSize="16"
-                            FontTypography="Body"
-                            Text="Image" />
-                        <ui:TextBlock
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            FontSize="12"
-                            Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
-                            Text="Set an image for this product." />
-                    </Grid>
-                </ui:CardExpander.Header>
-                <ui:CardControl Padding="8">
-                    <ui:CardControl.Header>
-                        <StackPanel
-                            Margin="4">
+                <!-- Allergens Section -->
+                <ui:CardExpander
+                    Grid.Row="10"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Icon="{ui:SymbolIcon Alert24}"
+                    Margin="16 8">
+                    <ui:CardExpander.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
                             <ui:TextBlock
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                FontSize="16"
+                                FontTypography="Body"
+                                Text="Allergens" />
+                            <ui:TextBlock
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontSize="12"
+                                Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
+                                Text="Select the allergens for this product." />
+                        </Grid>
+                    </ui:CardExpander.Header>
+                    <ui:CardControl Padding="8">
+                        <DockPanel>
+                            <Grid DockPanel.Dock="Top" Margin="0 0 0 8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <ComboBox 
+                                    Grid.Column="0"
+                                    ItemsSource="{Binding AvailableAllergens}"
+                                    DisplayMemberPath="AllergenName"
+                                    SelectedItem="{Binding SelectedAllergen}"
+                                    Margin="0 0 8 0"/>
+                                <ui:Button
+                                    Grid.Column="1"
+                                    Content="Add"
+                                    Command="{Binding AddAllergenCommand}"
+                                    Appearance="Primary"/>
+                            </Grid>
+
+                            <ui:TextBlock 
+                                DockPanel.Dock="Top"
                                 FontTypography="BodyStrong"
-                                Text="Selected image path" />
+                                Text="Selected Allergens:"
+                                Margin="0 8"/>
+
+                            <ListView 
+                                ItemsSource="{Binding Product.Allergens}"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                MaxHeight="200">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock 
+                                                Grid.Column="0"
+                                                Text="{Binding AllergenName}" 
+                                                VerticalAlignment="Center"/>
+                                            <ui:Button 
+                                                Grid.Column="1"
+                                                Icon="{ui:SymbolIcon Dismiss12}"
+                                                Appearance="Danger"
+                                                Command="{Binding DataContext.RemoveAllergenCommand, 
+                                                          RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
+                                                CommandParameter="{Binding}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </DockPanel>
+                    </ui:CardControl>
+                </ui:CardExpander>
+
+                <ui:CardExpander
+                    Grid.Row="11"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Icon="{ui:SymbolIcon Image24}"
+                    Margin="16 8">
+                    <ui:CardExpander.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
                             <ui:TextBlock
-                                Appearance="Secondary"
-                                Text="{Binding SelectedImagePath}" />
-                            <ui:Image
-                                Height="224"
-                                HorizontalAlignment="Center"
-                                CornerRadius="4"
-                                Margin="8"
-                                Visibility="{Binding ImageVisibility}"
-                                Source="{Binding SelectedImagePath}"/>
-                            <ui:TextBox
-                                Text="{Binding Product.ImageDescription}"
-                                PlaceholderText="Image Description"
-                                Margin="8"/>
-                        </StackPanel>
-                    </ui:CardControl.Header>
-                    <ui:Button 
-                        Content="Browse"
-                        Icon="{ui:SymbolIcon OpenFolder24}"
-                        Margin="8"
-                        Command="{Binding BrowseForImageCommand}"/>
-                </ui:CardControl>
-            </ui:CardExpander>
-        </Grid>
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                FontSize="16"
+                                FontTypography="Body"
+                                Text="Image" />
+                            <ui:TextBlock
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontSize="12"
+                                Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
+                                Text="Set an image for this product." />
+                        </Grid>
+                    </ui:CardExpander.Header>
+                    <ui:CardControl Padding="8">
+                        <ui:CardControl.Header>
+                            <StackPanel
+                                Margin="4">
+                                <ui:TextBlock
+                                    FontTypography="BodyStrong"
+                                    Text="Selected image path" />
+                                <ui:TextBlock
+                                    Appearance="Secondary"
+                                    Text="{Binding SelectedImagePath}" />
+                                <ui:Image
+                                    Height="224"
+                                    HorizontalAlignment="Center"
+                                    CornerRadius="4"
+                                    Margin="8"
+                                    Visibility="{Binding ImageVisibility}"
+                                    Source="{Binding SelectedImagePath}"/>
+                                <ui:TextBox
+                                    Text="{Binding Product.ImageDescription}"
+                                    PlaceholderText="Image Description"
+                                    Margin="8"/>
+                            </StackPanel>
+                        </ui:CardControl.Header>
+                        <ui:Button 
+                            Content="Browse"
+                            Icon="{ui:SymbolIcon OpenFolder24}"
+                            Margin="8"
+                            Command="{Binding BrowseForImageCommand}"/>
+                    </ui:CardControl>
+                </ui:CardExpander>
+            </Grid>
+        </ScrollViewer>
     </DockPanel>
 </Page>

@@ -9,6 +9,7 @@ using Restaurant.ViewModels.Commands;
 using Restaurant.ViewModels.ObjectViewModels;
 using Restaurant.Views.AdminItemEditPages;
 using Restaurant.Views.AdminItemPageViews;
+using System.Linq;
 
 namespace Restaurant.ViewModels.PageViewModels.AdminPageViewModels.ObjectEditPageViewModels;
 
@@ -17,6 +18,28 @@ public class ProductEditPageViewModel : BaseViewModel
     public ProductViewModel Product { get; set; }
     public ObservableCollection<string> Categories { get; set; }
         = new ObservableCollection<string>(CategoryBLL.GetCategories().Select(c => c.CategoryName ?? ""));
+
+    private ObservableCollection<AllergenViewModel> _availableAllergens;
+    public ObservableCollection<AllergenViewModel> AvailableAllergens
+    {
+        get => _availableAllergens;
+        set
+        {
+            _availableAllergens = value;
+            OnPropertyChanged();
+        }
+    }
+
+    private AllergenViewModel? _selectedAllergen;
+    public AllergenViewModel? SelectedAllergen
+    {
+        get => _selectedAllergen;
+        set
+        {
+            _selectedAllergen = value;
+            OnPropertyChanged();
+        }
+    }
 
     private readonly string? _title;
     public string Title
@@ -115,6 +138,8 @@ public class ProductEditPageViewModel : BaseViewModel
     public ICommand? SaveCommand { get; private set; }
     public ICommand? CancelCommand { get; private set; }
     public ICommand? BrowseForImageCommand { get; private set; }
+    public ICommand? AddAllergenCommand { get; private set; }
+    public ICommand? RemoveAllergenCommand { get; private set; }
 
     private string? _errorMessage;
     public string ErrorMessage
@@ -164,7 +189,15 @@ public class ProductEditPageViewModel : BaseViewModel
     public ProductEditPageViewModel()
     {
         Product = new ProductViewModel();
+
+        // Ensure Allergens is initialized
+        if (Product.Allergens == null)
+        {
+            Product.Allergens = new ObservableCollection<AllergenViewModel>();
+        }
+
         Title = "Add Product";
+        LoadAvailableAllergens();
         InitializeCommands();
     }
 
@@ -172,8 +205,70 @@ public class ProductEditPageViewModel : BaseViewModel
     public ProductEditPageViewModel(ProductViewModel product)
     {
         Product = product;
+
+        // IMPORTANT: The key fix - ensure allergens are loaded from the database for this product
+        if (Product.Id > 0)
+        {
+            // If we're editing an existing product, ensure we have the latest allergens data
+            var productFromDb = ProductBLL.GetProductById(Product.Id);
+            if (productFromDb != null)
+            {
+                // Make sure the allergens collection is initialized and populated
+                if (Product.Allergens == null || !Product.Allergens.Any())
+                {
+                    var allergens = AllergenBLL.GetAllergensForProduct(Product.Id)
+                        .Select(a => a.ToViewModel())
+                        .ToList();
+
+                    Product.Allergens = new ObservableCollection<AllergenViewModel>(allergens);
+                }
+            }
+        }
+
+        // Ensure Allergens is initialized even if no allergens were found
+        if (Product.Allergens == null)
+        {
+            Product.Allergens = new ObservableCollection<AllergenViewModel>();
+        }
+
         Title = "Edit Product";
+        LoadAvailableAllergens();
         InitializeCommands();
+    }
+
+    private void LoadAvailableAllergens()
+    {
+        // Get all allergens
+        var allAllergens = AllergenBLL.GetAllergens().Select(a => a.ToViewModel()).ToList();
+
+        // Ensure Product.Allergens is initialized
+        if (Product.Allergens == null)
+        {
+            Product.Allergens = new ObservableCollection<AllergenViewModel>();
+        }
+
+        // Filter out allergens that are already selected
+        var availableAllergens = allAllergens
+            .Where(a => !Product.Allergens.Any(pa => pa.Id == a.Id))
+            .ToList();
+
+        _availableAllergens = new ObservableCollection<AllergenViewModel>(availableAllergens);
+
+        // Update property to ensure UI reflects changes
+        OnPropertyChanged(nameof(AvailableAllergens));
+    }
+
+    // Method to update available allergens when selected allergens change
+    private void UpdateAvailableAllergens()
+    {
+        var allAllergens = AllergenBLL.GetAllergens().Select(a => a.ToViewModel()).ToList();
+
+        // Filter out allergens that are already selected
+        var availableAllergens = allAllergens
+            .Where(a => !Product.Allergens.Any(pa => pa.Id == a.Id))
+            .ToList();
+
+        AvailableAllergens = new ObservableCollection<AllergenViewModel>(availableAllergens);
     }
 
     private void InitializeCommands()
@@ -250,6 +345,33 @@ public class ProductEditPageViewModel : BaseViewModel
             }
 
             SelectedImagePath = dialog.FileName;
+        });
+
+        AddAllergenCommand = new RelayCommand<object>(_ =>
+        {
+            if (SelectedAllergen == null)
+                return;
+
+            // Add the selected allergen to the product
+            Product.Allergens.Add(SelectedAllergen);
+
+            // Update the available allergens list
+            UpdateAvailableAllergens();
+
+            // Reset selection
+            SelectedAllergen = null;
+        });
+
+        RemoveAllergenCommand = new RelayCommand<object>(allergen =>
+        {
+            if (allergen is AllergenViewModel allergenToRemove)
+            {
+                // Remove the allergen from the product
+                Product.Allergens.Remove(allergenToRemove);
+
+                // Update the available allergens list to include the removed allergen
+                UpdateAvailableAllergens();
+            }
         });
     }
 }
