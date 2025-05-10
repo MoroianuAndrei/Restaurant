@@ -37,7 +37,7 @@ public static class OrderBLL
         return orders;
     }
 
-    public static bool AddOrder(OrderDTO orderDTO)
+    public static int AddOrder(OrderDTO orderDTO)
     {
         ArgumentNullException.ThrowIfNull(orderDTO);
         ArgumentNullException.ThrowIfNull(orderDTO.OrderCode);
@@ -97,15 +97,11 @@ public static class OrderBLL
 
     public static int Insert(OrderDTO orderDTO)
     {
-        // Assuming AddOrder successfully adds the order to the database
-        // and OrderDAL.InsertOrder returns the newly created order ID
-        if (AddOrder(orderDTO))
-        {
-            // This would require OrderDAL.InsertOrder to return the order ID
-            // For now, we're simulating it by returning a placeholder value of 1
-            // Consider modifying OrderDAL.InsertOrder to return the ID
-            return 1;
-        }
-        return 0;
+        ArgumentNullException.ThrowIfNull(orderDTO);
+        ArgumentNullException.ThrowIfNull(orderDTO.OrderCode);
+        ArgumentNullException.ThrowIfNull(orderDTO.Status);
+
+        // Convertește DTO în entitate și apelează InsertOrder care acum returnează ID-ul
+        return OrderDAL.InsertOrder(orderDTO.ToEntity());
     }
 }

@@ -150,7 +150,8 @@ public static class OrderDAL
         }
     }
 
-    public static bool InsertOrder(Order order)
+    // Metodă actualizată pentru a returna ID-ul comenzii noi
+    public static int InsertOrder(Order order)
     {
         var connection = DALHelper.Connection;
         try
@@ -175,16 +176,16 @@ public static class OrderDAL
             command.Parameters.Add(orderIdParam);
 
             connection.Open();
+            command.ExecuteNonQuery();
 
-            var result = command.ExecuteNonQuery();
+            // Returnează ID-ul generat
             int newOrderId = (int)orderIdParam.Value;
-
-            return result > 0;
+            return newOrderId;
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            return false;
+            return 0; // Returnează 0 în caz de eroare
         }
         finally
         {

@@ -649,7 +649,7 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
 
             // Save the order to database
             var savedOrderId = await Task.Run(() => OrderBLL.Insert(orderDTO));
-
+            
             if (savedOrderId > 0)
             {
                 // Save each order item
