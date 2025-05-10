@@ -75,4 +75,36 @@ public static class ProductAllergenBLL
             return false;
         }
     }
+
+    public static bool RemoveAllergenFromProduct(int productId, ObservableCollection<AllergenViewModel> allergens)
+    {
+        if (productId <= 0)
+            return false;
+
+        try
+        {
+            // First get current allergens for this product
+            var currentAllergens = ProductAllergenDAL.GetAllergensByProductId(productId);
+            var currentAllergenIds = currentAllergens.Select(a => a.AllergenId).ToList();
+
+            // Get new allergen IDs from the view models
+            var newAllergenIds = allergens.Select(a => a.Id).ToList();
+
+            // Find allergens to remove (in current but not in new)
+            var allergensToRemove = currentAllergenIds.Except(newAllergenIds).ToList();
+
+            // Process removals
+            foreach (var allergenId in allergensToRemove)
+            {
+                RemoveAllergenFromProduct(productId, allergenId);
+            }
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Error syncing allergens: {ex.Message}");
+            return false;
+        }
+    }
 }

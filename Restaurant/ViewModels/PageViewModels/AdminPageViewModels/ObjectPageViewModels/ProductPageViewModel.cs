@@ -72,6 +72,8 @@ public class ProductPageViewModel
         if (ProductBLL.DeleteProduct(product.ToDTO()))
         {
             Products.Remove(product);
+
+            ProductAllergenBLL.RemoveAllergenFromProduct(product.Id, product.Allergens);
         }
     }
 }
