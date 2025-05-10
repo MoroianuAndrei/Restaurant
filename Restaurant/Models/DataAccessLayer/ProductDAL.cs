@@ -116,7 +116,7 @@ public static class ProductDAL
             command.Parameters.AddWithValue("@PortionQuantity", product.PortionQuantity);
             command.Parameters.AddWithValue("@MeasurementUnit", product.MeasurementUnit);
             command.Parameters.AddWithValue("@TotalQuantity", product.TotalQuantity);
-            command.Parameters.AddWithValue("@CategoryId", product.CategoryId);
+            command.Parameters.AddWithValue("@CategoryId", product.Category.CategoryId);
             command.Parameters.AddWithValue("@IsMenu", product.IsMenu);
             command.Parameters.AddWithValue("@ImagePath", product.ImagePath ?? (object)DBNull.Value);
 
@@ -150,7 +150,7 @@ public static class ProductDAL
             command.Parameters.AddWithValue("@PortionQuantity", product.PortionQuantity);
             command.Parameters.AddWithValue("@MeasurementUnit", product.MeasurementUnit);
             command.Parameters.AddWithValue("@TotalQuantity", product.TotalQuantity);
-            command.Parameters.AddWithValue("@CategoryId", product.CategoryId);
+            command.Parameters.AddWithValue("@CategoryId", product.Category.CategoryId);
             command.Parameters.AddWithValue("@IsMenu", product.IsMenu);
             command.Parameters.AddWithValue("@ImagePath", product.ImagePath ?? (object)DBNull.Value);
 
