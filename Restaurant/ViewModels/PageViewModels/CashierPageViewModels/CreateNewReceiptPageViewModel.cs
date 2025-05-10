@@ -501,18 +501,30 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
     {
         if (parameter is not MenuViewModel menu) return;
 
-        // Create a new order item for the menu
-        var orderItem = new OrderItemViewModel
-        {
-            ProductId = menu.Id,
-            ProductName = menu.Name ?? "Menu",
-            ProductDescription = $"Discount: {menu.Discount:P0}",
-            Quantity = 1,
-            UnitPrice = CalculateMenuPrice(menu),
-            IsMenu = true
-        };
+        // Verifică dacă meniul există deja în comandă
+        var existingItem = OrderItems.FirstOrDefault(item => item.ProductId == menu.Id && item.IsMenu);
 
-        OrderItems.Add(orderItem);
+        if (existingItem != null)
+        {
+            // Dacă meniul există deja, îi crește cantitatea
+            existingItem.Quantity++;
+        }
+        else
+        {
+            // Dacă nu există, creează un nou element pentru meniu
+            var orderItem = new OrderItemViewModel
+            {
+                ProductId = menu.Id,
+                ProductName = menu.Name ?? "Menu",
+                ProductDescription = $"Discount: {menu.Discount:P0}",
+                Quantity = 1,
+                UnitPrice = CalculateMenuPrice(menu),
+                IsMenu = true
+            };
+
+            OrderItems.Add(orderItem);
+        }
+
         UpdateOrderTotals();
     }
 
