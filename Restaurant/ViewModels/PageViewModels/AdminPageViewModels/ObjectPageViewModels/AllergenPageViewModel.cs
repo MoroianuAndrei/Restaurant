@@ -28,9 +28,9 @@ public class AllergenPageViewModel : BaseViewModel
                 return;
             }
 
-            //var allergenEditPage = new AllergenEditPage();
+            var allergenEditPage = new AllergenEditPage();
 
-            //currentPage.NavigationService?.Navigate(allergenEditPage);
+            currentPage.NavigationService?.Navigate(allergenEditPage);
         });
 
         EditCommand = new RelayCommand<object>(obj =>
@@ -42,9 +42,9 @@ public class AllergenPageViewModel : BaseViewModel
                 return;
             }
 
-            //var allergenEditPage = new AllergenEditPage(allergen);
+            var allergenEditPage = new AllergenEditPage(allergen);
 
-            //currentPage.NavigationService?.Navigate(allergenEditPage);
+            currentPage.NavigationService?.Navigate(allergenEditPage);
         });
 
         RemoveCommand = new RelayCommand<object>(Remove);

@@ -138,12 +138,22 @@ public static class AllergenDAL
             {
                 CommandType = CommandType.StoredProcedure
             };
+
+            // Parametri de intrare
             command.Parameters.AddWithValue("@AllergenName", allergen.AllergenName);
             command.Parameters.AddWithValue("@Description", allergen.Description ?? (object)DBNull.Value);
 
-            connection.Open();
+            // Parametru de iesire
+            var outputIdParam = new SqlParameter("@AllergenID", SqlDbType.Int)
+            {
+                Direction = ParameterDirection.Output
+            };
+            command.Parameters.Add(outputIdParam);
 
-            return command.ExecuteNonQuery() > 0;
+            connection.Open();
+            var result = command.ExecuteNonQuery() > 0;
+
+            return result;
         }
         catch (Exception e)
         {
