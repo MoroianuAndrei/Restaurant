@@ -28,9 +28,9 @@ public class CategoryPageViewModel : BaseViewModel
                 return;
             }
 
-            //var categoryEditPage = new CategoryEditPage();
+            var categoryEditPage = new CategoryEditPage();
 
-            //currentPage.NavigationService?.Navigate(categoryEditPage);
+            currentPage.NavigationService?.Navigate(categoryEditPage);
         });
 
         EditCommand = new RelayCommand<object>(obj =>
@@ -42,9 +42,9 @@ public class CategoryPageViewModel : BaseViewModel
                 return;
             }
 
-            //var categoryEditPage = new CategoryEditPage(category);
+            var categoryEditPage = new CategoryEditPage(category);
 
-            //currentPage.NavigationService?.Navigate(categoryEditPage);
+            currentPage.NavigationService?.Navigate(categoryEditPage);
         });
 
         RemoveCommand = new RelayCommand<object>(Remove);

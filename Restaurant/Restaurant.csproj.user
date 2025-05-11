@@ -8,6 +8,9 @@
     <Compile Update="Views\PageViews\AdminItemEditPages\AllergenEditPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\PageViews\AdminItemEditPages\CategoryEditPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\PageViews\AdminItemEditPages\ProductEditPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -97,11 +97,18 @@ public static class CategoryDAL
             {
                 CommandType = CommandType.StoredProcedure
             };
+
             command.Parameters.AddWithValue("@CategoryName", category.CategoryName);
             command.Parameters.AddWithValue("@Description", category.Description ?? (object)DBNull.Value);
 
-            connection.Open();
+            // Obligatoriul OUTPUT, chiar dacă nu îl folosești
+            var outputIdParam = new SqlParameter("@CategoryID", SqlDbType.Int)
+            {
+                Direction = ParameterDirection.Output
+            };
+            command.Parameters.Add(outputIdParam);
 
+            connection.Open();
             return command.ExecuteNonQuery() > 0;
         }
         catch (Exception e)

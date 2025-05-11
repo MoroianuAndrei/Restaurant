@@ -61,17 +61,6 @@ public class AllergenPageViewModel : BaseViewModel
         var productsWithAllergen = ProductBLL.GetProducts()
             .Where(p => p.Allergens?.Any(a => a.AllergenId == allergen.Id) ?? false);
 
-        //foreach (var product in ProductBLL.GetProducts())
-        //{
-        //    if (product.Allergens != null)
-        //    {
-        //        foreach (var product2 in product.Allergens)
-        //        {
-        //            System.Windows.MessageBox.Show(product2.AllergenId.ToString());
-        //        }
-        //    }
-        //}
-
         if (productsWithAllergen.Any())
         {
             var errDialog = new MessageBox
