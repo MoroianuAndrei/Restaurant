@@ -1,4 +1,5 @@
-﻿using Restaurant.Models.DataTransferLayer;
+﻿using System.Collections.ObjectModel;
+using Restaurant.Models.DataTransferLayer;
 using Restaurant.Models.EntityLayer;
 using Restaurant.ViewModels.ObjectViewModels;
 
@@ -45,4 +46,40 @@ public static class AllergenME
             Description = allergenDTO.Description ?? ""
         };
     }
+    public static ObservableCollection<AllergenViewModel> ToViewModel(this ObservableCollection<Allergen> allergens)
+    {
+        if (allergens == null)
+            return null;
+
+        var viewModels = new ObservableCollection<AllergenViewModel>();
+        foreach (var allergen in allergens)
+        {
+            viewModels.Add(new AllergenViewModel
+            {
+                Id = allergen.AllergenId,
+                AllergenName = allergen.AllergenName,
+                Description = allergen.Description ?? ""
+            });
+        }
+        return viewModels;
+    }
+
+    public static List<Allergen> ToList(this ObservableCollection<AllergenViewModel> allergenViewModels)
+    {
+        if (allergenViewModels == null)
+            return new List<Allergen>();
+
+        var entities = new List<Allergen>();
+        foreach (var vm in allergenViewModels)
+        {
+            entities.Add(new Allergen
+            {
+                AllergenId = vm.Id,
+                AllergenName = vm.AllergenName,
+                Description = vm.Description
+            });
+        }
+        return entities;
+    }
+
 }

@@ -45,12 +45,61 @@ public static class ProductDAL
 
             reader.Close();
 
+            // Load allergens for each product
+            foreach (var product in products)
+            {
+                product.Allergens = GetProductAllergens(product.ProductId).ToList();
+            }
+
             return products;
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             return new List<Product>();
+        }
+        finally
+        {
+            connection.Close();
+        }
+    }
+
+    // Helper method to get allergens for a specific product
+    private static IEnumerable<Allergen> GetProductAllergens(int productId)
+    {
+        var connection = DALHelper.Connection;
+        try
+        {
+            var command = new SqlCommand("spProductAllergenSelectByProduct", connection)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            command.Parameters.AddWithValue("@ProductId", productId);
+
+            connection.Open();
+
+            var reader = command.ExecuteReader();
+            var allergens = new List<Allergen>();
+
+            while (reader.Read())
+            {
+                var allergen = new Allergen
+                {
+                    AllergenId = (int)reader["AllergenId"],
+                    AllergenName = reader["AllergenName"].ToString()!,
+                    Description = reader["Description"].ToString()
+                };
+                allergens.Add(allergen);
+            }
+
+            reader.Close();
+
+            return allergens;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return new List<Allergen>();
         }
         finally
         {

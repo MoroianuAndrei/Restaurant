@@ -47,6 +47,10 @@
                     Content="Allergens" 
                     Icon="{ui:SymbolIcon Doctor24}"
                     TargetPageType="adminItemPageViews:AllergenPage"/>
+                <ui:NavigationViewItem 
+                    Content="Categories" 
+                    Icon="{ui:SymbolIcon BoxMultiple24}"
+                    TargetPageType="adminItemPageViews:CategoryPage"/>
             </ui:NavigationView.MenuItems>
             <ui:NavigationView.FooterMenuItems>
                 <ui:NavigationViewItem 
