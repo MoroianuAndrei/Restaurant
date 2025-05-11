@@ -106,16 +106,6 @@ public static class OrderItemBLL
         return FindOrderItemByOrderIdAndProductId(orderId, productId);
     }
 
-    //public static bool UpdateOrderItemQuantity(int orderId, int productId, int quantity)
-    //{
-    //    var orderItem = FindOrderItemByOrderIdAndProductId(orderId, productId);
-    //    if (orderItem == null)
-    //        return false;
-
-    //    orderItem.Quantity = quantity;
-    //    return UpdateOrderItem(orderItem);
-    //}
-
     // New methods to match what the ViewModel is trying to call
     public static ObservableCollection<OrderItemDTO> GetAll()
     {
@@ -158,17 +148,6 @@ public static class OrderItemBLL
         orderItem.MenuId = menuId;
         return OrderItemDAL.UpdateOrderItem(orderItem);
     }
-
-    // Metoda de compatibilitate pentru codul existent
-    //public static bool UpdateOrderItemMenuId(int orderId, int productId, int? menuId)
-    //{
-    //    var orderItem = FindOrderItemByOrderIdAndProductId(orderId, productId);
-    //    if (orderItem == null)
-    //        return false;
-
-    //    orderItem.MenuId = menuId;
-    //    return UpdateOrderItem(orderItem);
-    //}
 
     // Metodă pentru obținerea detaliilor OrderItem cu informații despre produse
     public static ObservableCollection<dynamic> GetOrderItemsWithDetails(int orderId)

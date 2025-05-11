@@ -47,6 +47,7 @@ public class ProductPageViewModel
             currentPage.NavigationService?.Navigate(productEditPage);
 
         });
+
         RemoveCommand = new RelayCommand<object>(Remove);
     }
 

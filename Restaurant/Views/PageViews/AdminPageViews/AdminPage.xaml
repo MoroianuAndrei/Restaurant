@@ -43,6 +43,10 @@
                     Content="Products" 
                     Icon="{ui:SymbolIcon Box24}"
                     TargetPageType="adminItemPageViews:ProductPage"/>
+                <ui:NavigationViewItem 
+                    Content="Allergens" 
+                    Icon="{ui:SymbolIcon Box24}"
+                    TargetPageType="adminItemPageViews:AllergenPage"/>
             </ui:NavigationView.MenuItems>
             <ui:NavigationView.FooterMenuItems>
                 <ui:NavigationViewItem 
