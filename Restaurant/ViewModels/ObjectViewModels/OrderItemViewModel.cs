@@ -15,13 +15,24 @@ public class OrderItemViewModel : BaseViewModel
         }
     }
 
-    private int _productId;
-    public int ProductId
+    private int? _productId;
+    public int? ProductId
     {
         get => _productId;
         set
         {
             _productId = value;
+            OnPropertyChanged();
+        }
+    }
+
+    private int? _menuId;
+    public int? MenuId
+    {
+        get => _menuId;
+        set
+        {
+            _menuId = value;
             OnPropertyChanged();
         }
     }

@@ -122,11 +122,14 @@ public partial class DbRestaurantContext : DbContext
 
         modelBuilder.Entity<OrderItem>(entity =>
         {
-            entity.HasKey(e => new { e.OrderId, e.ProductId, e.IsMenu }).HasName("PK__OrderIte__30BC6339B6D44A7E");
-
+            entity.Property(e => e.MenuId).HasColumnName("MenuID");
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.UnitPrice).HasColumnType("decimal(10, 2)");
+
+            entity.HasOne(d => d.Menu).WithMany(p => p.OrderItems)
+                .HasForeignKey(d => d.MenuId)
+                .HasConstraintName("FK_OrderItems_Menus");
 
             entity.HasOne(d => d.Order).WithMany(p => p.OrderItems)
                 .HasForeignKey(d => d.OrderId)
@@ -135,7 +138,6 @@ public partial class DbRestaurantContext : DbContext
 
             entity.HasOne(d => d.Product).WithMany(p => p.OrderItems)
                 .HasForeignKey(d => d.ProductId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_OrderItems_Products");
         });
 
@@ -198,4 +200,3 @@ public partial class DbRestaurantContext : DbContext
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
-

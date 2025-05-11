@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using Microsoft.Data.SqlClient;
 using Restaurant.Extensions.Mapping;
 using Restaurant.Models.DataAccessLayer.Helpers;
@@ -27,8 +29,10 @@ public static class OrderItemDAL
             {
                 var orderItem = new OrderItem
                 {
+                    Id = (int)reader["Id"],
                     OrderId = (int)reader["OrderId"],
-                    ProductId = (int)reader["ProductId"],
+                    ProductId = reader["ProductId"] != DBNull.Value ? (int?)reader["ProductId"] : null,
+                    MenuId = reader["MenuId"] != DBNull.Value ? (int?)reader["MenuId"] : null,
                     Quantity = (int)reader["Quantity"],
                     UnitPrice = (decimal)reader["UnitPrice"],
                     IsMenu = (bool)reader["IsMenu"]
@@ -71,8 +75,10 @@ public static class OrderItemDAL
             {
                 var orderItem = new OrderItem
                 {
+                    Id = (int)reader["Id"],
                     OrderId = (int)reader["OrderId"],
-                    ProductId = (int)reader["ProductId"],
+                    ProductId = reader["ProductId"] != DBNull.Value ? (int?)reader["ProductId"] : null,
+                    MenuId = reader["MenuId"] != DBNull.Value ? (int?)reader["MenuId"] : null,
                     Quantity = (int)reader["Quantity"],
                     UnitPrice = (decimal)reader["UnitPrice"],
                     IsMenu = (bool)reader["IsMenu"]
@@ -95,7 +101,7 @@ public static class OrderItemDAL
         }
     }
 
-    public static OrderItem GetOrderItem(int orderId, int productId)
+    public static OrderItem GetOrderItem(int id)
     {
         var connection = DALHelper.Connection;
         try
@@ -104,8 +110,7 @@ public static class OrderItemDAL
             {
                 CommandType = CommandType.StoredProcedure
             };
-            command.Parameters.AddWithValue("@OrderId", orderId);
-            command.Parameters.AddWithValue("@ProductId", productId);
+            command.Parameters.AddWithValue("@Id", id);
 
             connection.Open();
 
@@ -114,8 +119,10 @@ public static class OrderItemDAL
 
             if (reader.Read())
             {
+                orderItem.Id = (int)reader["Id"];
                 orderItem.OrderId = (int)reader["OrderId"];
-                orderItem.ProductId = (int)reader["ProductId"];
+                orderItem.ProductId = reader["ProductId"] != DBNull.Value ? (int?)reader["ProductId"] : null;
+                orderItem.MenuId = reader["MenuId"] != DBNull.Value ? (int?)reader["MenuId"] : null;
                 orderItem.Quantity = (int)reader["Quantity"];
                 orderItem.UnitPrice = (decimal)reader["UnitPrice"];
                 orderItem.IsMenu = (bool)reader["IsMenu"];
@@ -146,15 +153,43 @@ public static class OrderItemDAL
                 CommandType = CommandType.StoredProcedure
             };
             command.Parameters.AddWithValue("@OrderId", orderItem.OrderId);
-            command.Parameters.AddWithValue("@ProductId", orderItem.ProductId);
+
+            if (orderItem.ProductId.HasValue)
+            {
+                command.Parameters.AddWithValue("@ProductId", orderItem.ProductId.Value);
+                command.Parameters.AddWithValue("@IsMenu", false);
+            }
+            else
+                command.Parameters.AddWithValue("@ProductId", DBNull.Value);
+
+            if (orderItem.MenuId.HasValue)
+            {
+                command.Parameters.AddWithValue("@MenuId", orderItem.MenuId.Value);
+                command.Parameters.AddWithValue("@IsMenu", true);
+            }
+            else
+                command.Parameters.AddWithValue("@MenuId", DBNull.Value);
+
             command.Parameters.AddWithValue("@Quantity", orderItem.Quantity);
             command.Parameters.AddWithValue("@UnitPrice", orderItem.UnitPrice);
-            command.Parameters.AddWithValue("@IsMenu", orderItem.IsMenu);
+
+            var idParam = new SqlParameter("@Id", SqlDbType.Int)
+            {
+                Direction = ParameterDirection.Output
+            };
+            command.Parameters.Add(idParam);
 
             connection.Open();
 
             var result = command.ExecuteNonQuery();
-            return result > 0;
+
+            if (result > 0 && idParam.Value != DBNull.Value)
+            {
+                orderItem.Id = (int)idParam.Value;
+                return true;
+            }
+
+            return false;
         }
         catch (Exception e)
         {
@@ -176,8 +211,19 @@ public static class OrderItemDAL
             {
                 CommandType = CommandType.StoredProcedure
             };
+            command.Parameters.AddWithValue("@Id", orderItem.Id);
             command.Parameters.AddWithValue("@OrderId", orderItem.OrderId);
-            command.Parameters.AddWithValue("@ProductId", orderItem.ProductId);
+
+            if (orderItem.ProductId.HasValue)
+                command.Parameters.AddWithValue("@ProductId", orderItem.ProductId.Value);
+            else
+                command.Parameters.AddWithValue("@ProductId", DBNull.Value);
+
+            if (orderItem.MenuId.HasValue)
+                command.Parameters.AddWithValue("@MenuId", orderItem.MenuId.Value);
+            else
+                command.Parameters.AddWithValue("@MenuId", DBNull.Value);
+
             command.Parameters.AddWithValue("@Quantity", orderItem.Quantity);
             command.Parameters.AddWithValue("@UnitPrice", orderItem.UnitPrice);
             command.Parameters.AddWithValue("@IsMenu", orderItem.IsMenu);
@@ -198,7 +244,7 @@ public static class OrderItemDAL
         }
     }
 
-    public static bool DeleteOrderItem(OrderItem orderItem)
+    public static bool DeleteOrderItem(int id)
     {
         var connection = DALHelper.Connection;
         try
@@ -207,8 +253,7 @@ public static class OrderItemDAL
             {
                 CommandType = CommandType.StoredProcedure
             };
-            command.Parameters.AddWithValue("@OrderId", orderItem.OrderId);
-            command.Parameters.AddWithValue("@ProductId", orderItem.ProductId);
+            command.Parameters.AddWithValue("@Id", id);
 
             connection.Open();
 
@@ -246,6 +291,55 @@ public static class OrderItemDAL
         {
             Console.WriteLine(e);
             return false;
+        }
+        finally
+        {
+            connection.Close();
+        }
+    }
+
+    // Metodă adițională pentru a obține detalii despre OrderItems cu informații despre produse
+    public static IEnumerable<dynamic> GetOrderItemsWithDetails(int orderId)
+    {
+        var connection = DALHelper.Connection;
+        try
+        {
+            var command = new SqlCommand("spOrderItemSelectByOrder", connection)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            command.Parameters.AddWithValue("@OrderId", orderId);
+
+            connection.Open();
+
+            var reader = command.ExecuteReader();
+            var orderItems = new List<dynamic>();
+
+            while (reader.Read())
+            {
+                var orderItem = new
+                {
+                    Id = (int)reader["Id"],
+                    OrderId = (int)reader["OrderId"],
+                    ProductId = reader["ProductId"] != DBNull.Value ? (int?)reader["ProductId"] : null,
+                    ProductName = reader["ProductName"] != DBNull.Value ? (string)reader["ProductName"] : null,
+                    MenuId = reader["MenuId"] != DBNull.Value ? (int?)reader["MenuId"] : null,
+                    Quantity = (int)reader["Quantity"],
+                    UnitPrice = (decimal)reader["UnitPrice"],
+                    TotalPrice = (decimal)reader["TotalPrice"],
+                    IsMenu = (bool)reader["IsMenu"]
+                };
+                orderItems.Add(orderItem);
+            }
+
+            reader.Close();
+
+            return orderItems;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return new List<dynamic>();
         }
         finally
         {

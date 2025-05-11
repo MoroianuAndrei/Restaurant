@@ -12,6 +12,7 @@ public static class OrderItemME
         {
             OrderId = orderItem.OrderId,
             ProductId = orderItem.ProductId,
+            MenuId = orderItem.MenuId,
             Quantity = orderItem.Quantity,
             UnitPrice = orderItem.UnitPrice,
             IsMenu = orderItem.IsMenu
@@ -24,6 +25,7 @@ public static class OrderItemME
         {
             OrderId = orderItemViewModel.OrderId,
             ProductId = orderItemViewModel.ProductId,
+            MenuId = orderItemViewModel.MenuId,
             Quantity = orderItemViewModel.Quantity,
             UnitPrice = orderItemViewModel.UnitPrice,
             IsMenu = orderItemViewModel.IsMenu
@@ -36,6 +38,7 @@ public static class OrderItemME
         {
             OrderId = orderItemDTO.OrderId,
             ProductId = orderItemDTO.ProductId,
+            MenuId = orderItemDTO.MenuId,
             Quantity = orderItemDTO.Quantity,
             UnitPrice = orderItemDTO.UnitPrice,
             IsMenu = orderItemDTO.IsMenu
@@ -48,6 +51,7 @@ public static class OrderItemME
         {
             OrderId = orderItemDTO.OrderId,
             ProductId = orderItemDTO.ProductId,
+            MenuId = orderItemDTO.MenuId,
             Quantity = orderItemDTO.Quantity,
             UnitPrice = orderItemDTO.UnitPrice,
             IsMenu = orderItemDTO.IsMenu

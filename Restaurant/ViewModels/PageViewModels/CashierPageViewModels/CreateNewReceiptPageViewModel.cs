@@ -512,7 +512,7 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
         }
 
         // Verifică dacă meniul există deja în comandă
-        var existingItem = OrderItems.FirstOrDefault(item => item.ProductId == menu.Id && item.IsMenu);
+        var existingItem = OrderItems.FirstOrDefault(item => item.MenuId == menu.Id && item.IsMenu);
 
         if (existingItem != null)
         {
@@ -551,7 +551,8 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
 
             var orderItem = new OrderItemViewModel
             {
-                ProductId = menu.Id,
+                ProductId = 0, // Putem seta un ID de produs neutru când este meniu
+                MenuId = menu.Id, // Adăugăm ID-ul meniului
                 ProductName = menu.Name ?? "Menu",
                 ProductDescription = $"Discount: {menu.Discount:P0}",
                 Quantity = 1,
@@ -607,6 +608,7 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
         return true;
     }
 
+    // Metoda SaveReceipt modificată pentru a salva și MenuId
     private async void SaveReceipt(object? parameter)
     {
         try
@@ -649,7 +651,7 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
 
             // Save the order to database
             var savedOrderId = await Task.Run(() => OrderBLL.Insert(orderDTO));
-            
+
             if (savedOrderId > 0)
             {
                 // Save each order item
@@ -658,27 +660,27 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
                     var orderItemDTO = new OrderItemDTO
                     {
                         OrderId = savedOrderId,
-                        ProductId = item.ProductId,
+                        ProductId = item.IsMenu ? null : item.ProductId, // Null pentru meniuri
+                        MenuId = item.IsMenu ? item.MenuId : null, // Null pentru produse simple
                         Quantity = item.Quantity,
-                        UnitPrice = item.UnitPrice,
-                        IsMenu = item.IsMenu
+                        UnitPrice = item.UnitPrice
                     };
 
                     await Task.Run(() => OrderItemBLL.Insert(orderItemDTO));
 
                     // Scade din stoc pentru produse individuale
-                    if (!item.IsMenu)
+                    if (orderItemDTO.ToEntity().ProductId.HasValue)
                     {
                         // Caută produsul ca să obții PortionQuantity
                         var product = Products.FirstOrDefault(p => p.Id == item.ProductId);
                         if (product != null)
                         {
                             decimal quantityToDecrease = item.Quantity * product.PortionQuantity;
-                            await Task.Run(() => ProductBLL.DecreaseQuantity(item.ProductId, quantityToDecrease));
+                            await Task.Run(() => ProductBLL.DecreaseQuantity(item.ProductId.Value, quantityToDecrease));
                         }
                     }
                     // Scade din stoc pentru produsele din meniu
-                    else if (item.IsMenu && item.MenuItems != null && item.MenuItems.Count > 0)
+                    else if (orderItemDTO.ToEntity().MenuId.HasValue && item.MenuItems != null && item.MenuItems.Count > 0)
                     {
                         foreach (var menuItem in item.MenuItems)
                         {
