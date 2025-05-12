@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Restaurant.Extensions.Mapping;
 using Restaurant.Models.BusinessLogicLayer;
+using Restaurant.Models.EntityLayer;
 using Restaurant.ViewModels.Commands;
 using Restaurant.ViewModels.ObjectViewModels;
 using Restaurant.Views.AdminItemEditPages;
@@ -55,6 +56,18 @@ public class ProductPageViewModel
     {
         if (obj is not ProductViewModel product)
         {
+            return;
+        }
+        
+        if (MenuItemBLL.GetMenuItems().Any(mi => MenuBLL.GetMenus().Any(m => m.Id == mi.MenuId) && mi.ProductId == product.Id))
+        {
+            var errDialog = new MessageBox
+            {
+                Title = "Error",
+                Content = "There are products in menus.\nPlease delete the product from menu first."
+            };
+
+            errDialog.ShowDialogAsync();
             return;
         }
 
