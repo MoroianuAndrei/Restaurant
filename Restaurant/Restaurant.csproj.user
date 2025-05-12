@@ -11,6 +11,9 @@
     <Compile Update="Views\PageViews\AdminItemEditPages\CategoryEditPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\PageViews\AdminItemEditPages\MenuEditPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\PageViews\AdminItemEditPages\ProductEditPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

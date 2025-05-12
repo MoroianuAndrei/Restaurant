@@ -285,3 +285,5 @@ C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode A
 C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\AdminItemEditPages\CategoryEditPage.baml
 C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\AdminItemPageViews\MenuPage.g.cs
 C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\AdminItemPageViews\MenuPage.baml
+C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\AdminItemEditPages\MenuEditPage.g.cs
+C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\AdminItemEditPages\MenuEditPage.baml

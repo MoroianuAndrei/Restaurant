@@ -1,4 +1,6 @@
-﻿namespace Restaurant.ViewModels.ObjectViewModels;
+﻿using Restaurant.Models.BusinessLogicLayer;
+
+namespace Restaurant.ViewModels.ObjectViewModels;
 
 public class MenuItemViewModel : BaseViewModel
 {
@@ -39,7 +41,7 @@ public class MenuItemViewModel : BaseViewModel
     private string? _productName;
     public string ProductName
     {
-        get => _productName ?? "";
+        get => ProductBLL.GetProducts().Where(p => p.Id == _productId).FirstOrDefault().ProductName;
         set
         {
             _productName = value;

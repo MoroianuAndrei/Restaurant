@@ -34,9 +34,9 @@ public class MenuPageViewModel : BaseViewModel
                 return;
             }
 
-            //var menuEditPage = new MenuEditPage();
+            var menuEditPage = new MenuEditPage();
 
-            //currentPage.NavigationService?.Navigate(menuEditPage);
+            currentPage.NavigationService?.Navigate(menuEditPage);
         });
 
         EditCommand = new RelayCommand<object>(obj =>
@@ -48,9 +48,9 @@ public class MenuPageViewModel : BaseViewModel
                 return;
             }
 
-            //var menuEditPage = new MenuEditPage(menu);
+            var menuEditPage = new MenuEditPage(menu);
 
-            //currentPage.NavigationService?.Navigate(menuEditPage);
+            currentPage.NavigationService?.Navigate(menuEditPage);
         });
 
         RemoveCommand = new RelayCommand<object>(Remove);
