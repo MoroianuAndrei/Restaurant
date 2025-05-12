@@ -46,8 +46,7 @@ public static class CategoryBLL
         ArgumentNullException.ThrowIfNull(categoryDTO);
         ArgumentNullException.ThrowIfNull(categoryDTO.Id);
 
-        CategoryDAL.DeleteCategory(categoryDTO.ToEntity());
-        return true;
+        return CategoryDAL.DeleteCategory(categoryDTO.ToEntity());
     }
 
     // New methods to match what the ViewModel is trying to call

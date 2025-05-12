@@ -56,7 +56,6 @@ public static class AllergenBLL
         ArgumentNullException.ThrowIfNull(allergenDTO);
         ArgumentNullException.ThrowIfNull(allergenDTO.Id);
 
-        AllergenDAL.DeleteAllergen(allergenDTO.ToEntity());
-        return true;
+        return AllergenDAL.DeleteAllergen(allergenDTO.ToEntity());
     }
 }
