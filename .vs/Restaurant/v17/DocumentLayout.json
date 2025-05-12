@@ -7,12 +7,48 @@
       "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\pageviewmodels\\adminpageviewmodels\\objectpageviewmodels\\menupageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\models\\businesslogiclayer\\menubll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\models\\businesslogiclayer\\menubll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\extensions\\mapping\\menuitemme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\extensions\\mapping\\menuitemme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\extensions\\mapping\\productallergenme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\extensions\\mapping\\productallergenme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\extensions\\mapping\\productme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\extensions\\mapping\\productme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\models\\businesslogiclayer\\menuitembll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\models\\businesslogiclayer\\menuitembll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\viewmodels\\pageviewmodels\\adminpageviewmodels\\objectpageviewmodels\\categorypageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\pageviewmodels\\adminpageviewmodels\\objectpageviewmodels\\categorypageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\models\\dataaccesslayer\\menudal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\models\\dataaccesslayer\\menudal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\models\\dataaccesslayer\\menuitemdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\models\\dataaccesslayer\\menuitemdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\viewmodels\\objectviewmodels\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\objectviewmodels\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\views\\pageviews\\adminitempageviews\\menupage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\views\\pageviews\\adminitempageviews\\menupage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\viewmodels\\pageviewmodels\\adminpageviewmodels\\objectpageviewmodels\\productpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\pageviewmodels\\adminpageviewmodels\\objectpageviewmodels\\productpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\models\\businesslogiclayer\\menubll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\models\\businesslogiclayer\\menubll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\models\\businesslogiclayer\\allergenbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,14 +63,6 @@
       "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\models\\businesslogiclayer\\categorybll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\viewmodels\\pageviewmodels\\adminpageviewmodels\\objectpageviewmodels\\categorypageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\pageviewmodels\\adminpageviewmodels\\objectpageviewmodels\\categorypageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\viewmodels\\pageviewmodels\\adminpageviewmodels\\objectpageviewmodels\\productpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\pageviewmodels\\adminpageviewmodels\\objectpageviewmodels\\productpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\models\\dataaccesslayer\\productdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\models\\dataaccesslayer\\productdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -46,76 +74,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AllergenBLL.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\BusinessLogicLayer\\AllergenBLL.cs",
-              "RelativeDocumentMoniker": "Restaurant\\Models\\BusinessLogicLayer\\AllergenBLL.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\BusinessLogicLayer\\AllergenBLL.cs",
-              "RelativeToolTip": "Restaurant\\Models\\BusinessLogicLayer\\AllergenBLL.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAlwDUAAAAXAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ProductAllergenME.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Extensions\\Mapping\\ProductAllergenME.cs",
+              "RelativeDocumentMoniker": "Restaurant\\Extensions\\Mapping\\ProductAllergenME.cs",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Extensions\\Mapping\\ProductAllergenME.cs",
+              "RelativeToolTip": "Restaurant\\Extensions\\Mapping\\ProductAllergenME.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T10:28:04.626Z",
+              "WhenOpened": "2025-05-12T10:53:21.204Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AllergenPageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\AllergenPageViewModel.cs",
-              "RelativeDocumentMoniker": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\AllergenPageViewModel.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\AllergenPageViewModel.cs",
-              "RelativeToolTip": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\AllergenPageViewModel.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAswFcAAAAmAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "ProductME.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Extensions\\Mapping\\ProductME.cs",
+              "RelativeDocumentMoniker": "Restaurant\\Extensions\\Mapping\\ProductME.cs",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Extensions\\Mapping\\ProductME.cs",
+              "RelativeToolTip": "Restaurant\\Extensions\\Mapping\\ProductME.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T10:28:00.323Z",
+              "WhenOpened": "2025-05-12T10:53:14.989Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MenuBLL.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\BusinessLogicLayer\\MenuBLL.cs",
-              "RelativeDocumentMoniker": "Restaurant\\Models\\BusinessLogicLayer\\MenuBLL.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\BusinessLogicLayer\\MenuBLL.cs",
-              "RelativeToolTip": "Restaurant\\Models\\BusinessLogicLayer\\MenuBLL.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAlwCkAAAAXAAAAAAAAAA==",
+              "Title": "MenuItemME.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Extensions\\Mapping\\MenuItemME.cs",
+              "RelativeDocumentMoniker": "Restaurant\\Extensions\\Mapping\\MenuItemME.cs",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Extensions\\Mapping\\MenuItemME.cs*",
+              "RelativeToolTip": "Restaurant\\Extensions\\Mapping\\MenuItemME.cs*",
+              "ViewState": "AgIAACwAAAAAAAAAAAAIwDcAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T10:28:23.161Z",
+              "WhenOpened": "2025-05-12T10:52:26.686Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
+              "Title": "MenuItemDAL.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\DataAccessLayer\\MenuItemDAL.cs",
+              "RelativeDocumentMoniker": "Restaurant\\Models\\DataAccessLayer\\MenuItemDAL.cs",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\DataAccessLayer\\MenuItemDAL.cs",
+              "RelativeToolTip": "Restaurant\\Models\\DataAccessLayer\\MenuItemDAL.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T10:43:15.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "MenuDAL.cs",
               "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\DataAccessLayer\\MenuDAL.cs",
               "RelativeDocumentMoniker": "Restaurant\\Models\\DataAccessLayer\\MenuDAL.cs",
               "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\DataAccessLayer\\MenuDAL.cs",
               "RelativeToolTip": "Restaurant\\Models\\DataAccessLayer\\MenuDAL.cs",
-              "ViewState": "AgIAAJIAAAAAAAAAAAAswJ0AAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAkwJ0AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T10:22:07.409Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MenuPageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\MenuPageViewModel.cs",
-              "RelativeDocumentMoniker": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\MenuPageViewModel.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\MenuPageViewModel.cs*",
-              "RelativeToolTip": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\MenuPageViewModel.cs*",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAiwEgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T10:20:18.421Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "CategoryPageViewModel.cs",
               "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\CategoryPageViewModel.cs",
               "RelativeDocumentMoniker": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\CategoryPageViewModel.cs",
@@ -128,7 +156,110 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
+              "Title": "MenuPageViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\MenuPageViewModel.cs",
+              "RelativeDocumentMoniker": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\MenuPageViewModel.cs",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\MenuPageViewModel.cs*",
+              "RelativeToolTip": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\MenuPageViewModel.cs*",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAswBoAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T10:20:18.421Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProductViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\ObjectViewModels\\ProductViewModel.cs",
+              "RelativeDocumentMoniker": "Restaurant\\ViewModels\\ObjectViewModels\\ProductViewModel.cs",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\ObjectViewModels\\ProductViewModel.cs",
+              "RelativeToolTip": "Restaurant\\ViewModels\\ObjectViewModels\\ProductViewModel.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T10:45:41.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MenuPage.xaml",
+              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\AdminItemPageViews\\MenuPage.xaml",
+              "RelativeDocumentMoniker": "Restaurant\\Views\\PageViews\\AdminItemPageViews\\MenuPage.xaml",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\AdminItemPageViews\\MenuPage.xaml*",
+              "RelativeToolTip": "Restaurant\\Views\\PageViews\\AdminItemPageViews\\MenuPage.xaml*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-12T10:41:03.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MenuItemBLL.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\BusinessLogicLayer\\MenuItemBLL.cs",
+              "RelativeDocumentMoniker": "Restaurant\\Models\\BusinessLogicLayer\\MenuItemBLL.cs",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\BusinessLogicLayer\\MenuItemBLL.cs",
+              "RelativeToolTip": "Restaurant\\Models\\BusinessLogicLayer\\MenuItemBLL.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAASwBMAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T10:43:00.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MenuBLL.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\BusinessLogicLayer\\MenuBLL.cs",
+              "RelativeDocumentMoniker": "Restaurant\\Models\\BusinessLogicLayer\\MenuBLL.cs",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\BusinessLogicLayer\\MenuBLL.cs",
+              "RelativeToolTip": "Restaurant\\Models\\BusinessLogicLayer\\MenuBLL.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAEwCkAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T10:28:23.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AllergenPageViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\AllergenPageViewModel.cs",
+              "RelativeDocumentMoniker": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\AllergenPageViewModel.cs",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\AllergenPageViewModel.cs",
+              "RelativeToolTip": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\AllergenPageViewModel.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAswFcAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T10:28:00.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProductPageViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs",
+              "RelativeDocumentMoniker": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs",
+              "RelativeToolTip": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAswFYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T10:28:47.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AllergenBLL.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\BusinessLogicLayer\\AllergenBLL.cs",
+              "RelativeDocumentMoniker": "Restaurant\\Models\\BusinessLogicLayer\\AllergenBLL.cs",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\BusinessLogicLayer\\AllergenBLL.cs",
+              "RelativeToolTip": "Restaurant\\Models\\BusinessLogicLayer\\AllergenBLL.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAlwDUAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T10:28:04.626Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "CategoryBLL.cs",
               "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\BusinessLogicLayer\\CategoryBLL.cs",
               "RelativeDocumentMoniker": "Restaurant\\Models\\BusinessLogicLayer\\CategoryBLL.cs",
@@ -141,20 +272,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ProductPageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs",
-              "RelativeDocumentMoniker": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs",
-              "RelativeToolTip": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAswFUAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T10:28:47.429Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 15,
               "Title": "ProductDAL.cs",
               "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\DataAccessLayer\\ProductDAL.cs",
               "RelativeDocumentMoniker": "Restaurant\\Models\\DataAccessLayer\\ProductDAL.cs",

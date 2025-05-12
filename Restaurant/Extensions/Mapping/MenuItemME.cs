@@ -1,4 +1,5 @@
-﻿using Restaurant.Models.DataTransferLayer;
+﻿using System.Collections.ObjectModel;
+using Restaurant.Models.DataTransferLayer;
 using Restaurant.Models.EntityLayer;
 using Restaurant.ViewModels.ObjectViewModels;
 
@@ -44,5 +45,20 @@ public static class MenuItemME
             ProductId = menuItemDTO.ProductId,
             Quantity = menuItemDTO.Quantity
         };
+    }
+
+    public static ObservableCollection<MenuItemViewModel> ToViewModelCollection(this ObservableCollection<MenuItemDTO> menuItemDTOs)
+    {
+        var result = new ObservableCollection<MenuItemViewModel>();
+
+        if (menuItemDTOs != null)
+        {
+            foreach (var allergenDTO in menuItemDTOs)
+            {
+                result.Add(allergenDTO.ToViewModel());
+            }
+        }
+
+        return result;
     }
 }

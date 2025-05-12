@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows.Controls.Ribbon.Primitives;
 using System.Windows.Input;
 using Restaurant.Extensions.Mapping;
 using Restaurant.Models.BusinessLogicLayer;
@@ -21,6 +22,11 @@ public class MenuPageViewModel : BaseViewModel
 
     public MenuPageViewModel()
     {
+        foreach(var menu in Menus)
+        {
+            menu.MenuItems = MenuItemBLL.GetMenuItemsByMenuId(menu.Id).ToViewModelCollection();
+        }
+
         AddNewCommand = new RelayCommand<object>(obj =>
         {
             if (obj is not MenuPage currentPage)
