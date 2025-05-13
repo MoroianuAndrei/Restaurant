@@ -34,8 +34,4 @@
     <Resource Include="Assets\Images\store_management.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\PageViews\AdminItemPageViews\" />
-  </ItemGroup>
-
 </Project>

@@ -1,4 +1,6 @@
-﻿namespace Restaurant.ViewModels.ObjectViewModels;
+﻿using System.Collections.ObjectModel;
+
+namespace Restaurant.ViewModels.ObjectViewModels;
 
 public class OrderViewModel : BaseViewModel
 {
@@ -114,6 +116,17 @@ public class OrderViewModel : BaseViewModel
         set
         {
             _totalAmount = value;
+            OnPropertyChanged();
+        }
+    }
+
+    private ObservableCollection<OrderItemViewModel> _orderItems = new();
+    public ObservableCollection<OrderItemViewModel> OrderItems
+    {
+        get => _orderItems;
+        set
+        {
+            _orderItems = value;
             OnPropertyChanged();
         }
     }

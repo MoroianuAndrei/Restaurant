@@ -55,6 +55,10 @@
                     Content="Menus" 
                     Icon="{ui:SymbolIcon TextBulletListSquare24}"
                     TargetPageType="adminItemPageViews:MenuPage"/>
+                <ui:NavigationViewItem 
+                    Content="Orders" 
+                    Icon="{ui:SymbolIcon TextBulletListSquare24}"
+                    TargetPageType="adminItemPageViews:OrderPage"/>
             </ui:NavigationView.MenuItems>
             <ui:NavigationView.FooterMenuItems>
                 <ui:NavigationViewItem 
