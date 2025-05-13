@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
+using System.Linq;
 using Restaurant.Extensions.Mapping;
 using Restaurant.Models.BusinessLogicLayer;
 using Restaurant.ViewModels.Commands;
@@ -22,15 +23,48 @@ public class OrderPageViewModel : BaseViewModel
         }
     }
 
+    private ObservableCollection<OrderViewModel> _allOrders;
+    public ObservableCollection<OrderViewModel> AllOrders
+    {
+        get => _allOrders;
+        set
+        {
+            _allOrders = value;
+            OnPropertyChanged();
+        }
+    }
+
+    private bool _showActiveOrdersOnly;
+    public bool ShowActiveOrdersOnly
+    {
+        get => _showActiveOrdersOnly;
+        set
+        {
+            _showActiveOrdersOnly = value;
+            OnPropertyChanged();
+            FilterOrders();
+        }
+    }
+
     public ICommand ViewDetailsCommand { get; }
+    public ICommand ToggleActiveOrdersCommand { get; }
 
     public OrderPageViewModel()
     {
-        // Load orders from BLL
-        LoadOrders();
+        // Initialize properties
+        _allOrders = new ObservableCollection<OrderViewModel>();
+        _orders = new ObservableCollection<OrderViewModel>();
+        _showActiveOrdersOnly = false;
 
         // Initialize commands
         ViewDetailsCommand = new RelayCommand<object>(ViewOrderDetails);
+        ToggleActiveOrdersCommand = new RelayCommand<object>(_ =>
+        {
+            ShowActiveOrdersOnly = !ShowActiveOrdersOnly;
+        });
+
+        // Load orders from BLL
+        LoadOrders();
     }
 
     private void LoadOrders()
@@ -54,7 +88,29 @@ public class OrderPageViewModel : BaseViewModel
             orderViewModels.Add(orderViewModel);
         }
 
-        Orders = orderViewModels;
+        // Sort orders by date in descending order
+        AllOrders = new ObservableCollection<OrderViewModel>(
+            orderViewModels.OrderByDescending(o => o.OrderDate)
+        );
+
+        // Apply current filter
+        FilterOrders();
+    }
+
+    private void FilterOrders()
+    {
+        if (ShowActiveOrdersOnly)
+        {
+            // Filter only active orders (status is "Inregistrata")
+            Orders = new ObservableCollection<OrderViewModel>(
+                AllOrders.Where(o => o.Status.Equals("Inregistrata", StringComparison.OrdinalIgnoreCase))
+            );
+        }
+        else
+        {
+            // Show all orders
+            Orders = new ObservableCollection<OrderViewModel>(AllOrders);
+        }
     }
 
     private void ViewOrderDetails(object? parameter)
