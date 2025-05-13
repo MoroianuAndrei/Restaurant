@@ -54,10 +54,20 @@ public class OrderViewModel : BaseViewModel
         get => _status ?? "";
         set
         {
-            _status = value;
-            OnPropertyChanged();
+            if (_status != value)
+            {
+                _status = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(IsEditableStatus));
+
+                // Salvează în BLL
+                Restaurant.Models.BusinessLogicLayer.OrderBLL.UpdateOrderStatus(Id, _status);
+            }
         }
     }
+
+
+    public bool IsEditableStatus => Status.Equals("Inregistrata", StringComparison.OrdinalIgnoreCase);
 
     private DateTime? _estimatedDeliveryTime;
     public DateTime? EstimatedDeliveryTime
