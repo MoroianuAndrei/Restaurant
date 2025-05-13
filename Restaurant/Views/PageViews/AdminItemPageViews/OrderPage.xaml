@@ -84,7 +84,7 @@
                                         <TextBlock>
                                             <Run Text="{Binding Quantity}"/>
                                             <Run Text="x"/>
-                                            <Run Text="{Binding ProductName}"/>
+                                            <Run Text="{Binding Name}"/>
                                             <Run Text="("/>
                                             <Run Text="{Binding UnitPrice, StringFormat=C}"/>
                                             <Run Text=")"/>

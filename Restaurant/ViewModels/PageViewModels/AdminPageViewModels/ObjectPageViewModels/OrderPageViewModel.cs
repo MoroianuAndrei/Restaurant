@@ -47,6 +47,17 @@ public class OrderPageViewModel : BaseViewModel
         }
     }
 
+    private string? _name;
+    public string? Name
+    {
+        get => _name;
+        set
+        {
+            _name = value;
+            OnPropertyChanged();
+        }
+    }
+
     // Dictionary to store user information for each order
     private Dictionary<int, UserViewModel> _usersByOrderId;
 
@@ -86,9 +97,31 @@ public class OrderPageViewModel : BaseViewModel
 
             // Load order items for this order
             var orderItems = OrderItemBLL.GetOrderItemsByOrderId(orderViewModel.Id);
-            orderViewModel.OrderItems = new ObservableCollection<OrderItemViewModel>(
-                orderItems.Select(item => item.ToViewModel())
-            );
+            var productList = ProductBLL.GetProducts();
+            var menuList = MenuBLL.GetMenus();
+
+            var itemViewModels = new List<OrderItemViewModel>();
+
+            foreach (var item in orderItems)
+            {
+                var itemVM = item.ToViewModel();
+
+                if (item.ProductId != null)
+                {
+                    var product = productList.FirstOrDefault(p => p.Id == item.ProductId);
+                    itemVM.Name = product?.ProductName ?? "Unknown Product";
+                }
+                else if (item.MenuId != null)
+                {
+                    var menu = menuList.FirstOrDefault(m => m.Id == item.MenuId);
+                    itemVM.Name = menu?.Name ?? "Unknown Menu";
+                }
+
+                itemViewModels.Add(itemVM);
+            }
+
+            orderViewModel.OrderItems = new ObservableCollection<OrderItemViewModel>(itemViewModels);
+
 
             // Get user data for this order
             var userDTO = UserBLL.GetUserById(orderViewModel.UserId);
@@ -165,21 +198,44 @@ public class OrderPageViewModel : BaseViewModel
         sb.AppendLine($"Est. Delivery: {order.EstimatedDeliveryTime?.ToString("HH:mm") ?? "N/A"}");
         sb.AppendLine();
 
-        sb.AppendLine("Items:");
+        var itemsList = new List<string>();
+        var menusList = new List<string>();
+
         foreach (var item in order.OrderItems)
         {
-            sb.AppendLine($"- {item.Quantity} x {item.ProductName} ({item.UnitPrice:C})");
-            if (item.IsMenu && item.MenuItems?.Count > 0)
+            if (item.ProductId != null)
             {
-                sb.AppendLine("  Menu items:");
-                foreach (var menuItem in item.MenuItems)
+                var product = ProductBLL.GetProducts().FirstOrDefault(p => p.Id == item.ProductId);
+                if (product != null)
                 {
-                    sb.AppendLine($"  - {menuItem.Quantity} x {menuItem.ProductName} ({menuItem.Price:C})");
+                    itemsList.Add($"  - {item.Quantity} x {product.ProductName} ({item.UnitPrice:C})");
                 }
             }
-            if (item.HasAllergens)
+            else if (item.MenuId != null)
             {
-                sb.AppendLine($"  Allergens: {item.AllergensDisplay}");
+                var menu = MenuBLL.GetMenus().FirstOrDefault(m => m.Id == item.MenuId);
+                if (menu != null)
+                {
+                    menusList.Add($"  - {item.Quantity} x {menu.Name} ({item.UnitPrice:C})");
+                }
+            }
+        }
+
+        if (itemsList.Any())
+        {
+            sb.AppendLine("Items:");
+            foreach (var line in itemsList)
+            {
+                sb.AppendLine(line);
+            }
+        }
+
+        if (menusList.Any())
+        {
+            sb.AppendLine("Menus:");
+            foreach (var line in menusList)
+            {
+                sb.AppendLine(line);
             }
         }
 
