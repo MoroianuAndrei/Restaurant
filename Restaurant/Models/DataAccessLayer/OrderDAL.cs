@@ -229,6 +229,34 @@ public static class OrderDAL
         }
     }
 
+    public static bool UpdateOrderStatus(Order order)
+    {
+        var connection = DALHelper.Connection;
+        try
+        {
+            var command = new SqlCommand("spOrderUpdateStatus", connection)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            command.Parameters.AddWithValue("@OrderId", order.OrderId);
+            command.Parameters.AddWithValue("@Status", order.Status);
+
+            connection.Open();
+
+            var result = command.ExecuteNonQuery();
+            return result > 0;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return false;
+        }
+        finally
+        {
+            connection.Close();
+        }
+    }
+
     public static bool DeleteOrder(Order order)
     {
         var connection = DALHelper.Connection;

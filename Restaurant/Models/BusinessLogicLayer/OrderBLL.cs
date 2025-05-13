@@ -76,7 +76,7 @@ public static class OrderBLL
             return false;
 
         order.Status = status;
-        return OrderDAL.UpdateOrder(order);
+        return OrderDAL.UpdateOrderStatus(order);
     }
 
     public static bool UpdateEstimatedDeliveryTime(int orderId, DateTime? estimatedDeliveryTime)

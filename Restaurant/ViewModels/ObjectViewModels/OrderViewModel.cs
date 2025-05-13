@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using Restaurant.Models.BusinessLogicLayer;
 
 namespace Restaurant.ViewModels.ObjectViewModels;
 
@@ -60,8 +61,7 @@ public class OrderViewModel : BaseViewModel
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(IsEditableStatus));
 
-                // Salvează în BLL
-                Restaurant.Models.BusinessLogicLayer.OrderBLL.UpdateOrderStatus(Id, _status);
+                OrderBLL.UpdateOrderStatus(Id, _status);
             }
         }
     }
