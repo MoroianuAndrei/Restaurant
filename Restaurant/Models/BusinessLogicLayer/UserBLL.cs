@@ -17,6 +17,16 @@ public static class UserBLL
         return users;
     }
 
+    public static UserDTO? GetUserById(int userId)
+    {
+        var user = UserDAL.GetUserById(userId);
+        if (user.UserId == 0) // Presupun că un UserId 0 înseamnă că nu a fost găsit utilizatorul
+        {
+            return null;
+        }
+        return user.ToDTO();
+    }
+
     public static bool AddUser(UserDTO userDTO)
     {
         ArgumentNullException.ThrowIfNull(userDTO);

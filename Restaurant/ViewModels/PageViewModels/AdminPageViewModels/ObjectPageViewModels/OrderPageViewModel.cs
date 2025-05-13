@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System.Linq;
+using System.Text;
 using Restaurant.Extensions.Mapping;
 using Restaurant.Models.BusinessLogicLayer;
 using Restaurant.ViewModels.Commands;
@@ -46,6 +47,9 @@ public class OrderPageViewModel : BaseViewModel
         }
     }
 
+    // Dictionary to store user information for each order
+    private Dictionary<int, UserViewModel> _usersByOrderId;
+
     public ICommand ViewDetailsCommand { get; }
     public ICommand ToggleActiveOrdersCommand { get; }
 
@@ -55,6 +59,7 @@ public class OrderPageViewModel : BaseViewModel
         _allOrders = new ObservableCollection<OrderViewModel>();
         _orders = new ObservableCollection<OrderViewModel>();
         _showActiveOrdersOnly = false;
+        _usersByOrderId = new Dictionary<int, UserViewModel>();
 
         // Initialize commands
         ViewDetailsCommand = new RelayCommand<object>(ViewOrderDetails);
@@ -84,6 +89,14 @@ public class OrderPageViewModel : BaseViewModel
             orderViewModel.OrderItems = new ObservableCollection<OrderItemViewModel>(
                 orderItems.Select(item => item.ToViewModel())
             );
+
+            // Get user data for this order
+            var userDTO = UserBLL.GetUserById(orderViewModel.UserId);
+            if (userDTO != null)
+            {
+                var userViewModel = userDTO.ToViewModel();
+                _usersByOrderId[orderViewModel.Id] = userViewModel;
+            }
 
             orderViewModels.Add(orderViewModel);
         }
@@ -134,7 +147,18 @@ public class OrderPageViewModel : BaseViewModel
     private string CreateOrderDetailsContent(OrderViewModel order)
     {
         // Create a formatted string with all the order details
-        var sb = new System.Text.StringBuilder();
+        var sb = new StringBuilder();
+
+        // Add client information if available
+        if (_usersByOrderId.TryGetValue(order.Id, out var user))
+        {
+            sb.AppendLine("Client Information:");
+            sb.AppendLine($"Nume: {user.LastName}");
+            sb.AppendLine($"Prenume: {user.FirstName}");
+            sb.AppendLine($"Telefon: {user.Phone}");
+            sb.AppendLine($"Adresa de livrare: {user.DeliveryAddress}");
+            sb.AppendLine();
+        }
 
         sb.AppendLine($"Order Date: {order.OrderDate:yyyy-MM-dd HH:mm}");
         sb.AppendLine($"Status: {order.Status}");
