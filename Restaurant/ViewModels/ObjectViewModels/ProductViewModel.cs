@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Restaurant.ViewModels;
+using System.Configuration;
 
 namespace Restaurant.ViewModels.ObjectViewModels;
 
@@ -71,6 +72,8 @@ public class ProductViewModel : BaseViewModel
             OnPropertyChanged();
         }
     }
+
+    public bool IsLowStock => TotalQuantity <= int.Parse(ConfigurationManager.AppSettings["ProductLowQuantityThreshold"]);
 
     private CategoryViewModel? _category;
     public CategoryViewModel Category

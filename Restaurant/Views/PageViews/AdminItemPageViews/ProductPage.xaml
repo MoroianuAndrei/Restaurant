@@ -39,6 +39,18 @@
             GridLinesVisibility="All"
             AutoGenerateColumns="False"
             IsReadOnly="True">
+            <ui:DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsLowStock}" Value="True">
+                            <Setter Property="Background" Value="#FFF8D7DA"/>
+                            <!-- roșu pal -->
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ui:DataGrid.RowStyle>
             <ui:DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="FontSize" Value="18"/>
