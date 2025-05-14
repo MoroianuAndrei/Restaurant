@@ -96,11 +96,6 @@ public class MenuEditPageViewModel : BaseViewModel
                 return;
             }
 
-            foreach(var m in Menu.MenuItems)
-            {
-                System.Windows.MessageBox.Show(m.ProductId + " " + m.MenuId);
-            }
-
             // Save menu based on whether it's a new menu or an existing one
             if (Menu.Id == 0) // New menu
             {

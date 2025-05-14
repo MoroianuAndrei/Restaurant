@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows.Media;
 
 namespace Restaurant.ViewModels.ObjectViewModels;
 
@@ -101,7 +102,7 @@ public class OrderItemViewModel : BaseViewModel
     }
 
     private string? _productImagePath;
-    public string ProductImagePath
+    public string? ProductImagePath
     {
         get => _productImagePath ?? "";
         set
@@ -113,6 +114,17 @@ public class OrderItemViewModel : BaseViewModel
     }
 
     // Proprietate calculată pentru a verifica dacă produsul are imagine
+    private ImageSource? _productImage;
+    public ImageSource? ProductImage
+    {
+        get => _productImage;
+        set
+        {
+            _productImage = value;
+            OnPropertyChanged();
+        }
+    }
+
     public bool HasImage => !string.IsNullOrEmpty(ProductImagePath);
 
     // Alergeni asociați cu acest element de comandă

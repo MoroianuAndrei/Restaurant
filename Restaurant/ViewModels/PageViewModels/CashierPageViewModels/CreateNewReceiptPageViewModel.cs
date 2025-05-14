@@ -13,6 +13,8 @@ using Restaurant.Models.DataTransferLayer;
 using Restaurant.Models.DataAccessLayer;
 using Restaurant.Services;
 using Restaurant.Extensions.Mapping;
+using System.Windows.Media.Imaging;
+using Restaurant.Helpers;
 
 namespace Restaurant.ViewModels.PageViewModels.CashierPageViewModels;
 
@@ -391,7 +393,8 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
                 Id = menuDTO.Id,
                 Name = menuDTO.Name,
                 Discount = menuDTO.Discount,
-                MenuItems = menuItemViewModels
+                MenuItems = menuItemViewModels,
+                MenuImage = ImageHelper.CreateMenuImageCollage(menuItemViewModels, Products.ToList())
             });
         }
 
@@ -478,6 +481,10 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
                 }
             }
 
+            var productImage = !string.IsNullOrEmpty(product.ImagePath)
+                ? new BitmapImage(new Uri(product.ImagePath, UriKind.RelativeOrAbsolute))
+                : new BitmapImage(new Uri("/Assets/Images/home_page.png", UriKind.Relative)); // fallback
+
             var orderItem = new OrderItemViewModel
             {
                 ProductId = product.Id,
@@ -486,9 +493,10 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
                 Quantity = 1,
                 UnitPrice = product.Price,
                 IsMenu = false,
-                ProductImagePath = product.ImagePath,
-                Allergens = orderAllergens // Assign the new collection of allergens
+                ProductImage = productImage,
+                Allergens = orderAllergens
             };
+
             OrderItems.Add(orderItem);
         }
 
@@ -551,15 +559,18 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
 
             var orderItem = new OrderItemViewModel
             {
-                ProductId = 0, // Putem seta un ID de produs neutru când este meniu
-                MenuId = menu.Id, // Adăugăm ID-ul meniului
+                MenuId = menu.Id, // ID-ul meniului
                 ProductName = menu.Name ?? "Menu",
                 ProductDescription = $"Discount: {menu.Discount:P0}",
                 Quantity = 1,
                 UnitPrice = CalculateMenuPrice(menu),
                 IsMenu = true,
-                MenuItems = menuItems // Salvăm elementele meniului în orderItem
+                MenuItems = menuItems, // Elemente ale meniului
+
+                // 🔽 Aici setăm colajul ca imagine
+                ProductImage = ImageHelper.CreateMenuImageCollage(menuItems, Products.ToList())
             };
+
 
             OrderItems.Add(orderItem);
         }

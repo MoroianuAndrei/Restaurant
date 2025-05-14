@@ -205,29 +205,40 @@
                                                             <RowDefinition Height="Auto"/>
                                                         </Grid.RowDefinitions>
                                                         <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                            <!-- 🔧 Nou: coloană imagine -->
                                                             <ColumnDefinition Width="*"/>
                                                             <ColumnDefinition Width="Auto"/>
                                                         </Grid.ColumnDefinitions>
 
-                                                        <StackPanel Grid.Row="0" Grid.Column="0">
+                                                        <!-- 🔽 Imagine pentru meniu -->
+                                                        <Border Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Width="60" Height="60" Margin="0,0,10,0"
+                CornerRadius="4" Background="#1E1E1E">
+                                                            <Image Source="{Binding MenuImage}" Stretch="UniformToFill"/>
+                                                        </Border>
+
+                                                        <!-- Titlu și discount -->
+                                                        <StackPanel Grid.Row="0" Grid.Column="1">
                                                             <TextBlock Text="{Binding Name}" FontWeight="Bold" Foreground="White"/>
                                                             <TextBlock Foreground="#CCCCCC">
-                                                                <Run Text="Discount:"/>
-                                                                <Run Text="{Binding Discount, StringFormat='{}{0:P0}'}"/>
+                <Run Text="Discount:"/>
+                <Run Text="{Binding Discount, StringFormat='{}{0:P0}'}"/>
                                                             </TextBlock>
                                                         </StackPanel>
 
+                                                        <!-- Buton Adaugă -->
                                                         <ui:Button 
-                                                            Grid.Row="0" 
-                                                            Grid.Column="1" 
-                                                            Icon="Add" 
-                                                            VerticalAlignment="Center"
-                                                            Background="#1A73E8"
-                                                            Foreground="White"
-                                                            Command="{Binding DataContext.AddMenuToOrderCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                                                            CommandParameter="{Binding}"/>
+            Grid.Row="0" 
+            Grid.Column="2" 
+            Icon="Add" 
+            VerticalAlignment="Center"
+            Background="#1A73E8"
+            Foreground="White"
+            Command="{Binding DataContext.AddMenuToOrderCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+            CommandParameter="{Binding}"/>
 
-                                                        <Expander Grid.Row="1" Grid.ColumnSpan="2" Header="Menu Items" Margin="0,5,0,0" Foreground="White">
+                                                        <!-- Expander cu produsele -->
+                                                        <Expander Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Header="Menu Items" Margin="0,5,0,0" Foreground="White">
                                                             <ItemsControl ItemsSource="{Binding MenuItems}">
                                                                 <ItemsControl.ItemTemplate>
                                                                     <DataTemplate DataType="{x:Type objectViewModels:MenuItemViewModel}">
@@ -238,9 +249,9 @@
                                                                             </Grid.ColumnDefinitions>
                                                                             <TextBlock Grid.Column="0" Text="{Binding ProductName}" Foreground="#CCCCCC"/>
                                                                             <TextBlock Grid.Column="1" Foreground="#CCCCCC">
-                                                                                <Run Text="{Binding Quantity}"/>
-                                                                                <Run Text=" x "/>
-                                                                                <Run Text="{Binding Price, StringFormat='{}{0:C}'}"/>
+                                <Run Text="{Binding Quantity}"/>
+                                <Run Text=" x "/>
+                                <Run Text="{Binding Price, StringFormat='{}{0:C}'}"/>
                                                                             </TextBlock>
                                                                         </Grid>
                                                                     </DataTemplate>
@@ -303,7 +314,7 @@
                                             <!-- Imagine pentru produsul din coș -->
                                             <Border Grid.Column="0" Width="40" Height="40" Margin="0,0,10,0" 
                         CornerRadius="4" Background="#1E1E1E">
-                                                <Image Source="{Binding ProductImagePath}" 
+                                                <Image Source="{Binding ProductImage}" 
                            Stretch="UniformToFill">
                                                     <Image.Style>
                                                         <Style TargetType="Image">
