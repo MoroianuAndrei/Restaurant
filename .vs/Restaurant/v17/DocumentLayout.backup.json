@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\pageviewmodels\\adminpageviewmodels\\objectpageviewmodels\\productpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\viewmodels\\objectviewmodels\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\objectviewmodels\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\views\\pageviews\\adminitempageviews\\productpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\views\\pageviews\\adminitempageviews\\productpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\viewmodels\\objectviewmodels\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\objectviewmodels\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
@@ -47,12 +47,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ProductViewModel.cs",
               "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\ObjectViewModels\\ProductViewModel.cs",
               "RelativeDocumentMoniker": "Restaurant\\ViewModels\\ObjectViewModels\\ProductViewModel.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\ObjectViewModels\\ProductViewModel.cs*",
-              "RelativeToolTip": "Restaurant\\ViewModels\\ObjectViewModels\\ProductViewModel.cs*",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\ObjectViewModels\\ProductViewModel.cs",
+              "RelativeToolTip": "Restaurant\\ViewModels\\ObjectViewModels\\ProductViewModel.cs",
               "ViewState": "AgIAADwAAAAAAAAAAAAowEIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-14T10:37:18.599Z",
@@ -64,9 +64,9 @@
               "Title": "ProductPageViewModel.cs",
               "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs",
               "RelativeDocumentMoniker": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs",
-              "RelativeToolTip": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAcwBUAAAAqAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs*",
+              "RelativeToolTip": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs*",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAcwBIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-14T10:36:41.567Z",
               "EditorCaption": ""
@@ -86,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "ProductPage.xaml",
               "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\AdminItemPageViews\\ProductPage.xaml",
               "RelativeDocumentMoniker": "Restaurant\\Views\\PageViews\\AdminItemPageViews\\ProductPage.xaml",

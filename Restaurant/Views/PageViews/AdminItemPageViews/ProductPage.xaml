@@ -86,6 +86,10 @@
                     Header="Portion Quantity" 
                     Binding="{Binding PortionQuantity}"
                     Width="*"/>
+                <DataGridTextColumn 
+                    Header="Total Quantity" 
+                    Binding="{Binding TotalQuantity}" 
+                    Width="*"/>
                 <DataGridTemplateColumn 
                     Header="Actions" 
                     CanUserResize="False"
