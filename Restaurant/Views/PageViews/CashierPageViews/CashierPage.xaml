@@ -40,7 +40,12 @@
                     Content="Create New Receipt"
                     TargetPageTag="CreateNewReceipt"
                     TargetPageType="cashierPageViews:CreateNewReceiptPage"/>
-            </ui:NavigationView.MenuItems>
+                <ui:NavigationViewItem
+                    Icon="{ui:SymbolIcon History24}"
+                    Content="Order History"
+                    TargetPageTag="OrderHistory"
+                    TargetPageType="cashierPageViews:OrderHistoryPage"/>
+                </ui:NavigationView.MenuItems>
             <ui:NavigationView.FooterMenuItems>
                 <ui:NavigationViewItem 
                     Content="Log out" 
