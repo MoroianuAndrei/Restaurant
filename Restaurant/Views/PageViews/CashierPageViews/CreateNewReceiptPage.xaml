@@ -13,6 +13,11 @@
     </Page.DataContext>
     <Page.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <CollectionViewSource x:Key="GroupedProductsViewSource" Source="{Binding FilteredProducts}">
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="Category.CategoryName"/>
+            </CollectionViewSource.GroupDescriptions>
+        </CollectionViewSource>
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -114,17 +119,23 @@
                                     </Grid>
                                 </Grid>
 
-                                <!-- Products List with improved contrast and ScrollViewer -->
+                                <!-- Products List Grouped by Category with Headers -->
                                 <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                                    <ListView 
-    ItemsSource="{Binding FilteredProducts}" 
-    Margin="0,5"
-    BorderThickness="0"
-    Background="#1E1E1E"
-    BorderBrush="#333333"
-    Foreground="White"
-    ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                                        <ListView.ItemTemplate>
+                                    <ItemsControl ItemsSource="{Binding Source={StaticResource GroupedProductsViewSource}}" 
+                                                  BorderThickness="0" 
+                                                  Background="Transparent">
+                                        <ItemsControl.GroupStyle>
+                                            <GroupStyle>
+                                                <GroupStyle.HeaderTemplate>
+                                                    <DataTemplate>
+                                                        <ui:Card Margin="0,10,0,5" Padding="8" Background="#1A73E8">
+                                                            <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="16" Foreground="White"/>
+                                                        </ui:Card>
+                                                    </DataTemplate>
+                                                </GroupStyle.HeaderTemplate>
+                                            </GroupStyle>
+                                        </ItemsControl.GroupStyle>
+                                        <ItemsControl.ItemTemplate>
                                             <DataTemplate DataType="{x:Type objectViewModels:ProductViewModel}">
                                                 <ui:Card Margin="0,5" Padding="10" Background="#2D2D2D">
                                                     <Grid>
@@ -155,14 +166,12 @@
                                                         <StackPanel Grid.Column="1">
                                                             <TextBlock Text="{Binding ProductName}" FontWeight="Bold" Foreground="White"/>
                                                             <TextBlock Foreground="#CCCCCC">
-                            <Run Text="{Binding Category.CategoryName}"/>
-                            <Run Text=" - "/>
-                            <Run Text="{Binding Price, StringFormat='{}{0:C}'}"/>
+                                                                <Run Text="{Binding Price, StringFormat='{}{0:C}'}"/>
                                                             </TextBlock>
                                                             <TextBlock Foreground="#CCCCCC">
-                            <Run Text="{Binding PortionQuantity}"/>
-                            <Run Text=" "/>
-                            <Run Text="{Binding MeasurementUnit}"/>
+                                                                <Run Text="{Binding PortionQuantity}"/>
+                                                                <Run Text=" "/>
+                                                                <Run Text="{Binding MeasurementUnit}"/>
                                                             </TextBlock>
 
                                                             <!-- Afișare alergeni -->
@@ -192,8 +201,8 @@
                                                     </Grid>
                                                 </ui:Card>
                                             </DataTemplate>
-                                        </ListView.ItemTemplate>
-                                    </ListView>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
                                 </ScrollViewer>
                             </Grid>
                         </TabItem>
@@ -300,13 +309,16 @@
             <!-- Divider -->
             <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
 
-            <!-- Right Panel: Current Order -->
+            <!-- Right Panel: Current Order - Fixed layout without scrolling -->
             <ui:Card Grid.Column="2" Background="#2D2D2D">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
+                        <!-- Order Title -->
                         <RowDefinition Height="*"/>
+                        <!-- Order Items with ScrollViewer -->
                         <RowDefinition Height="Auto"/>
+                        <!-- Order Summary (fixed at bottom) -->
                     </Grid.RowDefinitions>
 
                     <!-- Order Title -->
@@ -317,15 +329,15 @@
                         Foreground="White"
                         Margin="0,0,0,10"/>
 
-                    <!-- Order Items with improved contrast and ScrollViewer -->
+                    <!-- Order Items with ScrollViewer (only this part scrolls) -->
                     <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                         <ListView 
-    ItemsSource="{Binding OrderItems}" 
-    BorderThickness="0"
-    Background="#1E1E1E"
-    BorderBrush="#333333"
-    ScrollViewer.VerticalScrollBarVisibility="Disabled"
-    Foreground="White">
+                            ItemsSource="{Binding OrderItems}" 
+                            BorderThickness="0"
+                            Background="#1E1E1E"
+                            BorderBrush="#333333"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                            Foreground="White">
                             <ListView.ItemTemplate>
                                 <DataTemplate DataType="{x:Type objectViewModels:OrderItemViewModel}">
                                     <ui:Card Margin="0,5" Padding="10" Background="#2D2D2D">
@@ -416,65 +428,75 @@
                         </ListView>
                     </ScrollViewer>
 
-                    <!-- Order Summary and Actions with improved contrast -->
-                    <Grid Grid.Row="2" Margin="0,10,0,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
+                    <!-- Order Summary and Actions (fixed at bottom) -->
+                    <ui:Card Grid.Row="2" Margin="0,10,0,0" Background="#2D2D2D" BorderThickness="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <!-- Totals -->
+                                <RowDefinition Height="Auto"/>
+                                <!-- Actions -->
+                            </Grid.RowDefinitions>
 
-                        <!-- Subtotal -->
-                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Subtotal:" Foreground="#CCCCCC"/>
-                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SubtotalAmount, StringFormat='{}{0:C}'}" Foreground="#CCCCCC"/>
+                            <!-- Order Summary -->
+                            <Grid Grid.Row="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
 
-                        <!-- Discount -->
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Discount:" Foreground="#CCCCCC"/>
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding DiscountAmount, StringFormat='{}{0:C}'}" Foreground="#CCCCCC"/>
+                                <!-- Subtotal -->
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Subtotal:" Foreground="#CCCCCC"/>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SubtotalAmount, StringFormat='{}{0:C}'}" Foreground="#CCCCCC"/>
 
-                        <!-- Shipping/Delivery -->
-                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Delivery Cost:" Foreground="#CCCCCC"/>
-                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding ShippingCost, StringFormat='{}{0:C}'}" Foreground="#CCCCCC"/>
+                                <!-- Discount -->
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="Discount:" Foreground="#CCCCCC"/>
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding DiscountAmount, StringFormat='{}{0:C}'}" Foreground="#CCCCCC"/>
 
-                        <!-- Total -->
-                        <Separator Grid.Row="3" Grid.ColumnSpan="2" Margin="0,5"/>
-                        <TextBlock Grid.Row="4" Grid.Column="0" Text="Total:" FontWeight="Bold" Foreground="White"/>
-                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding TotalAmount, StringFormat='{}{0:C}'}" FontWeight="Bold" Foreground="White"/>
-                    </Grid>
+                                <!-- Shipping/Delivery -->
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="Delivery Cost:" Foreground="#CCCCCC"/>
+                                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding ShippingCost, StringFormat='{}{0:C}'}" Foreground="#CCCCCC"/>
+
+                                <!-- Total -->
+                                <Separator Grid.Row="3" Grid.ColumnSpan="2" Margin="0,5"/>
+                                <TextBlock Grid.Row="4" Grid.Column="0" Text="Total:" FontWeight="Bold" Foreground="White"/>
+                                <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding TotalAmount, StringFormat='{}{0:C}'}" FontWeight="Bold" Foreground="White"/>
+                            </Grid>
+
+                            <!-- Buttons -->
+                            <Grid Grid.Row="1" Margin="0,15,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <ui:Button 
+                                    Grid.Column="0"
+                                    Content="Cancel" 
+                                    Appearance="Secondary"
+                                    Command="{Binding CancelCommand}"/>
+
+                                <ui:Button 
+                                    Grid.Column="2" 
+                                    Content="Save Receipt" 
+                                    Icon="Save" 
+                                    Appearance="Primary"
+                                    Background="#1A73E8"
+                                    Foreground="White"
+                                    Command="{Binding SaveReceiptCommand}"/>
+                            </Grid>
+                        </Grid>
+                    </ui:Card>
                 </Grid>
             </ui:Card>
         </Grid>
-
-        <!-- Footer with Actions -->
-        <ui:Card Grid.Row="2" Margin="16" Background="#2D2D2D">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-
-                <ui:Button 
-                    Grid.Column="0"
-                    Content="Cancel" 
-                    Appearance="Secondary"
-                    Command="{Binding CancelCommand}"/>
-
-                <ui:Button 
-                    Grid.Column="2" 
-                    Content="Save Receipt" 
-                    Icon="Save" 
-                    Appearance="Primary"
-                    Background="#1A73E8"
-                    Foreground="White"
-                    Command="{Binding SaveReceiptCommand}"/>
-            </Grid>
-        </ui:Card>
     </Grid>
 </Page>
