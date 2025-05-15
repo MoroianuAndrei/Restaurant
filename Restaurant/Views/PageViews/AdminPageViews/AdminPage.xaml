@@ -62,6 +62,10 @@
             </ui:NavigationView.MenuItems>
             <ui:NavigationView.FooterMenuItems>
                 <ui:NavigationViewItem 
+                    Content="Reports" 
+                    Icon="{ui:SymbolIcon TaskListSquareLtr24}"
+                    TargetPageType="adminPageViews:ReportsPage"/>
+                <ui:NavigationViewItem 
                     Content="Log out" 
                     Command="{Binding LogOutCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Page}}"

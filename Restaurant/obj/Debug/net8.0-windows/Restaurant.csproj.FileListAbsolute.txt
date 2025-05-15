@@ -291,3 +291,5 @@ C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode A
 C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\AdminItemPageViews\OrderPage.baml
 C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\CashierPageViews\OrderHistoryPage.g.cs
 C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\CashierPageViews\OrderHistoryPage.baml
+C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\AdminPageViews\ReportsPage.g.cs
+C:\Users\andre\Desktop\Facultate Informatica\Licenta\Anul 2\Semestrul 2\Metode Avansate de Programare\Teme\Tema 3\Restaurant\Restaurant\obj\Debug\net8.0-windows\Views\PageViews\AdminPageViews\ReportsPage.baml
