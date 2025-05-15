@@ -3,84 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\viewmodels\\pageviewmodels\\cashierpageviewmodels\\orderhistorypageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\pageviewmodels\\cashierpageviewmodels\\orderhistorypageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\views\\pageviews\\cashierpageviews\\orderhistorypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\views\\pageviews\\cashierpageviews\\orderhistorypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\views\\pageviews\\cashierpageviews\\homepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\views\\pageviews\\cashierpageviews\\homepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\views\\pageviews\\cashierpageviews\\cashierpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\views\\pageviews\\cashierpageviews\\cashierpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\services\\usersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\services\\usersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\views\\pageviews\\adminitempageviews\\orderpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\views\\pageviews\\adminitempageviews\\orderpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\views\\pageviews\\cashierpageviews\\orderhistorypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\views\\pageviews\\cashierpageviews\\orderhistorypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\views\\pageviews\\adminitempageviews\\orderpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\views\\pageviews\\adminitempageviews\\orderpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\models\\dataaccesslayer\\categorydal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\models\\dataaccesslayer\\categorydal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\models\\dataaccesslayer\\allergendal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\models\\dataaccesslayer\\allergendal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\viewmodels\\pageviewmodels\\adminpageviewmodels\\objectpageviewmodels\\orderpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\pageviewmodels\\adminpageviewmodels\\objectpageviewmodels\\orderpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\viewmodels\\pageviewmodels\\cashierpageviewmodels\\createnewreceiptpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\pageviewmodels\\cashierpageviewmodels\\createnewreceiptpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\views\\pageviews\\cashierpageviews\\homepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\views\\pageviews\\cashierpageviews\\homepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\views\\pageviews\\cashierpageviews\\createnewreceiptpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\views\\pageviews\\cashierpageviews\\createnewreceiptpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\viewmodels\\objectviewmodels\\orderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\objectviewmodels\\orderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\views\\pageviews\\adminitempageviews\\productpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\views\\pageviews\\adminitempageviews\\productpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\viewmodels\\pageviewmodels\\adminpageviewmodels\\objectpageviewmodels\\productpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\pageviewmodels\\adminpageviewmodels\\objectpageviewmodels\\productpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\views\\pageviews\\adminitempageviews\\productpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\views\\pageviews\\adminitempageviews\\productpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\viewmodels\\objectviewmodels\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\viewmodels\\objectviewmodels\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|c:\\users\\andre\\desktop\\facultate informatica\\licenta\\anul 2\\semestrul 2\\metode avansate de programare\\teme\\tema 3\\restaurant\\restaurant\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{C01E88F5-98B0-4CF1-9220-1196AE7A740C}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -90,249 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserSession.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Services\\UserSession.cs",
-              "RelativeDocumentMoniker": "Restaurant\\Services\\UserSession.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Services\\UserSession.cs",
-              "RelativeToolTip": "Restaurant\\Services\\UserSession.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "CreateNewReceiptPageViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\CashierPageViewModels\\CreateNewReceiptPageViewModel.cs",
+              "RelativeDocumentMoniker": "Restaurant\\ViewModels\\PageViewModels\\CashierPageViewModels\\CreateNewReceiptPageViewModel.cs",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\CashierPageViewModels\\CreateNewReceiptPageViewModel.cs*",
+              "RelativeToolTip": "Restaurant\\ViewModels\\PageViewModels\\CashierPageViewModels\\CreateNewReceiptPageViewModel.cs*",
+              "ViewState": "AgIAALYBAAAAAAAAAADwv80BAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T16:35:14.936Z",
+              "WhenOpened": "2025-05-15T08:39:36.958Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "OrderHistoryPage.xaml",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\CashierPageViews\\OrderHistoryPage.xaml",
-              "RelativeDocumentMoniker": "Restaurant\\Views\\PageViews\\CashierPageViews\\OrderHistoryPage.xaml",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\CashierPageViews\\OrderHistoryPage.xaml",
-              "RelativeToolTip": "Restaurant\\Views\\PageViews\\CashierPageViews\\OrderHistoryPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-14T11:39:56.37Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "OrderPage.xaml",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\AdminItemPageViews\\OrderPage.xaml",
-              "RelativeDocumentMoniker": "Restaurant\\Views\\PageViews\\AdminItemPageViews\\OrderPage.xaml",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\AdminItemPageViews\\OrderPage.xaml",
-              "RelativeToolTip": "Restaurant\\Views\\PageViews\\AdminItemPageViews\\OrderPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-14T11:29:40.05Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CashierPage.xaml",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\CashierPageViews\\CashierPage.xaml",
-              "RelativeDocumentMoniker": "Restaurant\\Views\\PageViews\\CashierPageViews\\CashierPage.xaml",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\CashierPageViews\\CashierPage.xaml",
-              "RelativeToolTip": "Restaurant\\Views\\PageViews\\CashierPageViews\\CashierPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-14T11:22:57.291Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HomePage.xaml",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\CashierPageViews\\HomePage.xaml",
-              "RelativeDocumentMoniker": "Restaurant\\Views\\PageViews\\CashierPageViews\\HomePage.xaml",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\CashierPageViews\\HomePage.xaml",
-              "RelativeToolTip": "Restaurant\\Views\\PageViews\\CashierPageViews\\HomePage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-14T11:41:55.157Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OrderHistoryPageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\CashierPageViewModels\\OrderHistoryPageViewModel.cs",
-              "RelativeDocumentMoniker": "Restaurant\\ViewModels\\PageViewModels\\CashierPageViewModels\\OrderHistoryPageViewModel.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\CashierPageViewModels\\OrderHistoryPageViewModel.cs*",
-              "RelativeToolTip": "Restaurant\\ViewModels\\PageViewModels\\CashierPageViewModels\\OrderHistoryPageViewModel.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T11:25:15.706Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OrderHistoryPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\CashierPageViews\\OrderHistoryPage.xaml.cs",
-              "RelativeDocumentMoniker": "Restaurant\\Views\\PageViews\\CashierPageViews\\OrderHistoryPage.xaml.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\CashierPageViews\\OrderHistoryPage.xaml.cs",
-              "RelativeToolTip": "Restaurant\\Views\\PageViews\\CashierPageViews\\OrderHistoryPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T16:29:02.216Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "OrderPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\AdminItemPageViews\\OrderPage.xaml.cs",
-              "RelativeDocumentMoniker": "Restaurant\\Views\\PageViews\\AdminItemPageViews\\OrderPage.xaml.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\AdminItemPageViews\\OrderPage.xaml.cs",
-              "RelativeToolTip": "Restaurant\\Views\\PageViews\\AdminItemPageViews\\OrderPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T16:29:09.854Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CategoryDAL.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\DataAccessLayer\\CategoryDAL.cs",
-              "RelativeDocumentMoniker": "Restaurant\\Models\\DataAccessLayer\\CategoryDAL.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\DataAccessLayer\\CategoryDAL.cs",
-              "RelativeToolTip": "Restaurant\\Models\\DataAccessLayer\\CategoryDAL.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAIAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T11:39:06.031Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AllergenDAL.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\DataAccessLayer\\AllergenDAL.cs",
-              "RelativeDocumentMoniker": "Restaurant\\Models\\DataAccessLayer\\AllergenDAL.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Models\\DataAccessLayer\\AllergenDAL.cs",
-              "RelativeToolTip": "Restaurant\\Models\\DataAccessLayer\\AllergenDAL.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAEAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T11:39:03.778Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "OrderPageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\OrderPageViewModel.cs",
-              "RelativeDocumentMoniker": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\OrderPageViewModel.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\OrderPageViewModel.cs",
-              "RelativeToolTip": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\OrderPageViewModel.cs",
-              "ViewState": "AgIAAK0AAAAAAAAAAAAcwLsAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T11:28:05.531Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CreateNewReceiptPageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\CashierPageViewModels\\CreateNewReceiptPageViewModel.cs",
-              "RelativeDocumentMoniker": "Restaurant\\ViewModels\\PageViewModels\\CashierPageViewModels\\CreateNewReceiptPageViewModel.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\CashierPageViewModels\\CreateNewReceiptPageViewModel.cs",
-              "RelativeToolTip": "Restaurant\\ViewModels\\PageViewModels\\CashierPageViewModels\\CreateNewReceiptPageViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoDAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T11:30:07.114Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "HomePage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\CashierPageViews\\HomePage.xaml.cs",
-              "RelativeDocumentMoniker": "Restaurant\\Views\\PageViews\\CashierPageViews\\HomePage.xaml.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\CashierPageViews\\HomePage.xaml.cs",
-              "RelativeToolTip": "Restaurant\\Views\\PageViews\\CashierPageViews\\HomePage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T11:35:14.683Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
               "Title": "CreateNewReceiptPage.xaml",
               "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\CashierPageViews\\CreateNewReceiptPage.xaml",
               "RelativeDocumentMoniker": "Restaurant\\Views\\PageViews\\CashierPageViews\\CreateNewReceiptPage.xaml",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\CashierPageViews\\CreateNewReceiptPage.xaml",
-              "RelativeToolTip": "Restaurant\\Views\\PageViews\\CashierPageViews\\CreateNewReceiptPage.xaml",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\CashierPageViews\\CreateNewReceiptPage.xaml*",
+              "RelativeToolTip": "Restaurant\\Views\\PageViews\\CashierPageViews\\CreateNewReceiptPage.xaml*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-14T11:28:59.508Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "OrderViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\ObjectViewModels\\OrderViewModel.cs",
-              "RelativeDocumentMoniker": "Restaurant\\ViewModels\\ObjectViewModels\\OrderViewModel.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\ObjectViewModels\\OrderViewModel.cs",
-              "RelativeToolTip": "Restaurant\\ViewModels\\ObjectViewModels\\OrderViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T11:28:00.322Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "App.config",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\App.config",
-              "RelativeDocumentMoniker": "Restaurant\\App.config",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\App.config",
-              "RelativeToolTip": "Restaurant\\App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-05-14T10:40:08.346Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ProductViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\ObjectViewModels\\ProductViewModel.cs",
-              "RelativeDocumentMoniker": "Restaurant\\ViewModels\\ObjectViewModels\\ProductViewModel.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\ObjectViewModels\\ProductViewModel.cs",
-              "RelativeToolTip": "Restaurant\\ViewModels\\ObjectViewModels\\ProductViewModel.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAowEIAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T10:37:18.599Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ProductPageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs",
-              "RelativeDocumentMoniker": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs",
-              "RelativeToolTip": "Restaurant\\ViewModels\\PageViewModels\\AdminPageViewModels\\ObjectPageViewModels\\ProductPageViewModel.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T10:36:41.567Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ProductPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\AdminItemPageViews\\ProductPage.xaml.cs",
-              "RelativeDocumentMoniker": "Restaurant\\Views\\PageViews\\AdminItemPageViews\\ProductPage.xaml.cs",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\AdminItemPageViews\\ProductPage.xaml.cs",
-              "RelativeToolTip": "Restaurant\\Views\\PageViews\\AdminItemPageViews\\ProductPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T10:29:03.112Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ProductPage.xaml",
-              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\AdminItemPageViews\\ProductPage.xaml",
-              "RelativeDocumentMoniker": "Restaurant\\Views\\PageViews\\AdminItemPageViews\\ProductPage.xaml",
-              "ToolTip": "C:\\Users\\andre\\Desktop\\Facultate Informatica\\Licenta\\Anul 2\\Semestrul 2\\Metode Avansate de Programare\\Teme\\Tema 3\\Restaurant\\Restaurant\\Views\\PageViews\\AdminItemPageViews\\ProductPage.xaml",
-              "RelativeToolTip": "Restaurant\\Views\\PageViews\\AdminItemPageViews\\ProductPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-14T10:29:01.955Z"
+              "WhenOpened": "2025-05-15T08:30:30.304Z",
+              "EditorCaption": ""
             }
           ]
         }

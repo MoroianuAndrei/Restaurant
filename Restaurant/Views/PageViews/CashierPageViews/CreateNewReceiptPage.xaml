@@ -66,25 +66,52 @@
 
                                 <!-- Search and Filter for Products with improved visibility -->
                                 <Grid Grid.Row="0" Margin="0,5">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <ui:TextBox 
-                                        Grid.Column="0" 
-                                        PlaceholderText="Search products..." 
-                                        Foreground="White"
-                                        Text="{Binding ProductSearchText, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <ComboBox 
-                                        Grid.Column="1" 
-                                        Width="120" 
-                                        Margin="5,0,0,0"
-                                        Background="#2D2D2D"
-                                        Foreground="White"
-                                        ItemsSource="{Binding Categories}"
-                                        DisplayMemberPath="CategoryName"
-                                        SelectedItem="{Binding SelectedCategory}"
-                                        SelectedValuePath="Id"/>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Search Type Selection -->
+                                    <Grid Grid.Row="0" Margin="0,0,0,5">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Grid.Column="0" Text="Search by:" Foreground="White" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                                        <ComboBox Grid.Column="1" 
+                  ItemsSource="{Binding SearchTypes}" 
+                  SelectedItem="{Binding SelectedSearchType}" 
+                  Background="#2D2D2D"
+                  Foreground="White"
+                  HorizontalAlignment="Left"
+                  Width="150"/>
+                                    </Grid>
+
+                                    <!-- Search box and category filter -->
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <ui:TextBox 
+            Grid.Column="0" 
+            PlaceholderText="{Binding SearchPlaceholder}" 
+            Foreground="White"
+            Text="{Binding ProductSearchText, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                        <ComboBox 
+            Grid.Column="1" 
+            Width="120" 
+            Margin="5,0,0,0"
+            Background="#2D2D2D"
+            Foreground="White"
+            ItemsSource="{Binding Categories}"
+            DisplayMemberPath="CategoryName"
+            SelectedItem="{Binding SelectedCategory}"
+            SelectedValuePath="Id"/>
+                                    </Grid>
                                 </Grid>
 
                                 <!-- Products List with improved contrast and ScrollViewer -->

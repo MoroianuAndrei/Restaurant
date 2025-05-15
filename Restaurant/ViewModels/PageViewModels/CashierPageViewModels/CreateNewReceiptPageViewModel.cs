@@ -45,7 +45,7 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
         }
     }
 
-    // Search and filter
+    // Search and filter properties
     private string? _productSearchText;
     public string ProductSearchText
     {
@@ -69,6 +69,35 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
             FilterMenus();
         }
     }
+
+    // New properties for search type functionality
+    private ObservableCollection<string> _searchTypes = new() { "Product Name", "Allergens" };
+    public ObservableCollection<string> SearchTypes
+    {
+        get => _searchTypes;
+        set
+        {
+            _searchTypes = value;
+            OnPropertyChanged();
+        }
+    }
+
+    private string _selectedSearchType = "Product Name";
+    public string SelectedSearchType
+    {
+        get => _selectedSearchType;
+        set
+        {
+            _selectedSearchType = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(SearchPlaceholder));
+            FilterProducts(); // Reapply filter when search type changes
+        }
+    }
+
+    public string SearchPlaceholder => SelectedSearchType == "Product Name"
+        ? "Search by product name..."
+        : "Enter allergen to exclude...";
 
     private CategoryViewModel? _selectedCategory;
     public CategoryViewModel? SelectedCategory
@@ -405,11 +434,22 @@ public class CreateNewReceiptPageViewModel : BaseViewModel
     {
         var query = Products.AsEnumerable();
 
-        // Apply text filter if provided
+        // Apply search filter based on selected search type
         if (!string.IsNullOrWhiteSpace(ProductSearchText))
         {
             var searchText = ProductSearchText.ToLower();
-            query = query.Where(p => p.ProductName.ToLower().Contains(searchText));
+
+            if (SelectedSearchType == "Product Name")
+            {
+                // Filter by product name
+                query = query.Where(p => p.ProductName.ToLower().Contains(searchText));
+            }
+            else if (SelectedSearchType == "Allergens")
+            {
+                // Filter to EXCLUDE products containing the specified allergen
+                query = query.Where(p => !p.HasAllergens ||
+                                        !p.Allergens.Any(a => a.AllergenName.ToLower().Contains(searchText)));
+            }
         }
 
         // Apply category filter if selected
