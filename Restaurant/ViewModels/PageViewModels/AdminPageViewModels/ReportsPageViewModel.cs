@@ -84,11 +84,6 @@ namespace Restaurant.ViewModels.PageViewModels.AdminPageViewModels
 
         public ObservableCollection<string> Months { get; set; } = EMonthExtension.ToStringCollection();
 
-        //public ObservableCollection<UserViewModel> Cashiers { get; set; }
-        //    = new(UserBLL.GetUsers()
-        //        .Where(u => u.UserType == EUserType.Client.ToString())
-        //        .Select(u => u.ToViewModel()));
-
         public ObservableCollection<UserViewModel> Clients { get; set; }
             = new(UserBLL.GetUsers()
                 .Where(u => u.UserType == EUserType.Client.ToString())

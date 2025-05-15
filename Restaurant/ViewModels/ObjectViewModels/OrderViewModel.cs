@@ -38,6 +38,17 @@ public class OrderViewModel : BaseViewModel
         }
     }
 
+    private UserViewModel? _user;
+    public UserViewModel? User
+    {
+        get => _user;
+        set
+        {
+            _user = value;
+            OnPropertyChanged();
+        }
+    }
+
     private DateTime _orderDate;
     public DateTime OrderDate
     {

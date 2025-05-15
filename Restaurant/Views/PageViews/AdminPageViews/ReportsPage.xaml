@@ -241,7 +241,7 @@
                                     <ui:TextBlock
                                         Grid.Row="0"
                                         Grid.Column="1"
-                                        Text="{Binding MostValuableOrder.Id}"
+                                        Text="{Binding MostValuableOrder.OrderCode}"
                                         TextAlignment="Right"
                                         FontTypography="BodyStrong"/>
                                     <ui:TextBlock
@@ -252,7 +252,7 @@
                                     <ui:TextBlock
                                         Grid.Row="1"
                                         Grid.Column="1"
-                                        Text="{Binding MostValuableOrder.UserId}"
+                                        Text="{Binding MostValuableOrder.User.LastName}"
                                         TextAlignment="Right"
                                         FontTypography="BodyStrong"/>
                                     <ui:TextBlock

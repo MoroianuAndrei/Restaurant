@@ -1,4 +1,5 @@
-﻿using Restaurant.Models.DataTransferLayer;
+﻿using Restaurant.Models.BusinessLogicLayer;
+using Restaurant.Models.DataTransferLayer;
 using Restaurant.Models.EntityLayer;
 using Restaurant.ViewModels.ObjectViewModels;
 
@@ -70,7 +71,8 @@ public static class OrderME
             SubtotalAmount = orderDTO.SubtotalAmount,
             DiscountAmount = orderDTO.DiscountAmount,
             ShippingCost = orderDTO.ShippingCost,
-            TotalAmount = orderDTO.TotalAmount
+            TotalAmount = orderDTO.TotalAmount,
+            User = UserBLL.GetUserById(orderDTO.UserId).ToViewModel()
         };
     }
 }
