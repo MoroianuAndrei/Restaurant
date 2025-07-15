@@ -11,11 +11,11 @@ This is a desktop application for managing online food orders in a restaurant, d
 
 ## 📂 Table of Contents
 - [Features](#-features)
-- [Technologies](#-technologies)
+- [Technologies](#%EF%B8%8F-technologies)
 - [Installation](#-installation)
-- [Database Setup](#-database-setup)
-- [Usage](#-usage)
-- [Screenshots](#-screenshots)
+- [Database Setup](#%EF%B8%8F-database-setup)
+- [Usage](#%EF%B8%8F-usage)
+- [Screenshots](#%EF%B8%8F-screenshots)
 - [License](#-license)
 
 ---
