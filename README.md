@@ -1,18 +1,22 @@
 # 🍽️ Restaurant Management Application
 
+<div style="display: flex; justify-content: center;">
+    <img src="https://github.com/user-attachments/assets/be905b3c-921f-4af1-b27c-d3fa39fccb92" alt="Home page for admin" width: 400px;">
+</div>
+
 ## 📌 Overview
 This is a desktop application for managing online food orders in a restaurant, developed using **C#**, **WPF**, and **SQL Server**. It follows the **MVVM** architecture and uses **Data Binding** to synchronize the user interface with the underlying logic.
 
 ---
 
 ## 📂 Table of Contents
-- [Features](#features)
-- [Technologies](#technologies)
-- [Installation](#installation)
-- [Database Setup](#database-setup)
-- [Usage](#usage)
-- [Screenshots](#screenshots)
-- [License](#license)
+- [Features]
+- [Technologies]
+- [Installation]
+- [Database Setup]
+- [Usage]
+- [Screenshots]
+- [License]
 
 ---
 
@@ -37,7 +41,7 @@ This is a desktop application for managing online food orders in a restaurant, d
 
 ## 🛠️ Technologies
 
-- C# (.NET 6 / WPF)
+- C# (.NET 8 / WPF)
 - SQL Server 2022
 - MVVM + Data Binding
 - ADO.NET or Entity Framework (with stored procedures)
