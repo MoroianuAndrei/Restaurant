@@ -10,13 +10,13 @@ This is a desktop application for managing online food orders in a restaurant, d
 ---
 
 ## 📂 Table of Contents
-- [Features]
-- [Technologies]
-- [Installation]
-- [Database Setup]
-- [Usage]
-- [Screenshots]
-- [License]
+- Features
+- Technologies
+- Installation
+- Database Setup
+- Usage
+- Screenshots
+- License
 
 ---
 
